@@ -6,7 +6,10 @@ const nextConfig = {
     domains: [
       'upload.wikimedia.org'
     ],
-  },  
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  }  
 }
 
 module.exports = nextConfig
