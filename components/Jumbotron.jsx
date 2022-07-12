@@ -61,7 +61,7 @@ export default function Jumbotron(props) {
           <div className="text-gray-300 md:text-whitish-blue h-2/5">
             <Trail open={open} className="text-center md:text-left">
               <span className="text-2xl md:text-2xl lg:text-3xl font-semi-bold">{"<hello world />"}</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semi-bold">I'm Emino</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semi-bold">I&apos;m Emino</h1>
               <span className="text-sm md:text-sm font-semibold lg:text-sm">{ role }</span>
             </Trail>
           </div>

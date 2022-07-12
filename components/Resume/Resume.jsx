@@ -103,19 +103,28 @@ export default function Resume(props) {
     return (
         <div id='resume' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center font-semibold font-nunito text-2xl md:text-4xl">Resume</div>
-          <div className="md:grid md:grid-cols-12 gap-4">
-            <div className="col-start-1 col-end-6">
+          <div className="md:grid md:grid-cols-12 gap-4 w-5/6 mx-auto">
+            <div className="col-start-1 col-span-6">
               <div data-aos="fade-right" data-aos-duration="2000">
                 <ResumeTile name="Education / Certifications" educationData={ educationData } experienceData={ experienceData } />
               </div>
             </div>
-            <div className="col-start-7 col-end-12">
+            <div className="col-start-7 col-span-6">
               <div data-aos="fade-left" data-aos-duration="2000">
                 <ResumeTile name="Work Experience" educationData = { educationData } experienceData={ experienceData } />
               </div>
             </div>
           </div>
-          <div className="text-center md:text-left px-6 "><a href="https://drive.google.com/file/d/1QSAnd125w9CmrSseLyXWVnVu_HQYa612/view?usp=sharing" target="_blank" rel="noreferrer" className="text-medium-blue dark:text-cream hover:text-dark-blue dark:hover:text-gray-300 font-semibold">Click here to view my full resume (PDF)</a></div>
+          <div className="text-center md:text-center px-6">
+            <a 
+              href="https://drive.google.com/file/d/1QSAnd125w9CmrSseLyXWVnVu_HQYa612/view?usp=sharing" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-medium-blue dark:text-cream hover:text-dark-blue dark:hover:text-gray-300 font-semibold"
+            >
+              Click here to view my full resume (PDF)
+            </a>
+          </div>
         </div>
     )
 }

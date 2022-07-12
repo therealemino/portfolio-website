@@ -7,9 +7,9 @@ const nextConfig = {
       'upload.wikimedia.org'
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  }  
+  // eslint: {
+  //   ignoreDuringBuilds: true,
+  // }  
 }
 
 module.exports = nextConfig

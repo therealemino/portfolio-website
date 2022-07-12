@@ -102,7 +102,7 @@ export default function Navbar(props) {
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                   <div className="flex items-center">
-                    <div className="block md:hidden text-gray-800 dark:text-gray-300 font-nunito font-bold text-sm"><a href="/">Ejei-Okeke Emmanuel</a></div>
+                    <div className="block md:hidden text-gray-800 dark:text-gray-300 font-nunito font-bold text-sm"><Link href="/">Ejei-Okeke Emmanuel</Link></div>
                     <div className="hidden md:block font-montserrat"> {/* HIDE CONTENT (expanded nav-list) ON PHONES. SHOW FOR LAPTOPS AND TABLETS*/}
                       {navList}
                     </div>

@@ -7,7 +7,7 @@ export default function Portfolio(props) {
       name: "Weather App",
       link: "https://emino-weather-app.surge.sh/",
       logo: "https://i.pinimg.com/originals/30/b1/1a/30b11a92a85361de088b6d668785f0aa.jpg",
-      desc: "Simple weather app. Built with Nuxt.js, Openweathermap (API), Vuetify (style) and Chart.js (data-visualisation)"
+      desc: "Simple Weather PWA. Built with Nuxt.js, Openweathermap (API), Vuetify (style) and Chart.js (data-visualisation)"
     },
     {
       name: "Zettech Integrated Services",
@@ -49,7 +49,7 @@ export default function Portfolio(props) {
         <div id='portfolio' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12" ref={props.portfolioRefProp} data-aos="zoom-in" data-aos-duration="2000">
           <div className="text-center font-semibold font-nunito text-4xl pt-12">Portfolio</div>
           <div className="text-center font-semibold font-nunito text-2xl pt-6">Some of my projects</div>
-            <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-3 font-nunito">
               {portfolioList}
             </div>
         </div>

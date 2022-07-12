@@ -11,17 +11,17 @@ import {
 
 export default function Skills() {
     const [skills, setSkills] = useState ([
-      { name: "React", logo: faReact },
-      { name: "Vue", logo: faVuejs },
-      { name: "Next", logo: faCaretUp },
-      { name: "Nuxt", logo: faVuejs },
+      // { name: "React", logo: faReact },
+      // { name: "Vue", logo: faVuejs },
       { name: "Node.js", logo: faNodeJs },
-      { name: "Git", logo: faGitAlt },
+      { name: "Nuxt.js", logo: faVuejs },
+      { name: "Next.js", logo: faCaretUp },
+      // { name: "Git", logo: faGitAlt },
     ])
 
     return (
       <>
-        <div data-aos="fade-left" data-aos-duration="2000" className="md:hidden text-center text-3xl py-5 px-2">
+        <div data-aos="fade-up" data-aos-duration="2000" className="md:hidden text-center text-3xl py-5 px-2">
           {skills.map((item) =>
             <span key={item.name}  className = {`bg-dark-green dark:bg-light-brownish-purple text-gray-300 dark:text-gray-300 font-semibold font-montserrat hover:bg-medium-green hover:text-gray-300 dark:hover:bg-brownish-purple px-5 py-2 mx-1 rounded-md text-xs md:text-sm font-medium cursor-pointer`}>
               <span className="fa fa-github"></span>
@@ -29,7 +29,7 @@ export default function Skills() {
             </span>
           )}
         </div>
-        <div data-aos="fade-left" data-aos-duration="2000" className="hidden md:block text-center text-3xl py-5 px-2">
+        <div data-aos="fade-up" data-aos-duration="2000" className="hidden md:block text-center text-3xl py-5 px-2">
           {skills.map((item) =>
             <span key={item.name}  className = {`bg-medium-blue dark:bg-light-brownish-purple text-gray-300 dark:text-gray-300 font-semibold font-montserrat hover:bg-dark-blue hover:text-gray-300 dark:hover:bg-dark-brown px-5 py-2 mx-1 rounded-md text-xs md:text-sm font-medium cursor-pointer`}>
               {/* <FontAwesomeIcon icon={item.logo} size="xs" className='mr-2' /> */}
