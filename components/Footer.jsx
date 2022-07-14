@@ -18,7 +18,6 @@ export default function Footer(props) {
     console.log(data)
     axios.post("/api/email/send", data)
       .then(res => {
-        // console.log(res)
         setName("")
         setEmail("")
         setInfo("")
@@ -54,7 +53,6 @@ export default function Footer(props) {
         </div>
       </div>
       <div>
-        {/* <button onClick={ notifyEmailSent }>Notify!</button> */}
         <ToastContainer />
       </div>          
     </footer>

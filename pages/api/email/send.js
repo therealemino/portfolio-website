@@ -23,13 +23,11 @@ export default function handler(req, res) {
         ]}`
     };
   
-    // console.log(options)
   
     axios.request(options).then(function (response) {
       console.log(response.data, "Email sent")
       res.status(200).json("Email sent succesfully")
     }).catch(function (error) {
-      // console.log(error.message)
       res.status(500).json(error.message)
     });
   

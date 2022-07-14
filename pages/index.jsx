@@ -13,21 +13,8 @@ function App() {
     })
   })
   const [darkMode, setDarkMode] = useState(false);
-  // const homeRef = useRef(1);
-  // const aboutRef = useRef(2);
-  // const portfolioRef = useRef(2);
-  // const resumeRef = useRef(3);
-  // const contactRef = useRef(4);
 
-  // const aboutScroll = () => aboutRef.current.scrollIntoView(); // run this function from an event handler or pass it to useEffect to execute scroll
-  // const homeScroll = () => homeRef.current.scrollIntoView();
-  // const resumeScroll = () => resumeRef.current.scrollIntoView();
-  // const portfolioScroll = () => portfolioRef.current.scrollIntoView();
-  // const contactScroll = () => contactRef.current.scrollIntoView();
-
-  // useMountEffect(executeScroll); // Scroll on mount
-
-  function changeDarkMode() {//adds the dark class to the html tag (required for the dark-mode styling to work in tailwind)
+  function changeDarkMode() {
     const root = document.documentElement
     root.classList.toggle('dark')
   }

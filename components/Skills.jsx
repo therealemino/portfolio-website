@@ -32,7 +32,6 @@ export default function Skills() {
         <div data-aos="fade-up" data-aos-duration="2000" className="hidden md:block text-center text-3xl py-5 px-2">
           {skills.map((item) =>
             <span key={item.name}  className = {`bg-medium-blue dark:bg-light-brownish-purple text-gray-300 dark:text-gray-300 font-semibold font-montserrat hover:bg-dark-blue hover:text-gray-300 dark:hover:bg-dark-brown px-5 py-2 mx-1 rounded-md text-xs md:text-sm font-medium cursor-pointer`}>
-              {/* <FontAwesomeIcon icon={item.logo} size="xs" className='mr-2' /> */}
               <span>{ item.name }</span>
             </span>
           )}
