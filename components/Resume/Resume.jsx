@@ -117,7 +117,7 @@ export default function Resume(props) {
           </div>
           <div className="text-center md:text-center px-6">
             <a 
-              href="https://drive.google.com/file/d/1QSAnd125w9CmrSseLyXWVnVu_HQYa612/view?usp=sharing" 
+              href="https://drive.google.com/file/d/1XEXWBeaf-WbvnpctWaq60nhzmb_x1qYk/view?usp=sharing" 
               target="_blank" 
               rel="noreferrer" 
               className="text-medium-blue dark:text-cream hover:text-dark-blue dark:hover:text-gray-300 font-semibold"
