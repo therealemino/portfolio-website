@@ -52,7 +52,7 @@ export default function Resume(props) {
       id: 1,
       date: "October 2021 - Present",
       name: "Front End Developer",
-      body: "Collaborated with product designers and other developers to build the version 2 of the Nexbuy E-commerce web-app .",
+      body: "Collaborated with backend developers and product team members to assess UX and UI designs for technical feasibility and implement internal web applications, websites and landing pages from concept through to deployment.",
       organization: "Pennee Technologies",
       link: "https://pennee.co"
     },
@@ -60,7 +60,7 @@ export default function Resume(props) {
       id: 2,
       date: "March 2021 - Present",
       name: "Front End Developer",
-      body: "Collaborated with product designers and other developers to build the version 2 of the Nexbuy E-commerce web-app .",
+      body: "Collaborated with product designers and other developers to build the version 2 of the Nexbuy E-commerce web-app.",
       organization: "Nexbuy District",
       // link: "https://nexbuyv2.netlify.app/"
       link: "https://www.nexbuydistrict.com/"
@@ -69,7 +69,7 @@ export default function Resume(props) {
       id: 3,
       date: "August 2019 - January 2021",
       name: "Brand Ambassador",
-      body: "Conduct day-to-day coordination, planning, and implementation of all activities involved in speaking about the company to the public as well as working closely with webapp clients of the company",
+      body: "Conduct day-to-day coordination, planning, and implementation of all activities involved in speaking about the company to the public as well as working closely, and getting feedback with webapp clients of the company",
       organization: "Nexbuy District",
       link: "https://www.nexbuydistrict.com/"
     },
@@ -77,7 +77,7 @@ export default function Resume(props) {
       id: 4,
       date: "November 2020 - Present",
       name: "Volunteer Intern",
-      body: "Front-end web developer and 'in-person' educator",
+      body: "Front-end developer and 'in-person' educator",
       organization: "Coriftech Solutions Ltd",
       link: "https://coriftech.com/"
     },
@@ -103,7 +103,7 @@ export default function Resume(props) {
     return (
         <div id='resume' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center font-semibold font-nunito text-2xl md:text-4xl">Resume</div>
-          <div className="md:grid md:grid-cols-12 gap-4 w-5/6 mx-auto">
+          <div className="md:grid md:grid-cols-12 gap-4 md:w-5/6 mx-auto">
             <div className="col-start-1 col-span-6">
               <div data-aos="fade-right" data-aos-duration="2000">
                 <ResumeTile name="Education / Certifications" educationData={ educationData } experienceData={ experienceData } />
