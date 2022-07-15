@@ -33,14 +33,14 @@ const DefaultLayout = ({ children }) => {
         <meta property="og:url" content="https://therealemino.vercel.app/" />
         <meta property="og:title" content="Ejei-Okeke Emmanuel. Personal Profile" />
         <meta property="og:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react" />
-        <meta property="og:image" content="%PUBLIC_URL%/emino-image.jpg" />
+        <meta property="og:image" content="https://therealemino.vercel.app/emino-image.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://therealemino.vercel.app/" />
         <meta property="twitter:title" content="Ejei-Okeke Emmanuel. Personal Profile" />
         <meta property="twitter:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react" />
-        <meta property="twitter:image" content="%PUBLIC_URL%/emino-image.jpg" />
+        <meta property="twitter:image" content="https://therealemino.vercel.app/emino-image.jpg" />
 
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
