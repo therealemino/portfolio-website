@@ -22,10 +22,12 @@ const DefaultLayout = ({ children }) => {
   return (
     <>
       <Head>
+        <title>Ejei-Okeke Emmanuel. Personal Profile</title>
         <meta
           name="description"
           content="Personal profile of Ejei-Okeke Emmanuel. Created using react"
         />
+        <meta property="image" content="%PUBLIC_URL%/emino-image.jpg" />
         <meta name="twitter:card" content="summary_large_image"></meta>
         <meta name="twitter:site" content="@therealemino" />
         <meta name="twitter:creator" content="@therealemino" />
