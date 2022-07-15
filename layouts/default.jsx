@@ -31,7 +31,7 @@ const DefaultLayout = ({ children }) => {
         <meta name="twitter:creator" content="@therealemino" />
         <meta name="twitter:title" content="Ejei-Okeke Emmanuel" />
         <meta name="twitter:description" content="Personal profile of Ejei-Okeke Emmanuel. Software Developer." />
-        <meta name="twitter:image" content="%PUBLIC_URL%/emino-image.jpg" />
+        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/67398035?v=4" />
         <meta property="og:url" content="https://therealemino.vercel.app/" />
         <meta property="og:title" content="Ejei-Okeke Emmanuel. Personal profile" />
         <meta property="og:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react..." />
