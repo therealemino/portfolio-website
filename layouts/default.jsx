@@ -22,10 +22,17 @@ const DefaultLayout = ({ children }) => {
   return (
     <>
       <Head>
-          <meta
+        <meta
           name="description"
           content="Personal profile of Ejei-Okeke Emmanuel. Created using react"
         />
+        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:site" content="@therealemino" />
+        <meta name="twitter:creator" content="@therealemino" />
+        <meta property="og:url" content="https://therealemino.vercel.app/" />
+        <meta property="og:title" content="Ejei-Okeke Emmanuel. Personal profile" />
+        <meta property="og:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react..." />
+        <meta property="og:image" content="%PUBLIC_URL%/emino-image.jpg" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
