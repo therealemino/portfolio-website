@@ -26,7 +26,7 @@ const DefaultLayout = ({ children }) => {
           name="description"
           content="Personal profile of Ejei-Okeke Emmanuel. Created using react"
         />
-        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
         <meta name="twitter:site" content="@therealemino" />
         <meta name="twitter:creator" content="@therealemino" />
         <meta name="twitter:title" content="Ejei-Okeke Emmanuel" />
