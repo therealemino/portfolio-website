@@ -23,22 +23,25 @@ const DefaultLayout = ({ children }) => {
     <>
       <Head>
         <title>Ejei-Okeke Emmanuel. Personal Profile</title>
-        <meta
-          name="description"
-          content="Personal profile of Ejei-Okeke Emmanuel. Created using react"
-        />
-        <meta property="image" content="%PUBLIC_URL%/emino-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image"></meta>
-        <meta name="twitter:site" content="@therealemino" />
-        <meta name="twitter:creator" content="@therealemino" />
-        <meta name="twitter:title" content="Ejei-Okeke Emmanuel" />
-        <meta name="twitter:description" content="Personal profile of Ejei-Okeke Emmanuel. Software Developer." />
-        <meta name="twitter:image" content="%PUBLIC_URL%/emino-image.jpg" />
+        {/* <!-- Primary Meta Tags --> */}
+        <title>Ejei-Okeke Emmanuel. Personal Profile</title>
+        <meta name="title" content="Ejei-Okeke Emmanuel. Personal Profile" />
+        <meta name="description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://therealemino.vercel.app/" />
-        <meta property="og:title" content="Ejei-Okeke Emmanuel. Personal profile" />
-        <meta property="og:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react..." />
+        <meta property="og:title" content="Ejei-Okeke Emmanuel. Personal Profile" />
+        <meta property="og:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react" />
         <meta property="og:image" content="%PUBLIC_URL%/emino-image.jpg" />
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://therealemino.vercel.app/" />
+        <meta property="twitter:title" content="Ejei-Okeke Emmanuel. Personal Profile" />
+        <meta property="twitter:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react" />
+        <meta property="twitter:image" content="%PUBLIC_URL%/emino-image.jpg" />
+
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
