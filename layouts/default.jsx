@@ -29,6 +29,9 @@ const DefaultLayout = ({ children }) => {
         <meta name="twitter:card" content="summary"></meta>
         <meta name="twitter:site" content="@therealemino" />
         <meta name="twitter:creator" content="@therealemino" />
+        <meta name="twitter:title" content="Ejei-Okeke Emmanuel" />
+        <meta name="twitter:description" content="Personal profile of Ejei-Okeke Emmanuel. Software Developer." />
+        <meta name="twitter:image" content="%PUBLIC_URL%/emino-image.jpg" />
         <meta property="og:url" content="https://therealemino.vercel.app/" />
         <meta property="og:title" content="Ejei-Okeke Emmanuel. Personal profile" />
         <meta property="og:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react..." />
