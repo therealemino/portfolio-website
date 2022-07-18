@@ -44,7 +44,7 @@ export default function Navbar(props) {
         className = {item.active ? activeNavStyle : normalNavStyle} 
       >
         {item.name}
-      </MyLink>      
+      </MyLink>
     </Link>
   );
 
@@ -105,6 +105,7 @@ export default function Navbar(props) {
                     <div className="block md:hidden text-gray-800 dark:text-gray-300 font-nunito font-bold text-sm"><Link href="/">Ejei-Okeke Emmanuel</Link></div>
                     <div className="hidden md:block font-montserrat"> {/* HIDE CONTENT (expanded nav-list) ON PHONES. SHOW FOR LAPTOPS AND TABLETS*/}
                       {navList}
+                      {/* <h1>Ejei-Okeke Emmanuel</h1> */}
                     </div>
                   </div>
 

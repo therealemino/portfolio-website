@@ -1,0 +1,39 @@
+{
+  "id": "eb3cbc53-4d0e-40ab-aee9-76005523307e",
+  "uid": "non-itaque-nihil",
+  "type": "post",
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Maximize mission-critical portals",
+        "spans": []
+      }
+    ],
+    "jumbotron": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=900&h=500&fit=crop"
+    },
+    "date": "2014-10-05",
+    "readTime": 3416,
+    "category": [
+      {
+        "type": "paragraph",
+        "text": "Exercitation non quis ad sit officia reprehenderit ipsum anim fugiat quis consequat occaecat aute ipsum culpa. Eu eiusmod irure Lorem nostrud tempor duis aliquip nisi.",
+        "spans": []
+      }
+    ],
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Fugiat tempor nostrud ipsum reprehenderit nulla officia aute sunt aliqua commodo. Aute ipsum veniam pariatur anim velit cillum consequat excepteur duis deserunt ipsum. Aliquip amet consequat ut qui.",
+        "spans": []
+      }
+    ]
+  }
+}

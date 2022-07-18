@@ -1,0 +1,26 @@
+{
+  "slices": {
+    "FirstComponent": {},
+    "Text": {
+      "default": {
+        "primary": {}
+      }
+    }
+  },
+  "_cts": {
+    "post": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "body": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
+  }
+}
