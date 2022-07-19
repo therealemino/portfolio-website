@@ -23,11 +23,11 @@ export default function Navbar(props) {
   const router = useRouter()
   
   const [ navItems,setNavItems ] = useState([
-      { name: 'HOME', active:true, id:"1", href:"/" },
-      { name: 'ABOUT', active:false, id:"2", href:"#about" },
-      { name: 'RESUME', active:false, id:"4", href:"#resume" },
-      { name: 'PORTFOLIO', active:false, id:"3", href:"#portfolio" },
-      { name: 'CONTACT', active:false, id:"5", href:"#contact" }
+      // { name: 'ABOUT', active:false, id:"2", href:"/#about" },
+      { name: 'RESUME', active:false, id:"4", href:"/#resume" },
+      { name: 'PORTFOLIO', active:false, id:"3", href:"/#portfolio" },
+      { name: 'CONTACT', active:false, id:"5", href:"/#contact" },
+      { name: 'LIBRARY', active:false, id:"6", href:"/library" },
   ]);
 
   const activeNavStyle = "bg-dark-blue dark:bg-light-brownish-purple text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xs md:text-sm font-semibold cursor-pointer";
@@ -101,26 +101,28 @@ export default function Navbar(props) {
             <nav className="bg-light-green md:bg-light-blue dark:bg-dark-brown duration-300">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
+                  <div className="text-gray-800 dark:text-gray-300 font-nunito md:font-nunito font-bold text-sm uppercase"><Link href="/">Ejei-Okeke Emmanuel</Link></div>
+
                   <div className="flex items-center">
-                    <div className="block md:hidden text-gray-800 dark:text-gray-300 font-nunito font-bold text-sm"><Link href="/">Ejei-Okeke Emmanuel</Link></div>
-                    <div className="hidden md:block font-montserrat"> {/* HIDE CONTENT (expanded nav-list) ON PHONES. SHOW FOR LAPTOPS AND TABLETS*/}
+                    <div className="hidden md:block font-montserrat"> {/* NAVLIST. HIDE CONTENT ON PHONES. SHOW FOR LAPTOPS AND TABLETS*/}
                       {navList}
                       {/* <h1>Ejei-Okeke Emmanuel</h1> */}
                     </div>
+                    <div className="flex"> {/*MOBILE TOGGLE BUTTON */}
+                        <div className="ml-10 flex items-baseline space-x-4">
+                            <button className="text-gray-800 dark:text-gray-300 focus:outline-none" onClick={props.toggleDarkMode}>{/*DARK MODE TOGGLE BUTTON */}
+                                <span className={`${props.darkMode ? "fa-sun-o" : "fa-moon-o"} " fa p-2 text-2xl font-thin"`}></span>
+                            </button>
+                            <button className="text-gray-800 dark:text-gray-300 focus:outline-none md:hidden" onClick={toggleNavList}>{/*MOBILE TOGGLE BUTTON */}
+                                <span className="fa fa-bars p-2 text-2xl font-thin"></span>
+                            </button>
+                        </div>
+                    </div>
                   </div>
 
-                  <div className="flex"> {/*MOBILE TOGGLE BUTTON */}
-                      <div className="ml-10 flex items-baseline space-x-4">
-                          <button className="text-gray-800 dark:text-gray-300 focus:outline-none" onClick={props.toggleDarkMode}>{/*DARK MODE TOGGLE BUTTON */}
-                              <span className={`${props.darkMode ? "fa-sun-o" : "fa-moon-o"} " fa p-2 text-2xl font-thin"`}></span>
-                          </button>
-                          <button className="text-gray-800 dark:text-gray-300 focus:outline-none md:hidden" onClick={toggleNavList}>{/*MOBILE TOGGLE BUTTON */}
-                              <span className="fa fa-bars p-2 text-2xl font-thin"></span>
-                          </button>
-                      </div>
-                  </div>
+
                 </div>
-                <div className={`${isOpen ? "block" : "hidden"} " animate-dropdown md:hidden px-1 pt-2 pb-4 transition ease-out duration-100"`}>{/* SHOW CONTENT (expanded nav-list) ON PHONES. HIDE FOR LAPTOPS AND TABLETS*/}
+                <div className={`${isOpen ? "block" : "hidden"} " animate-dropdown md:hidden px-1 pt-2 pb-4 transition ease-out duration-100"`}>{/* NAVLIST SHOW CONTENT ON PHONES. HIDE FOR LAPTOPS AND TABLETS*/}
                   {navListMobile}
                 </div>
 

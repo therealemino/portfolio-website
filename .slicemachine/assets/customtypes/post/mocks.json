@@ -1,15 +1,14 @@
 {
-  "id": "eb3cbc53-4d0e-40ab-aee9-76005523307e",
-  "uid": "non-itaque-nihil",
+  "id": "3430b552-0de9-4d62-bb2b-102ace7918ce",
+  "uid": "omnis-rerum-modi",
   "type": "post",
   "data": {
-    "title": [
-      {
-        "type": "heading1",
-        "text": "Maximize mission-critical portals",
-        "spans": []
-      }
-    ],
+    "title": "synergize web-enabled blockchains",
+    "author": {
+      "link_type": "Web",
+      "url": "https://prismic.io"
+    },
+    "desc": "facilitate enterprise channels",
     "jumbotron": {
       "dimensions": {
         "width": 900,
@@ -17,21 +16,15 @@
       },
       "alt": "Placeholder image",
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=900&h=500&fit=crop"
+      "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88?w=900&h=500&fit=crop"
     },
-    "date": "2014-10-05",
-    "readTime": 3416,
-    "category": [
-      {
-        "type": "paragraph",
-        "text": "Exercitation non quis ad sit officia reprehenderit ipsum anim fugiat quis consequat occaecat aute ipsum culpa. Eu eiusmod irure Lorem nostrud tempor duis aliquip nisi.",
-        "spans": []
-      }
-    ],
+    "category": "visualize seamless architectures",
+    "readTime": 6749,
+    "date": "2017-01-19",
     "body": [
       {
         "type": "paragraph",
-        "text": "Fugiat tempor nostrud ipsum reprehenderit nulla officia aute sunt aliqua commodo. Aute ipsum veniam pariatur anim velit cillum consequat excepteur duis deserunt ipsum. Aliquip amet consequat ut qui.",
+        "text": "Aute incididunt laboris quis nisi adipisicing quis.",
         "spans": []
       }
     ]

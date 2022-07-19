@@ -13,12 +13,27 @@
         }
       },
       "title": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
           "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "heading1"
+          "placeholder": ""
+        }
+      },
+      "author": {
+        "type": "Link",
+        "config": {
+          "label": "Author",
+          "select": "document",
+          "customtypes": [
+            "author"
+          ]
+        }
+      },
+      "desc": {
+        "type": "Text",
+        "config": {
+          "label": "Desc",
+          "placeholder": ""
         }
       },
       "jumbotron": {
@@ -29,10 +44,10 @@
           "thumbnails": []
         }
       },
-      "date": {
-        "type": "Date",
+      "category": {
+        "type": "Text",
         "config": {
-          "label": "Date",
+          "label": "Category",
           "placeholder": ""
         }
       },
@@ -43,13 +58,11 @@
           "placeholder": ""
         }
       },
-      "category": {
-        "type": "StructuredText",
+      "date": {
+        "type": "Date",
         "config": {
-          "label": "Category",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "label": "Date",
+          "placeholder": ""
         }
       },
       "body": {
