@@ -29,23 +29,8 @@ const DefaultLayout = ({ children }) => {
   return (
     <>
       <Head>
-        <meta
-          name="description"
-          content="Personal profile of Ejei-Okeke Emmanuel. Created using react"
-        />
-        <meta name="twitter:card" content="summary_large_image"></meta>
-        <meta name="twitter:site" content="@therealemino" />
-        <meta name="twitter:creator" content="@therealemino" />
-        <meta name="twitter:title" content="Ejei-Okeke Emmanuel" />
-        <meta name="twitter:description" content="Personal profile of Ejei-Okeke Emmanuel. Software Developer." />
-        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/67398035?v=4" />
-        <meta property="og:url" content="https://therealemino.vercel.app/" />
-        <meta property="og:title" content="Ejei-Okeke Emmanuel. Personal profile" />
-        <meta property="og:description" content="Personal profile of Ejei-Okeke Emmanuel. Created using react..." />
-        <meta property="og:image" content="/emino-image.jpg" />
-        <link rel="apple-touch-icon" href="/emino-image.jpg" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />        
       </Head>
       <Script src="https://use.fontawesome.com/6fb1445712.js"></Script>
       <Script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></Script>

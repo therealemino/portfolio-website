@@ -54,9 +54,9 @@ export default function BlogId(props) {
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.desc} />
         <meta name="twitter:image" content={data.image.url} />
-        <meta property="og:url" content="https://therealemino.vercel.app/" />
+        <meta property="og:url" content={`https://therealemino.vercel.app/blog/${props.article.uid}`} />
         <meta property="og:title" content={data.title} />
-        <meta property="og:description" content={data.title} />
+        <meta property="og:description" content={data.desc} />
         <meta property="og:image" content={data.image.url} />
       </Head>
       
