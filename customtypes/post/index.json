@@ -36,10 +36,10 @@
           "placeholder": ""
         }
       },
-      "jumbotron": {
+      "image": {
         "type": "Image",
         "config": {
-          "label": "jumbotron",
+          "label": "image",
           "constraint": {},
           "thumbnails": []
         }

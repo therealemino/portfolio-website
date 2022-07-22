@@ -32,7 +32,7 @@ export default function Footer(props) {
   }  
 
   return (
-    <footer ref={props.contactRefProp} className="bg-footer bg-right bg-cover bg-fixed md:bg-footer-md text-gray-300 py-12">
+    <footer ref={props.contactRefProp} className="bg-footer bg-right bg-cover bg-fixed md:bg-footer-md text-gray-300 py-12 z-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
         <div id='contact' className="flex flex-col items-center justify-center">
           <div className="text-center font-semibold font-nunito text-4xl pt-2 ">Get in Touch</div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from "next/router"
 
@@ -30,8 +30,8 @@ export default function Navbar(props) {
       { name: 'LIBRARY', active:false, id:"6", href:"/library" },
   ]);
 
-  const activeNavStyle = "bg-dark-blue dark:bg-light-brownish-purple text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xs md:text-sm font-semibold cursor-pointer";
-  const normalNavStyle = "text-navbar-brown dark:text-gray-300 hover:bg-medium-blue dark:hover:bg-brownish-purple hover:text-gray-300 px-3 py-2 rounded-md text-xs md:text-sm font-semibold duration-300 cursor-pointer";
+  const activeNavStyle = "bg-dark-blue dark:bg-light-brownish-purple text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xs font-semibold cursor-pointer";
+  const normalNavStyle = "text-navbar-brown dark:text-gray-300 hover:bg-medium-blue dark:hover:bg-brownish-purple hover:text-gray-300 px-3 py-2 rounded-md text-xs font-semibold duration-300 cursor-pointer";
 
   const navList = navItems.map((item) =>
     <Link 
@@ -67,24 +67,25 @@ export default function Navbar(props) {
     // console.log(id);
 
     setNavItems(prevValues => {
-        const newNavList = prevValues.map (item => {
-          if (item.id === id) {
-              return {
-                name : item.name,
-                active : true,
-                id : item.id,
-                href: item.href
-              }
-              
-            } else {
-              return {
-                name : item.name,
-                active : false,
-                id : item.id,
-                href: item.href
-              }
-          }
-        })
+      const newNavList = prevValues.map (item => {
+        if (item.id === id) {
+            return {
+              name : item.name,
+              active : true,
+              id : item.id,
+              href: item.href
+            }
+            
+          } else {
+            return {
+              name : item.name,
+              active : false,
+              id : item.id,
+              href: item.href
+            }
+        }
+      })
+      setIsOpen(false);
       return newNavList
     });
   };
@@ -101,7 +102,12 @@ export default function Navbar(props) {
             <nav className="bg-light-green md:bg-light-blue dark:bg-dark-brown duration-300">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
-                  <div className="text-gray-800 dark:text-gray-300 font-nunito md:font-nunito font-bold text-sm uppercase"><Link href="/">Ejei-Okeke Emmanuel</Link></div>
+                  <div className="flex items-center text-gray-800 dark:text-gray-300 font-nunito md:font-nunito font-bold text-sm uppercase">
+                    <div className="bg-[url('~/assets/mobile-jumbotron.jpg')] md:bg-[url('https://avatars.githubusercontent.com/u/67398035?v=4')] dark:bg-footer h-8 w-8 lg:h-10 lg:w-10 bg-cover rounded-full mx-auto my-auto mr-2">
+                        {/* PROFILE IMAGE - ABOUT SECTION*/}
+                    </div>                    
+                    <Link href="/">Ejei-Okeke Emmanuel</Link>
+                  </div>
 
                   <div className="flex items-center">
                     <div className="hidden md:block font-montserrat"> {/* NAVLIST. HIDE CONTENT ON PHONES. SHOW FOR LAPTOPS AND TABLETS*/}

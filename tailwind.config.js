@@ -185,6 +185,7 @@ module.exports = {
       'nunito': ['Nunito', 'sans-serif'],
       'montserrat': ['Montserrat', 'sans-serif'],
       'quicksand': ['Quicksand', 'sans-serif'],
+      'cutive-mono': ['Cutive Mono', 'monospace'],
      }, 
      colors: {
       'dark-brown': '#2b282c',

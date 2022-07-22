@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import _ from 'lodash'
 import Link from 'next/link'
 
@@ -7,7 +7,6 @@ import { createClient } from '../../prismicio'
 
 export async function getServerSideProps({ previewData }) {
   const client = createClient({ previewData })
-  // const page = await client.getByUID('post', 'first-post')
   const articles = await client.getAllByType('post', {
     fetchLinks: ['author.name', 'author.image'],
   })
@@ -19,6 +18,8 @@ export async function getServerSideProps({ previewData }) {
 
 
 export default function Library(props) {
+  // const [] = useState
+
   function logPage(e) {
     e.preventDefault
     console.log(props.articles)
@@ -29,8 +30,6 @@ export default function Library(props) {
     const darkmode = (document.documentElement.classList.contains('dark'))
     return darkmode
   }
-
-  const arr = [1,2,3]
 
   const { articles } = props
 
@@ -49,7 +48,7 @@ export default function Library(props) {
                   <div 
                     // { Blog image }
                     className="w-full md:w-1/3 h-40 md:h-full rounded-t-lg md:rounded-l-lg md:rounded-tr-none bg-cover bg-center"
-                    style={{ backgroundImage: ('linear-gradient(to right, #01010140, #00000010)') + ', url(' + item.data.jumbotron.url + ')' }}  
+                    style={{ backgroundImage: ('linear-gradient(to right, #01010140, #00000010)') + ', url(' + item.data.image.url + ')' }}  
                   ></div>
                   <div className="w-full md:h-full md:w-2/3 relative">
                     <div className='p-5 font-normal flex flex-col justify-between h-full'>
