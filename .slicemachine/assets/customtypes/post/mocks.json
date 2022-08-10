@@ -1,0 +1,33 @@
+{
+  "id": "574839a9-d89b-4be0-b98e-36b75cfb9f3a",
+  "uid": "ratione-corporis-autem",
+  "type": "post",
+  "data": {
+    "title": "extend proactive content",
+    "author": {
+      "link_type": "Web",
+      "url": "http://twitter.com"
+    },
+    "desc": "deploy impactful deliverables",
+    "keywords": "reinvent transparent action-items",
+    "image": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=900&h=500&fit=crop"
+    },
+    "category": "iterate dot-com relationships",
+    "readTime": 4478,
+    "date": "2020-11-11",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Reprehenderit ut ad deserunt. Elit duis pariatur officia. Veniam ipsum occaecat ullamco.",
+        "spans": []
+      }
+    ]
+  }
+}

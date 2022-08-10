@@ -1,0 +1,21 @@
+{
+  "slices": {
+    "FirstComponent": {},
+    "Text": {
+      "default": {
+        "primary": {}
+      }
+    }
+  },
+  "_cts": {
+    "post": {
+      "body": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "author": {}
+  }
+}

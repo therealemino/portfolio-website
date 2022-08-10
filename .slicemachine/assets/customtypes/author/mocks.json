@@ -1,0 +1,93 @@
+{
+  "id": "9becbf13-baa1-4dc7-9c4f-f2163d165c9c",
+  "uid": "amet-eaque-quia",
+  "type": "author",
+  "data": {
+    "name": [
+      {
+        "type": "paragraph",
+        "text": "Cupidatat officia nisi Lorem quis ex proident veniam enim commodo eiusmod. Labore do nisi fugiat exercitation sint eu eiusmod cillum laborum sit nisi exercitation sint cillum.",
+        "spans": []
+      }
+    ],
+    "nickname": [
+      {
+        "type": "paragraph",
+        "text": "Labore consectetur eiusmod ut incididunt irure ea reprehenderit laboris minim tempor sunt. Labore aliquip ipsum duis irure pariatur in Lorem magna nostrud qui deserunt occaecat.",
+        "spans": []
+      }
+    ],
+    "bio": [
+      {
+        "type": "paragraph",
+        "text": "Labore sit et quis aute est nisi commodo enim et sunt esse nisi amet nisi.",
+        "spans": []
+      }
+    ],
+    "image": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89?w=900&h=500&fit=crop"
+    },
+    "socials": [
+      {
+        "twitter": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        },
+        "instagram": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        },
+        "linkedin": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        },
+        "website": {
+          "link_type": "Web",
+          "url": "https://slicemachine.dev"
+        }
+      },
+      {
+        "twitter": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        },
+        "instagram": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        },
+        "linkedin": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        },
+        "website": {
+          "link_type": "Web",
+          "url": "https://slicemachine.dev"
+        }
+      },
+      {
+        "twitter": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        },
+        "instagram": {
+          "link_type": "Web",
+          "url": "https://slicemachine.dev"
+        },
+        "linkedin": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        },
+        "website": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        }
+      }
+    ]
+  }
+}
