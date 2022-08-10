@@ -14,14 +14,14 @@ export async function getServerSideProps({ previewData, query }) {
     fetchLinks: ['author.name', 'author.image'],
   })
   const {body} = article.data
-  const h3 = []
+  const toc = []
   body.forEach(item => {
-    if(item.type === 'heading3') {
-      h3.push(item)
+    if(item.type === 'heading3' || item.type === 'heading5') {
+      toc.push(item)
     }
   });
   return {
-    props: { article,h3 }, // Will be passed to the page component as props
+    props: { article,toc }, // Will be passed to the page component as props
   }
 }
 
@@ -61,7 +61,7 @@ export default function BlogId(props) {
       </Head>
       
       <div
-        className="min-h-screen bg-whitish-green md:bg-whitish-blue dark:bg-brownish-purple relative text-dark-green md:text-dark-blue dark:text-gray-300 font-nunito"
+        className="min-h-screen bg-green-50 md:bg-whitish-blue dark:bg-brownish-purple relative text-dark-green md:text-dark-blue dark:text-gray-300 font-nunito"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <h3 className="text-sm md:text-lg font-semibold font-quicksand mt-6 flex items-center" onClick={ logPage }>
@@ -75,21 +75,27 @@ export default function BlogId(props) {
             <div className="lg:w-3/4 mr-auto p-4">
               <h1 className='text-xl lg:text-3xl font-bold font-quicksand'>{data.title}</h1>
               <img src={data.image.url} alt="" className='rounded-md mt-5' />
-              <div className="body my-5">
+              <div className="body my-5 font-figtree">
                 <Slices slices={data.body} />
               </div>
             </div>
 
             {/* Table of Content */}
-            <div className="hidden lg:block sticky z-0 h-96 top-28 right-0 w-1/4 py-3 px-5">
+            <div className="hidden lg:block sticky z-0 min-h-full h-4/5 top-28 right-0 w-1/4 py-3 px-5">
               <h2 className="text-xl font-bold">Outline</h2>
               <div className='mt-4'>
                 <PrismicRichText 
-                  field={props.h3}
+                  field={props.toc}
                   components={{
                     heading3: ({ children,text }) => <Link href={`#${text}`} className='text-sm font-quicksand font-bold mt-5 mb-1'>
-                      <a className='flex items-center py-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold'>
+                      <a className='flex items-center py-2 hover:text-cool-gray-800 dark:hover:text-white hover:font-bold'>
                         <Icon icon="fa6-solid:location-dot" className='mr-2' />
+                        {children}
+                      </a>
+                    </Link>,
+                    heading5: ({ children,text }) => <Link href={`#${text}`} className='text-xs font-quicksand font-semibold mt-5 mb-1'>
+                      <a className='flex items-center py-2 hover:text-cool-gray-700 dark:hover:text-white hover:font-bold text-sm ml-6'>
+                        <Icon icon="akar-icons:arrow-forward-thick-fill" className='mr-2' />
                         {children}
                       </a>
                     </Link>
