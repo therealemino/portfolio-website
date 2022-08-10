@@ -36,6 +36,13 @@
           "placeholder": ""
         }
       },
+      "keywords": {
+        "type": "Text",
+        "config": {
+          "label": "Keywords",
+          "placeholder": ""
+        }
+      },
       "image": {
         "type": "Image",
         "config": {
