@@ -30,7 +30,7 @@ const DefaultLayout = ({ children }) => {
     <>
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />        
+        <link rel="preconnect" href="https://fonts.gstatic.com" /> 
       </Head>
       <Script src="https://use.fontawesome.com/6fb1445712.js"></Script>
       <Script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></Script>
