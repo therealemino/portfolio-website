@@ -4,7 +4,7 @@ export default function Portfolio(props) {
   const portfolioItem = props.portfolioItem
 
     return (
-        <div className="max-w-7xl w-full mx-auto bg-white dark:bg-dark-brown rounded-lg p-4 my-1 md:my-4 shadow-2xl hover:shadow-inner">
+        <div className="flex flex-col justify-between max-w-7xl w-full mx-auto bg-white dark:bg-dark-brown rounded-lg p-4 my-1 md:my-4 shadow-2xl hover:shadow-inner">
           <a href={portfolioItem.link} target="_blank" rel="noreferrer">
             <div className="" key={portfolioItem.name}>
               <div className="flex items-center mb-4">
@@ -14,6 +14,7 @@ export default function Portfolio(props) {
               <div className="text-xs md:text-sm font-light text-center">{portfolioItem.desc}</div>
             </div>
           </a>
+          <div className="text-[10px] md:text-[11px] font-light text-center mt-4">Tools: {portfolioItem.tools}</div>
         </div>
     )
 }
