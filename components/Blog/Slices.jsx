@@ -26,7 +26,7 @@ export default function Slices(props, {markdownContent}) {
       <PrismicRichText 
         field={slices}
         components={{
-          heading3: ({ children,text }) => <h3 id={text} className='text-lg md:text-2xl font-quicksand font-bold mt-5 mb-1'>{children}</h3>,
+          heading3: ({ children,text }) => <h3 id={text} className='text-lg sm:text-xl md:text-2xl font-quicksand font-bold mt-5 mb-1'>{children}</h3>,
           heading5: ({ children,text }) => <h5 id={text} className='text-md md:text-lg font-quicksand font-bold mt-5 mb-1'>{children}</h5>,
           paragraph: ({ children }) => <p className='mb-3 text-sm md:text-base'>{children}</p>,
           listItem: ({ children }) => <li className='mb-1 text-sm md:text-base'>{children}</li>,
