@@ -1,6 +1,8 @@
 import React, { useState,useRef,useEffect } from 'react';
 import Head from 'next/head'
 import Script from 'next/script'
+import { GoogleAnalytics } from "nextjs-google-analytics";
+
 
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
@@ -32,6 +34,7 @@ const DefaultLayout = ({ children }) => {
         <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.gstatic.com" /> 
       </Head>
+      <GoogleAnalytics trackPageViews strategy="lazyOnload" />
       <Script src="https://use.fontawesome.com/6fb1445712.js"></Script>
       <Script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></Script>
       <div className="content">
