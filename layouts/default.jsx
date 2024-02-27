@@ -32,7 +32,7 @@ const DefaultLayout = ({ children }) => {
     <>
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" /> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
       <GoogleAnalytics trackPageViews strategy="lazyOnload" />
       <Script src="https://use.fontawesome.com/6fb1445712.js"></Script>

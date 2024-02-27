@@ -15,7 +15,12 @@ export default function Portfolio(props) {
         </div>
         <div className="text-[10px] md:text-[11px] font-light mt-4">Tools: {portfolioItem.tools}</div>
       </div>
-      <a href={portfolioItem.link} target="_blank" rel="noreferrer" className="bg-link-dark bg-clip-text text-light-green md:text-light-blue dark:text-transparent font-inter w-fit text-sm font-normal mt-4">View </a>
+      <a href={portfolioItem.link} target="_blank" rel="noreferrer" className="bg-link-dark bg-clip-text text-light-green md:text-light-blue dark:text-transparent font-inter w-fit text-sm font-medium mt-4">
+        View
+        <span className='text-3xl'>
+          <span className="fa fa-chevron-right text-[10px]"></span>
+        </span>
+      </a>
     </div>
   )
 }

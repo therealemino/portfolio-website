@@ -1,4 +1,4 @@
-import React, { useState,useRef,useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Head from 'next/head'
 import Jumbotron from "../components/Jumbotron";
 import About from '../components/About';
@@ -13,13 +13,6 @@ function App() {
       disable: 'mobile'
     })
   })
-  const [darkMode, setDarkMode] = useState(false);
-
-  function changeDarkMode() {
-    const root = document.documentElement
-    root.classList.toggle('dark')
-  }
-
 
   return (
     <>
@@ -45,8 +38,8 @@ function App() {
       </Head>
       <div className="App">
         <div className="bg-whitish-green md:bg-whitish-blue dark:bg-brownish-purple relative text-dark-green md:text-dark-blue dark:text-gray-300 font-montserrat overflow-x-hidden">
-          <Jumbotron darkMode={darkMode} />
-          <About darkMode={darkMode} />
+          <Jumbotron />
+          <About />
           <Resume />
           <Portfolio />
         </div>

@@ -31,34 +31,31 @@ function Trail({ open, children, ...props }) {
 export default function Jumbotron(props) {
 
   const [open, setOpen] = useState(true)
-  const [role, setRole] = useState("Full Stack Developer")
+  const [role, setRole] = useState("Software Engineer")
 
   useEffect(() => {
     console.log("Mounted");
     setInterval(() => {
       setTimeout(() => {
-        setRole("MEVN Developer")
+        setRole("Software Engineer")
       }, 3000);
       setTimeout(() => {
-        setRole("Next.js Developer")
+        setRole("Startup Enthusiast")
       }, 6000);
       setTimeout(() => {
-        setRole("Nuxt.js Developer")
+        setRole("Google Certified Digital Marketer")
       }, 9000);
       setTimeout(() => {
-        setRole("Google Certified Digital Marketer")
+        setRole("Blockchain Aficionado")
       }, 12000);
-      setTimeout(() => {
-        setRole("Node.js Developer")
-      }, 15000);
-    }, 15000);
+    }, 12000);
   }, [])
 
   return (
-    <div className="bg-mobile-jumbotron md:dark:bg-desktop-jumbotron-dark md:bg-desktop-jumbotron md:bg-right bg-cover bg-center bg-fixed h-screen z-10" onClick={() => setOpen((state) => !state)} ref={props.homeRefProp}>
+    <div className="bg-mobile-jumbotron md:dark:bg-desktop-jumbotron-dark md:bg-desktop-jumbotron bg-center md:bg-right bg-cover lg:bg-fixed h-screen z-10" onClick={() => setOpen((state) => !state)} ref={props.homeRefProp}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full"> {/*CONTAINER*/}
-        <div className="font-nunito py-20 w-full flex items-center h-full justify-evenly">
-          <div className="text-gray-300 md:text-whitish-blue h-2/5">
+        <div className="font-nunito py-20 w-full flex items-center h-full justify-center">
+          <div className="text-gray-300 md:text-whitish-blue h-2/5 md:w-1/2">
             <Trail open={open} className="text-center md:text-left">
               <span className="text-2xl md:text-2xl lg:text-3xl font-semi-bold">{"<hello world />"}</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semi-bold">I&apos;m Emino</h1>
