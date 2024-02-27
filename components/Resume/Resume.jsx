@@ -52,22 +52,29 @@ export default function Resume(props) {
       id: 1,
       date: "October 2021 - Present",
       name: "Front End Developer",
-      body: "Collaborated with backend developers and product team members to assess UX and UI designs for technical feasibility and implement internal web applications, websites and landing pages from concept through to deployment.",
+      body: "",
       organization: "Pennee Technologies",
       link: "https://pennee.co"
     },
     {
-      id: 2,
-      date: "March 2021 - Present",
+      id: 7,
+      date: "July - Nov 2021, Nov 2022 - March 2024",
       name: "Front End Developer",
-      body: "Collaborated with product designers and other developers to build the version 2 of the Nexbuy E-commerce web-app.",
+      body: "",
+      organization: "Loiz Tours & travels Ltd",
+      link: "https://uat.loiztravels.com"
+    },
+    {
+      id: 2,
+      date: "Jan 2020 - April 2022",
+      name: "Front End Developer",
+      body: "",
       organization: "Nexbuy District",
-      // link: "https://nexbuyv2.netlify.app/"
       link: "https://www.nexbuydistrict.com/"
     },
     {
       id: 3,
-      date: "August 2019 - January 2021",
+      date: "August 2019 - January 2020",
       name: "Brand Ambassador",
       body: "Conduct day-to-day coordination, planning, and implementation of all activities involved in speaking about the company to the public as well as working closely, and getting feedback with webapp clients of the company",
       organization: "Nexbuy District",
@@ -116,13 +123,14 @@ export default function Resume(props) {
             </div>
           </div>
           <div className="text-center md:text-center px-6">
+              {/* href="https://drive.google.com/file/d/1XEXWBeaf-WbvnpctWaq60nhzmb_x1qYk/view?usp=sharing"  */}
             <a 
-              href="https://drive.google.com/file/d/1XEXWBeaf-WbvnpctWaq60nhzmb_x1qYk/view?usp=sharing" 
+              href="https://docs.google.com/document/d/e/2PACX-1vQ52CoqblC1ZB8hSOPijUDP4a6xnbIcL3xNR5iqlV3pgLn3mgqRecxN_9BcnGmeSWD8uXq0n196YmaG/pub" 
               target="_blank" 
               rel="noreferrer" 
               className="text-medium-blue dark:text-cream hover:text-dark-blue dark:hover:text-gray-300 font-semibold"
             >
-              Click here to view my full resume (PDF)
+              Click here to view my full CV.
             </a>
           </div>
         </div>

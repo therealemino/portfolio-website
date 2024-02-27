@@ -4,25 +4,67 @@ import PortfolioTile from './PortfolioTile'
 export default function Portfolio(props) {
   const portfolioData = [
     {
-      name: "Pennee",
-      link: "https://pennee.co",
+      name: "Yana Website",
+      link: "https://yana.finance",
+      logo: "https://assets.pennee.space/svg/logo/logo-icon-primary.svg",
+      desc: "Corporate Credit Accounts and Cash Flow Management Software.",
+      tools: "Nuxt.js, TailwindCSS",
+    },
+    {
+      name: "Yana Dashboard",
+      link: "https://app.yana.finance",
+      logo: "https://assets.pennee.space/svg/logo/logo-icon-light.svg",
+      desc: "Corporate Credit Accounts and Cash Flow Management Software.",
+      tools: "Nuxt.js, TailwindCSS, Vuetify",
+    },
+    {
+      name: "Loiztravels",
+      link: "https://uat.loiztravels.com",
+      logo: "https://res.cloudinary.com/loiztours/image/upload/site-media/svg/logo.svg",
+      desc: "E-commerce travel website",
+      tools: "Nuxt.js, Vuetify, Commerce.js",
+    },
+    {
+      name: "Bookeverything NG",
+      link: "https://bookeverything.ng",
+      logo: "https://bookeverything.ng/img/logo.jpg",
+      desc: "E-commerce book store",
+      tools: "Nuxt.js, Vuetify",
+    },
+    {
+      name: "Yana Shop",
+      link: "https://shop.withyana.co",
+      logo: "https://assets.pennee.space/svg/logo/logo-icon-light.svg",
+      desc: "E-commerce website for Yana. Buy the best things in season.",
+      tools: "Nuxt.js, TailwindCSS",
+    },
+    {
+      name: "Emino FPL",
+      link: "https://emino-football.vercel.app/",
+      logo: "https://emino-football.vercel.app/img/logo.svg",
+      desc: "Private league website for Fantasy Premier League enthusiasts",
+      tools: "Nuxt.js, TailwindCSS",
+    },
+    {
+      name: "Pennee (Now Yana)",
+      link: "https://pennee.surge.sh",
       logo: "/pennee-logo-icon.svg",
-      desc: "Pennee solves cash flow problems for small businesses by providing credit financing and cash flow management.",
-      tools: "Nuxt.js, Vuetify, Cloudinary SDK",
+      desc: "Credit Financing company for small businesses in Nigeria",
+      tools: "Nuxt.js, Vuetify, GraphQL",
     },
     {
       name: "Pennee Partners",
-      link: "https://partners.pennee.co",
+      link: "https://partners.pennee.tech",
       logo: "/pennee-logo-icon.svg",
       desc: "Provide credit purchases without bearing the risk. We connect you to buyers and pay for their purchases.",
       tools: "Nuxt.js, Vuetify",
     },
     {
-      name: "Pennee Library",
-      link: "https://pennee.co/library",
-      logo: "/pennee-logo-icon.svg",
-      desc: "Learn how to grow your business with resources from Pennee. Access to online courses that teach the business principles behind starting and running a small business.",
-      tools: "Nuxt.js, Vuetify, Prismic CMS",
+      name: "Eki Live",
+      link: "https://app.ekilive.africa/",
+      logo: "https://app.ekilive.africa/public/img/logo-1692181256.png",
+      desc: "Platform for creators to manage and monetize their businesses & communities",
+      tools: "HTML, CSS, JS",
     },
     {
       name: "Nexbuyapp",
@@ -37,20 +79,6 @@ export default function Portfolio(props) {
       logo: "https://i.pinimg.com/originals/30/b1/1a/30b11a92a85361de088b6d668785f0aa.jpg",
       desc: "Simple Weather PWA. Get weather information of current location or any city of choice.",
       tools: "Nuxt.js, Vuetify, Chart.js, Openweathermap",
-    },
-    {
-      name: "Better Earth",
-      link: "https://therealemino.github.io/climate-change-ngo/index.html",
-      logo: "https://therealemino.github.io/climate-change-ngo/images/planet-earth-dan-gerhard-01.svg",
-      desc: "Demo website for a climate change NGO. Donate with flutterwave test cards (not a real environment).",
-      tools: "HTML, CSS, JavaScript, FLutterwave SDK",
-    },
-    {
-      name: "Zettech Integrated Services",
-      link: "https://therealemino.github.io/zettech/index.html",
-      logo: "https://github.com/therealemino/zettech/blob/master/images/logo-sm.jpg?raw=true",
-      desc: "Simple static website for a Digital agency.",
-      tools: "HTML, CSS, JavaScript, Bootstrap",
     },
     // {
     //   name: "Newsletter Signup",
@@ -75,7 +103,7 @@ export default function Portfolio(props) {
     return (
         <div id='portfolio' className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" ref={props.portfolioRefProp} data-aos="zoom-in" data-aos-duration="2000">
           <div className="text-center font-semibold font-nunito text-4xl pt-12">Portfolio</div>
-          <div className="text-center font-semibold font-nunito text-xl py-6">Here are a few projects I've worked on individually/collaboratively.</div>
+          <div className="text-center font-semibold font-nunito text-xl py-6">Here are a few projects I've worked on, both independently and collaboratively with teams.</div>
             <div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-3 items-stretch font-nunito">
               {portfolioList}
             </div>

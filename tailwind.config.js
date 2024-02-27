@@ -13,7 +13,9 @@ module.exports = {
       backgroundImage: theme => ({
          'mobile-jumbotron': "linear-gradient(to right, #01010190, #01010190), url('~/assets/mobile-jumbotron.jpg')",
          'profile-image': "url('~/assets/profile-pic.jpg')",
-         'desktop-jumbotron': "linear-gradient(to right, #010101, #00000010), url('~/assets/desktop-jumbotron.jpg')",
+        //  'profile-image': "url('~/assets/emino.png')",
+         'desktop-jumbotron-dark': "linear-gradient(to right, #010101, #00000010), url('~/assets/emino.jpg')",
+         'desktop-jumbotron': "linear-gradient(to right, #01010160, #00000010), url('~/assets/desktop-jumbotron.jpg')",
          'footer': "linear-gradient(to right, #010101, #00000080), url('~/assets/footer.jpg')",
          'footer-md': "linear-gradient(to right, #010101, #00000080), url('~/assets/footer-md.jpg')",
          'endless-constellation': "url('~/assets/endless-constellation.svg')",

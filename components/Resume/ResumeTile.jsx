@@ -6,9 +6,9 @@ export default function ResumeTile(props) {
   const educationList = educationData.map((item) =>
     <div className="bg-white dark:bg-dark-brown rounded-lg p-4 my-4 shadow-2xl" key={item.name}>
       <div className="flex flex-row items-center text-xs md:text-base font-light"><span className="fa fa-calendar-o pr-2"></span> {item.date}</div>
-      <h4 className="text-sm md:text-xl text-light-green md:text-light-blue dark:text-cream py-2">{item.name}</h4>
+      <h4 className="text-sm md:text-xl py-2">{item.name}</h4>
       <div>{ item.body }</div>
-      <a href={item.link} target="_blank" rel="noreferrer" className="py-2 text-xs md:text-base font-light font-nunito">
+      <a href={item.link} target="_blank" rel="noreferrer" className="py-2 text-xs md:text-base font-light font-nunito text-light-green md:text-light-blue dark:text-cream">
         <span className="fa fa-certificate pr-1"></span> { item.school } 
       </a>
     </div>
@@ -17,9 +17,9 @@ export default function ResumeTile(props) {
   const experienceList = experienceData.map((item) =>
     <div className="bg-white dark:bg-dark-brown rounded-lg p-4 my-4 shadow-2xl" key={item.id}>
       <div className="flex flex-row items-center text-xs md:text-base font-light"><span className="fa fa-calendar-o pr-2"></span> {item.date}</div>
-      <h4 className="text-md md:text-xl text-light-green md:text-light-blue dark:text-cream py-2">{item.name}</h4>
-      <div className="py-1 text-xs md:text-sm font-normal">{ item.body }</div>
-      <a href={item.link} target="_blank" rel="noreferrer" className="py-3 text-xs md:text-base font-light font-nunito">
+      <h4 className="text-md md:text-xl py-2">{item.name}</h4>
+      {/* <div className="py-1 text-xs md:text-sm font-normal">{ item.body }</div> */}
+      <a href={item.link} target="_blank" rel="noreferrer" className="py-3 text-xs md:text-base font-light font-nunito text-light-green md:text-light-blue dark:text-cream">
         <span className={`${props.name==="Work Experience" ? "fa-bookmark" : "fa-certificate"} " fa pr-2 mr-2"`}></span> 
         { item.organization }
       </a>

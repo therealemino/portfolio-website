@@ -56,7 +56,7 @@ export default function Navbar(props) {
       >
       <MyLink 
         onCustomClick={() => toggleActive(item.id)}
-        className = {`${item.active ? "bg-dark-green dark:bg-light-brownish-purple text-gray-300" : "text-navbar-brown"} " d-block focus:outline-none duration-300 block dark:text-gray-300 font-semibold font-montserrat hover:bg-medium-green hover:text-gray-300 dark:hover:bg-brownish-purple px-3 py-2 rounded-md text-xs md:text-sm font-medium cursor-pointer"`}
+        className = {`${item.active ? "bg-dark-green dark:bg-light-brownish-purple text-gray-300" : "text-navbar-brown"} " d-block focus:outline-none duration-300 block dark:text-gray-300 font-semibold font-montserrat hover:bg-medium-green hover:text-gray-300 dark:hover:bg-brownish-purple px-3 py-2 rounded-md text-xs md:text-sm cursor-pointer"`}
       >
         {item.name}
       </MyLink>      
@@ -97,7 +97,7 @@ export default function Navbar(props) {
   }
 
     return (
-        <header className="navbar w-full sticky top-0 z-50">
+        <header className="navbar w-full sticky top-0 left-0 z-[100]">
           <div className="">
             <nav className="bg-light-green md:bg-light-blue dark:bg-dark-brown duration-300">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
