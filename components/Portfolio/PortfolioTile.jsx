@@ -17,8 +17,8 @@ export default function Portfolio(props) {
       </div>
       <a href={portfolioItem.link} target="_blank" rel="noreferrer" className="bg-link-dark bg-clip-text text-light-green md:text-light-blue dark:text-transparent font-inter w-fit text-sm font-medium mt-4">
         View
-        <span className='text-3xl'>
-          <span className="fa fa-chevron-right text-[10px]"></span>
+        <span className='text-xs ml-1'>
+          <span className="fa fa-chevron-right"></span>
         </span>
       </a>
     </div>
