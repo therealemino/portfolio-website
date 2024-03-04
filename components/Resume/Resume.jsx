@@ -82,7 +82,7 @@ export default function Resume(props) {
     },
     {
       id: 4,
-      date: "November 2020 - Present",
+      date: "Oct 2020 - Jan 2021",
       name: "Volunteer Intern",
       body: "Front-end developer and 'in-person' educator",
       organization: "Coriftech Solutions Ltd",
