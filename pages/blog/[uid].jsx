@@ -53,7 +53,7 @@ export default function BlogId(props) {
         <meta name="twitter:image" content={data.image.url} />
         <meta
           property="og:url"
-          content={`https://ejeiokekeemmanuel.dev/blog/${props.article.uid}`}
+          content={`https://ejeiokekeemmanuel.vercel.app/blog/${props.article.uid}`}
         />
         <meta property="og:title" content={data.title} />
         <meta property="og:description" content={data.desc} />
@@ -140,9 +140,9 @@ export default function BlogId(props) {
                 <div className="flex justify-left items-center mt-2">
                   <a
                     href={`https://twitter.com/intent/tweet?original_referer=${encodeURI(
-                      "https://ejeiokekeemmanuel.dev"
+                      "https://ejeiokekeemmanuel.vercel.app"
                     )}&text=${encodeURI(data.title)}&url=${encodeURI(
-                      `https://ejeiokekeemmanuel.dev${router.asPath}`
+                      `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                     )}`}
                     target="_blank"
                     className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
@@ -151,7 +151,7 @@ export default function BlogId(props) {
                   </a>
                   <a
                     href={`https://wa.me/?text=${encodeURI(
-                      `${data.title} - Ejei-Okeke Emmanuel's Blog. https://ejeiokekeemmanuel.dev${router.asPath}`
+                      `${data.title} - Ejei-Okeke Emmanuel's Blog. https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                     )}`}
                     target="_blank"
                     data-action="share/whatsapp/share"
@@ -160,7 +160,7 @@ export default function BlogId(props) {
                     <Icon icon="ri:whatsapp-fill" className="text-xl" />
                   </a>
                   <a
-                    href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.dev${router.asPath}&title=${data.title}&summary=${data.desc}`}
+                    href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
                     target="_blank"
                     className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
                   >
@@ -183,9 +183,9 @@ export default function BlogId(props) {
             <div className="flex justify-center items-center mt-2">
               <a
                 href={`https://twitter.com/intent/tweet?original_referer=${encodeURI(
-                  "https://ejeiokekeemmanuel.dev"
+                  "https://ejeiokekeemmanuel.vercel.app"
                 )}&text=${encodeURI(data.title)}&url=${encodeURI(
-                  `https://ejeiokekeemmanuel.dev${router.asPath}`
+                  `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                 )}`}
                 target="_blank"
                 className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
@@ -197,7 +197,7 @@ export default function BlogId(props) {
               </a>
               <a
                 href={`https://wa.me/?text=${encodeURI(
-                  `${data.title} - Ejei-Okeke Emmanuel's Blog. https://ejeiokekeemmanuel.dev${router.asPath}`
+                  `${data.title} - Ejei-Okeke Emmanuel's Blog. https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                 )}`}
                 target="_blank"
                 data-action="share/whatsapp/share"
@@ -206,7 +206,7 @@ export default function BlogId(props) {
                 <Icon icon="ri:whatsapp-fill" className="mx-1 text-3xl" />
               </a>
               <a
-                href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.dev${router.asPath}&title=${data.title}&summary=${data.desc}`}
+                href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
                 target="_blank"
                 className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
               >
