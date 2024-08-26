@@ -19,7 +19,7 @@ export default function Playlists() {
       <h3 className="text-center font-semibold text-2xl lg:text-4xl pt-12">
         Tune In 🎧
       </h3>
-      <p className="text-center font-medium">
+      <p className="text-sm lg:text-base text-center font-medium">
         Uncover the sounds that inspire me and fuel my creativity. Check out my
         curated Spotify playlists.
       </p>

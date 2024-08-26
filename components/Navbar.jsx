@@ -49,6 +49,7 @@ export default function Navbar(props) {
   const navListMobile = navItems.map((item) => (
     <Link id={item.id} href={item.href} key={item.id}>
       <MyLink
+        onClick={() => closeNavList()}
         className={`${
           asPath === item.href
             ? "bg-amber-50 text-amber-800 border border-amber-100 dark:bg-brown-900 dark:text-brown-300 dark:border-brown-700"
