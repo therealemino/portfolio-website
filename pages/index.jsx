@@ -12,18 +12,10 @@ import Playlists from "../components/Playlists";
 import axios from "axios";
 
 function App() {
-  const [playlists, setPlaylists] = useState([]);
-
-  async function fetchPlaylist() {
-    const eminosPlaylists = await axios.get("/api/spotify");
-    setPlaylists(eminosPlaylists.data.items);
-  }
-
   useEffect(() => {
     AOS.init({
       disable: "mobile",
     });
-    fetchPlaylist();
   }, []);
 
   return (
@@ -55,7 +47,7 @@ function App() {
           <Resume />
           <Portfolio />
           <Interests />
-          <Playlists playlists={playlists} />
+          <Playlists />
         </div>
       </div>
     </>

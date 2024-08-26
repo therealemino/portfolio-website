@@ -2,13 +2,14 @@ import React from "react";
 import playlistsMeta from "../utils/playlists.json";
 
 const idsArr = [];
-playlistsMeta.forEach((meta) => {
+playlistsMeta.activePlaylists.forEach((meta) => {
   idsArr.push(meta.id);
 });
 
-export default function Playlists({ playlists }) {
-  const resPlaylists = playlists.filter((item) => idsArr.includes(item.id));
-  console.log(resPlaylists);
+export default function Playlists() {
+  const resPlaylists = playlistsMeta.playlists.filter((item) =>
+    idsArr.includes(item.id)
+  );
 
   return (
     <section
@@ -40,8 +41,12 @@ export default function Playlists({ playlists }) {
               <h4 className="text-lg lg:text-2xl font-header font-semibold">
                 {item.name}
               </h4>
-              <i className="block text-xs lg:text-sm font-light my-2">{item.description}</i>
-              <p className="text-xs lg:text-sm font-normal">{item.tracks.total} tracks</p>
+              <i className="block text-xs lg:text-sm font-light my-2">
+                {item.description}
+              </i>
+              <p className="text-xs lg:text-sm font-normal">
+                {item.tracks.total} tracks
+              </p>
             </div>
           </a>
         ))}

@@ -1,15 +1,419 @@
-[
-  { "id": "2VF2mLaL7L9cJ9i8QrFVqw", "name": "Something about the night 🌃" },
-  { "id": "1duuRbJl9DJ8GT4cfnk31V", "name": "Fresh Air" },
-  { "id": "6zoQ3hFL9Mjv44BUmoO9Aq", "name": "Gaming" },
-  { "id": "5AKPRvmHcHMPPSahGAFTGl", "name": "Soft Afro" },
-  { "id": "1LczE9l9q8nVGlIOeoZfzJ", "name": "K Dot and J Cole" },
-  {
-    "id": "2zhmCo4N5nzsL03Fp6tvXE",
-    "name": "Iconic Motion Picture Soundtracks"
-  },
-  { "id": "1eLLAcX15AWszKMDNyPUhT", "name": "80's classics" },
-  { "id": "4iGT6iJzdaH8KAytEOEfDS", "name": "Soothing and Calm 💆🏽‍♂️" },
-  { "id": "52m8zXTg78s0JzT0MwBMdw", "name": "Cavemen  🌴" },
-  { "id": "6JJHuUfSgU7sRnstrRvFWt", "name": "Full Moon 🌑" }
-]
+{
+  "activePlaylists": [
+    { "id": "2VF2mLaL7L9cJ9i8QrFVqw", "name": "Something about the night 🌃" },
+    { "id": "1duuRbJl9DJ8GT4cfnk31V", "name": "Fresh Air" },
+    { "id": "6zoQ3hFL9Mjv44BUmoO9Aq", "name": "Gaming" },
+    { "id": "5AKPRvmHcHMPPSahGAFTGl", "name": "Soft Afro" },
+    { "id": "1LczE9l9q8nVGlIOeoZfzJ", "name": "K Dot and J Cole" },
+    {
+      "id": "2zhmCo4N5nzsL03Fp6tvXE",
+      "name": "Iconic Motion Picture Soundtracks"
+    },
+    { "id": "1eLLAcX15AWszKMDNyPUhT", "name": "80's classics" },
+    { "id": "4iGT6iJzdaH8KAytEOEfDS", "name": "Soothing and Calm 💆🏽‍♂️" },
+    { "id": "52m8zXTg78s0JzT0MwBMdw", "name": "Cavemen  🌴" },
+    { "id": "6JJHuUfSgU7sRnstrRvFWt", "name": "Full Moon 🌑" }
+  ],
+  "playlists": [
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/2VF2mLaL7L9cJ9i8QrFVqw"
+      },
+      "href": "https://api.spotify.com/v1/playlists/2VF2mLaL7L9cJ9i8QrFVqw",
+      "id": "2VF2mLaL7L9cJ9i8QrFVqw",
+      "images": [
+        {
+          "height": null,
+          "url": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da842675e1227810b118828edbfa",
+          "width": null
+        }
+      ],
+      "name": "Something about the night 🌃",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAAxqxevBDdj40hGP843wi0OeqjOTUL",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/2VF2mLaL7L9cJ9i8QrFVqw/tracks",
+        "total": 29
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:2VF2mLaL7L9cJ9i8QrFVqw"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/1duuRbJl9DJ8GT4cfnk31V"
+      },
+      "href": "https://api.spotify.com/v1/playlists/1duuRbJl9DJ8GT4cfnk31V",
+      "id": "1duuRbJl9DJ8GT4cfnk31V",
+      "images": [
+        {
+          "height": null,
+          "url": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84b24432a6629b945ea85f8088",
+          "width": null
+        }
+      ],
+      "name": "Fresh Air",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAAaYiQE7veKh4rzMuPIrgOBgreFDVQ",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/1duuRbJl9DJ8GT4cfnk31V/tracks",
+        "total": 33
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:1duuRbJl9DJ8GT4cfnk31V"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/6zoQ3hFL9Mjv44BUmoO9Aq"
+      },
+      "href": "https://api.spotify.com/v1/playlists/6zoQ3hFL9Mjv44BUmoO9Aq",
+      "id": "6zoQ3hFL9Mjv44BUmoO9Aq",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e022df0d98a423025032d0db1f7ab67616d00001e02407bd04707c463bbb3410737ab67616d00001e02500a95f36178e1c86a835077ab67616d00001e02cbd4edcc2a7def9bb6016094",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e022df0d98a423025032d0db1f7ab67616d00001e02407bd04707c463bbb3410737ab67616d00001e02500a95f36178e1c86a835077ab67616d00001e02cbd4edcc2a7def9bb6016094",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e022df0d98a423025032d0db1f7ab67616d00001e02407bd04707c463bbb3410737ab67616d00001e02500a95f36178e1c86a835077ab67616d00001e02cbd4edcc2a7def9bb6016094",
+          "width": 60
+        }
+      ],
+      "name": "Gaming",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAAN9ihzRnNalH9HjsXKKSswTRGbC84",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/6zoQ3hFL9Mjv44BUmoO9Aq/tracks",
+        "total": 26
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:6zoQ3hFL9Mjv44BUmoO9Aq"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5AKPRvmHcHMPPSahGAFTGl"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5AKPRvmHcHMPPSahGAFTGl",
+      "id": "5AKPRvmHcHMPPSahGAFTGl",
+      "images": [
+        {
+          "height": null,
+          "url": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84cb01e0a5dab2d5cd2fde29d9",
+          "width": null
+        }
+      ],
+      "name": "Soft Afro",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAA9U5cFwLvU/1j0G2449QUXAIFzbuC",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5AKPRvmHcHMPPSahGAFTGl/tracks",
+        "total": 29
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5AKPRvmHcHMPPSahGAFTGl"
+    },
+    {
+      "collaborative": false,
+      "description": "Cole and Kendrick classics.Playlist converted by Soundiiz from another music platform ! Checkout Soundiiz.com",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/1LczE9l9q8nVGlIOeoZfzJ"
+      },
+      "href": "https://api.spotify.com/v1/playlists/1LczE9l9q8nVGlIOeoZfzJ",
+      "id": "1LczE9l9q8nVGlIOeoZfzJ",
+      "images": [
+        {
+          "height": null,
+          "url": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84052aca797f1f855494797b3b",
+          "width": null
+        }
+      ],
+      "name": "K Dot and J Cole",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAAI2PV+SgEzvGU/6VhhJn8DvXAO1rC",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/1LczE9l9q8nVGlIOeoZfzJ/tracks",
+        "total": 50
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:1LczE9l9q8nVGlIOeoZfzJ"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/2zhmCo4N5nzsL03Fp6tvXE"
+      },
+      "href": "https://api.spotify.com/v1/playlists/2zhmCo4N5nzsL03Fp6tvXE",
+      "id": "2zhmCo4N5nzsL03Fp6tvXE",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e0205b46adf4b37df2f589cc7c9ab67616d00001e0270f76c0e9a71f567b690f5e8ab67616d00001e02cbfdfee9978c0f31cc79ac6dab67616d00001e02dff6866182b662f2224ef0b2",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e0205b46adf4b37df2f589cc7c9ab67616d00001e0270f76c0e9a71f567b690f5e8ab67616d00001e02cbfdfee9978c0f31cc79ac6dab67616d00001e02dff6866182b662f2224ef0b2",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e0205b46adf4b37df2f589cc7c9ab67616d00001e0270f76c0e9a71f567b690f5e8ab67616d00001e02cbfdfee9978c0f31cc79ac6dab67616d00001e02dff6866182b662f2224ef0b2",
+          "width": 60
+        }
+      ],
+      "name": "Iconic Motion Picture Soundtracks",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAAnm2FbboNZ280MkG3YmLN03tYkLF7",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/2zhmCo4N5nzsL03Fp6tvXE/tracks",
+        "total": 45
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:2zhmCo4N5nzsL03Fp6tvXE"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/1eLLAcX15AWszKMDNyPUhT"
+      },
+      "href": "https://api.spotify.com/v1/playlists/1eLLAcX15AWszKMDNyPUhT",
+      "id": "1eLLAcX15AWszKMDNyPUhT",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e0246e859872ed30a898160aeb2ab67616d00001e0252f532df7ba3269b0242fed9ab67616d00001e02662ce40b359cf7f6990fbee8ab67616d00001e02efe19a0cd5b1ecf38ee58a78",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e0246e859872ed30a898160aeb2ab67616d00001e0252f532df7ba3269b0242fed9ab67616d00001e02662ce40b359cf7f6990fbee8ab67616d00001e02efe19a0cd5b1ecf38ee58a78",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e0246e859872ed30a898160aeb2ab67616d00001e0252f532df7ba3269b0242fed9ab67616d00001e02662ce40b359cf7f6990fbee8ab67616d00001e02efe19a0cd5b1ecf38ee58a78",
+          "width": 60
+        }
+      ],
+      "name": "80's classics",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAAh3z/0IuakMOLqZb+bE0H8Zry1ON+",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/1eLLAcX15AWszKMDNyPUhT/tracks",
+        "total": 40
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:1eLLAcX15AWszKMDNyPUhT"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4iGT6iJzdaH8KAytEOEfDS"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4iGT6iJzdaH8KAytEOEfDS",
+      "id": "4iGT6iJzdaH8KAytEOEfDS",
+      "images": [
+        {
+          "height": null,
+          "url": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845b78dee73f8075f7673446ab",
+          "width": null
+        }
+      ],
+      "name": "Soothing and Calm 💆🏽‍♂️",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAADr7bwa28fApoWSXDjGkUoHf5cdq0X",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4iGT6iJzdaH8KAytEOEfDS/tracks",
+        "total": 25
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4iGT6iJzdaH8KAytEOEfDS"
+    },
+    {
+      "collaborative": false,
+      "description": "My favourite songs from The Cavemen atm. Will be updated once in a while.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/52m8zXTg78s0JzT0MwBMdw"
+      },
+      "href": "https://api.spotify.com/v1/playlists/52m8zXTg78s0JzT0MwBMdw",
+      "id": "52m8zXTg78s0JzT0MwBMdw",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d00001e024a4db4502cb727c4d3f10461ab67616d00001e028e58253d7b911ce3e3cdec62ab67616d00001e02e1646619405fc81937e8ac94ab67616d00001e02f4484bfdaac17141f4ae5ccd",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d00001e024a4db4502cb727c4d3f10461ab67616d00001e028e58253d7b911ce3e3cdec62ab67616d00001e02e1646619405fc81937e8ac94ab67616d00001e02f4484bfdaac17141f4ae5ccd",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d00001e024a4db4502cb727c4d3f10461ab67616d00001e028e58253d7b911ce3e3cdec62ab67616d00001e02e1646619405fc81937e8ac94ab67616d00001e02f4484bfdaac17141f4ae5ccd",
+          "width": 60
+        }
+      ],
+      "name": "Cavemen  🌴",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAAAUcg7WeEuLX65yra7Nx0JKjBMNKZ/",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/52m8zXTg78s0JzT0MwBMdw/tracks",
+        "total": 23
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:52m8zXTg78s0JzT0MwBMdw"
+    },
+    {
+      "collaborative": false,
+      "description": "Intimate night in✨",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/6JJHuUfSgU7sRnstrRvFWt"
+      },
+      "href": "https://api.spotify.com/v1/playlists/6JJHuUfSgU7sRnstrRvFWt",
+      "id": "6JJHuUfSgU7sRnstrRvFWt",
+      "images": [
+        {
+          "height": null,
+          "url": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da842e08e3e31c9ef7020d48caf7",
+          "width": null
+        }
+      ],
+      "name": "Full Moon 🌑",
+      "owner": {
+        "display_name": "Emino",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/zw88cjekc0mhq36xvt929pr1v"
+        },
+        "href": "https://api.spotify.com/v1/users/zw88cjekc0mhq36xvt929pr1v",
+        "id": "zw88cjekc0mhq36xvt929pr1v",
+        "type": "user",
+        "uri": "spotify:user:zw88cjekc0mhq36xvt929pr1v"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "AAABtnHorIlDEu2urG8MqduXcrKuzn8m",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/6JJHuUfSgU7sRnstrRvFWt/tracks",
+        "total": 34
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:6JJHuUfSgU7sRnstrRvFWt"
+    }
+  ]
+}
