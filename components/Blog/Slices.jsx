@@ -26,15 +26,15 @@ export default function Slices(props, {markdownContent}) {
       <PrismicRichText 
         field={slices}
         components={{
-          heading3: ({ children,text }) => <h3 id={text} className='text-lg sm:text-xl md:text-2xl font-quicksand font-bold mt-5 mb-1'>{children}</h3>,
-          heading5: ({ children,text }) => <h5 id={text} className='text-md md:text-lg font-quicksand font-bold mt-5 mb-1'>{children}</h5>,
+          heading3: ({ children,text }) => <h3 id={text} className='text-lg sm:text-xl md:text-2xl font-header font-bold mt-5 mb-1'>{children}</h3>,
+          heading5: ({ children,text }) => <h5 id={text} className='text-md md:text-lg font-header font-semibold mt-5 mb-1'>{children}</h5>,
           paragraph: ({ children }) => <p className='mb-3 text-sm md:text-base'>{children}</p>,
           listItem: ({ children }) => <li className='mb-1 text-sm md:text-base'>{children}</li>,
           oListItem: ({ children }) => <li className='mb-1 text-sm md:text-base'>{children}</li>,
           blockquote: ({children}) => <blockquote>{children}</blockquote>,
           hyperlink: ({ node, children }) => {
             const url = linkResolver(node.data)
-            return <a target={node.data.target} href={node.data.url} className="bg-link md:bg-link-md dark:bg-link-dark bg-clip-text text-transparent">{children}</a>
+            return <a target={node.data.target} href={node.data.url} className="bg-amber-600 dark:bg-link-dark bg-clip-text text-transparent">{children}</a>
           },
           image: ({ node }) => {
             const linkUrl = node.linkTo ? linkResolver(node.linkTo) : null

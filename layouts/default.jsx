@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 
 
 const DefaultLayout = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState(false)
 
   function changeDarkMode() {//adds the dark class to the html tag (required for the dark-mode styling to work in tailwind)
     const root = document.documentElement
@@ -17,10 +17,10 @@ const DefaultLayout = ({ children }) => {
   }
   
   useEffect(() => {
-    const root = document.documentElement
-    if(!(root.classList.contains('dark'))) {
-      root.classList.toggle('dark')
-    }
+    // const root = document.documentElement
+    // if(!(root.classList.contains('dark'))) {
+    //   root.classList.toggle('dark')
+    // }
   }, [])
   
   function toggleDarkMode () {
