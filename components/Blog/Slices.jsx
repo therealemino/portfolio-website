@@ -27,7 +27,7 @@ export default function Slices(props, {markdownContent}) {
         field={slices}
         components={{
           heading3: ({ children,text }) => <h3 id={text} className='text-lg sm:text-xl md:text-2xl font-header font-bold mt-5 mb-1'>{children}</h3>,
-          heading5: ({ children,text }) => <h5 id={text} className='text-md md:text-lg font-header font-semibold mt-5 mb-1'>{children}</h5>,
+          heading5: ({ children,text }) => <h5 id={text} className='text-md md:text-lg font-header font-bold mt-5 mb-1'>{children}</h5>,
           paragraph: ({ children }) => <p className='mb-3 text-sm md:text-base'>{children}</p>,
           listItem: ({ children }) => <li className='mb-1 text-sm md:text-base'>{children}</li>,
           oListItem: ({ children }) => <li className='mb-1 text-sm md:text-base'>{children}</li>,
