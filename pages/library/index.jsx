@@ -47,7 +47,7 @@ export default function Library(props) {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://ejeiokekeemmanuel.dev/library"
+          content="https://ejeiokekeemmanuel.vercel.app/library"
         />
         <meta property="og:title" content="Library - Ejei-Okeke Emmanuel" />
         <meta
@@ -60,7 +60,7 @@ export default function Library(props) {
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content="https://ejeiokekeemmanuel.dev/library"
+          content="https://ejeiokekeemmanuel.vercel.app/library"
         />
         <meta
           property="twitter:title"
