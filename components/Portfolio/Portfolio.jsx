@@ -5,7 +5,7 @@ export default function Portfolio(props) {
   const portfolioData = [
     {
       name: "Echezona",
-      link: "https://echezona.surge.sh/",
+      link: "https://echezona.com",
       logo: "https://echezona.surge.sh/_ipx/_/svg/logo.svg",
       desc: "Experience the ease of secure transactions with an innovative payment gateway.",
       tools: "Nuxt.js, TailwindCSS",
@@ -16,7 +16,7 @@ export default function Portfolio(props) {
       link: "https://signatureframes.com.ng",
       logo: "https://res.cloudinary.com/signatureframes/image/upload/site-assets/icon/icon.png",
       desc: "Shop Exquisite Frames & Canvas Art Prints",
-      tools: "Nuxt.js, TailwindCSS",
+      tools: "Nuxt.js, TailwindCSS, Node.js",
       role: "Web Developer",
     },
     {
@@ -40,7 +40,7 @@ export default function Portfolio(props) {
       link: "https://bookeverything.ng",
       logo: "https://bookeverything.ng/img/logo.jpg",
       desc: "E-commerce book store",
-      tools: "Nuxt.js, Vuetify",
+      tools: "Nuxt.js, Node.js, Vuetify",
       role: "Web Developer",
     },
     {
