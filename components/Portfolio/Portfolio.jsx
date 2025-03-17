@@ -5,9 +5,17 @@ export default function Portfolio(props) {
   const portfolioData = [
     {
       name: "Echezona",
-      link: "https://echezona.com",
+      link: "https://www.echezona.com",
       logo: "https://echezona.surge.sh/_ipx/_/svg/logo.svg",
       desc: "Experience the ease of secure transactions with an innovative payment gateway.",
+      tools: "Nuxt.js, TailwindCSS",
+      role: "Frontend Engineer",
+    },
+    {
+      name: "Yana",
+      link: "https://yana.finance",
+      logo: "https://assets.pennee.space/svg/logo/logo-icon-primary.svg",
+      desc: "Corporate Credit Accounts and Cash Flow Management Software.",
       tools: "Nuxt.js, TailwindCSS",
       role: "Frontend Engineer",
     },
@@ -18,14 +26,6 @@ export default function Portfolio(props) {
       desc: "Shop Exquisite Frames & Canvas Art Prints",
       tools: "Nuxt.js, TailwindCSS, Node.js",
       role: "Web Developer",
-    },
-    {
-      name: "Yana",
-      link: "https://yana.finance",
-      logo: "https://assets.pennee.space/svg/logo/logo-icon-primary.svg",
-      desc: "Corporate Credit Accounts and Cash Flow Management Software.",
-      tools: "Nuxt.js, TailwindCSS",
-      role: "Frontend Engineer",
     },
     {
       name: "Loiztravels",
