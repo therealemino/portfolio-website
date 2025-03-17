@@ -54,7 +54,7 @@ export default function Resume(props) {
       name: "IT/Frontend",
       body: "",
       organization: "Echezona",
-      link: "https://echezona.com",
+      link: "https://www.echezona.com",
     },
     {
       id: 2,
