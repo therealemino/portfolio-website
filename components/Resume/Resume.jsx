@@ -47,96 +47,14 @@ export default function Resume(props) {
     },
   ];
 
-  const experienceData = [
-    {
-      id: 1,
-      date: "July 2024 - Present",
-      name: "IT/Frontend",
-      body: "",
-      organization: "Echezona",
-      link: "https://www.echezona.com",
-    },
-    {
-      id: 2,
-      date: "October 2021 - June 2024",
-      name: "Front End Developer",
-      body: "",
-      organization: "Pennee Technologies",
-      link: "https://yana.finance",
-    },
-    {
-      id: 3,
-      date: "July - Nov 2021, Nov 2022 - March 2024",
-      name: "Front End Developer",
-      body: "",
-      organization: "Loiz Tours & travels Ltd",
-      link: "https://loiztravels.com",
-    },
-    {
-      id: 4,
-      date: "Jan 2020 - April 2022",
-      name: "Front End Developer",
-      body: "",
-      organization: "Nexbuy District",
-      link: "https://www.nexbuydistrict.com/",
-    },
-    {
-      id: 5,
-      date: "August 2019 - January 2020",
-      name: "Brand Ambassador",
-      body: "Conduct day-to-day coordination, planning, and implementation of all activities involved in speaking about the company to the public as well as working closely, and getting feedback with webapp clients of the company",
-      organization: "Nexbuy District",
-      link: "https://www.nexbuydistrict.com/",
-    },
-    {
-      id: 6,
-      date: "Oct 2020 - Jan 2021",
-      name: "Volunteer Intern",
-      body: "Front-end developer and 'in-person' educator",
-      organization: "Coriftech Solutions Ltd",
-      link: "https://coriftech.com/",
-    },
-    // {
-    //   id: 5,
-    //   date: "January 2021 - Present",
-    //   name: "Escrow Officer",
-    //   body: "Regulate payment of the funds required for parties involved in a given transaction by holding and ensuring security of funds and all necessary obligations are met.",
-    //   organization: "NEXSCROW [A subsidiary of Nexbuy District]",
-    //   link: "https://nexscrow.herokuapp.com/"
-    // },
-    {
-      id: 7,
-      date: "July 2019 - December 2019",
-      name: "Student Intern",
-      body: "Worked with the Drawing Engineer/Draftsman in editing drawing structures for the then-ongoing project: 'Refurbishment of a Single Point Mooring Buoy'",
-      organization: "West African Oilfield Services Ltd",
-      link: "https://www.businesslist.com.ng/company/167540/west-african-oilfield-services-limited",
-    },
-  ];
-
   return (
     <div id="resume" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center font-semibold font-nunito text-2xl md:text-4xl">
+      <div className="text-center font-semibold text-2xl md:text-4xl">
         Resume
       </div>
-      <div className="md:grid md:grid-cols-12 gap-4 md:w-5/6 mx-auto">
-        <div className="col-start-1 col-span-6">
-          <div data-aos="fade-right" data-aos-duration="2000">
-            <ResumeTile
-              name="Education / Certifications"
-              educationData={educationData}
-              experienceData={experienceData}
-            />
-          </div>
-        </div>
-        <div className="col-start-7 col-span-6">
-          <div data-aos="fade-left" data-aos-duration="2000">
-            <ResumeTile
-              name="Work Experience"
-              educationData={educationData}
-              experienceData={experienceData}
-            />
-          </div>
+      <div className="md:w-5/6 mx-auto">
+        <div data-aos="fade-right" data-aos-duration="2000">
+          <ResumeTile name="Education / Certifications" educationData={educationData} />
         </div>
       </div>
       <div className="text-center md:text-center px-6">

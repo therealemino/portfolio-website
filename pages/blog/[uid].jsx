@@ -104,7 +104,7 @@ export default function BlogId(props) {
                         href={`#${text}`}
                         className="text-sm font-header font-semibold mt-5 mb-1"
                       >
-                        <a className="flex items-center py-2 text-sm hover:text-cool-gray-800 dark:hover:text-white hover:font-medium">
+                        <a className="flex items-center py-2 text-sm hover:text-gray-800 dark:hover:text-white hover:font-medium">
                           <Icon
                             icon="fa6-solid:location-dot"
                             className="mr-2"
@@ -118,7 +118,7 @@ export default function BlogId(props) {
                         href={`#${text}`}
                         className="text-xs font-header mt-5 mb-1"
                       >
-                        <a className="flex items-center font-normal py-2 hover:text-cool-gray-700 dark:hover:text-white hover:font-medium text-sm ml-6">
+                        <a className="flex items-center font-normal py-2 hover:text-gray-700 dark:hover:text-white hover:font-medium text-sm ml-6">
                           <Icon
                             icon="akar-icons:arrow-forward-thick-fill"
                             className="mr-2"
@@ -145,7 +145,7 @@ export default function BlogId(props) {
                       `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                     )}`}
                     target="_blank"
-                    className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                    className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
                   >
                     <Icon icon="akar-icons:twitter-fill" className="text-xl" />
                   </a>
@@ -155,14 +155,14 @@ export default function BlogId(props) {
                     )}`}
                     target="_blank"
                     data-action="share/whatsapp/share"
-                    className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                    className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
                   >
                     <Icon icon="ri:whatsapp-fill" className="text-xl" />
                   </a>
                   <a
                     href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
                     target="_blank"
-                    className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                    className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
                   >
                     <Icon
                       icon="akar-icons:linkedin-box-fill"
@@ -188,7 +188,7 @@ export default function BlogId(props) {
                   `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                 )}`}
                 target="_blank"
-                className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
               >
                 <Icon
                   icon="akar-icons:twitter-fill"
@@ -201,14 +201,14 @@ export default function BlogId(props) {
                 )}`}
                 target="_blank"
                 data-action="share/whatsapp/share"
-                className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
               >
                 <Icon icon="ri:whatsapp-fill" className="mx-1 text-3xl" />
               </a>
               <a
                 href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
                 target="_blank"
-                className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
               >
                 <Icon
                   icon="akar-icons:linkedin-box-fill"

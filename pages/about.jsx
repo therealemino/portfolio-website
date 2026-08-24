@@ -50,18 +50,19 @@ function App() {
               </h1>
               <p className="mb-4">
                 Hi, I'm Ejei-Okeke Emmanuel, but just call me Emino
-                (air-mee-know). I'm a passionate web developer specializing in
-                creating dynamic, user-friendly, and visually stunning
-                applications. My expertise lies in transforming design concepts
-                into fully functional, responsive websites that seamlessly adapt
-                to various devices.
+                (air-me-know). I live somewhere between product and engineering.
+                I started as an engineer, with a B.Eng in Electronic
+                Engineering, then years writing frontend code, before moving
+                into product leadership. I've kept one foot in each since.
               </p>
               <p className="mb-4">
-                I am dedicated to crafting high-quality code that is both
-                efficient and maintainable, ensuring optimal performance and
-                scalability. My experience with a variety of web technologies
-                and frameworks enables me to deliver innovative solutions that
-                meet the unique needs of each project.
+                I have an MBA in Fintech & Blockchain from Nexford, (came out
+                with a 4.00, which I'm still a little proud of). It sharpened
+                how I think about the business side of things: unit economics,
+                regulation, go-to-market, leadership, process improvement,
+                business operations etc. It also gave me enough distance from
+                the code to lead engineering teams properly, rather than just
+                being another contributor on them.
               </p>
               <p className="mb-4">
                 I love staying up-to-date with the ever-evolving tech landscape.
@@ -71,15 +72,12 @@ function App() {
                 exploring potential business ventures.
               </p>
               <p className="mb-4">
-                I'm always open to discussing new business opportunities and
+                I'm always open to discussing new opportunities and
                 collaborating on projects that align with my interests. I
                 believe software should ultimately serve humanity, and I'm
                 particularly drawn to initiatives that leverage technology to
-                improve people's lives. Whether it's developing AI for
-                healthcare applications, enhancing human-computer interaction,
-                or creating software solutions to improve financial well-being,
-                I'm eager to contribute to these endeavors. Feel free to reach
-                out if you have any opportunities or ideas to share.
+                improve people's lives. Feel free to reach out if you have any
+                opportunities or ideas to share.
               </p>
             </div>
           </div>

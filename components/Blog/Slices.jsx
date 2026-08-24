@@ -91,7 +91,7 @@ export default function Slices(props, { markdownContent }) {
           },
           preformatted: ({ children }) => {
             return (
-              <div className="relative overflow-auto max-h-96 my-4 bg-medium-green md:bg-cool-gray-700 dark:bg-dark-brown rounded-md p-5 font-mono text-white dark:text-cool-gray-300 text-sm md:text-base">
+              <div className="relative overflow-auto max-h-96 my-4 bg-olive-700 md:bg-olive-800 dark:bg-dark-brown rounded-md p-5 font-mono text-white dark:text-brown-300 text-sm md:text-base">
                 <pre className="overflow-auto">
                   <code className="language-js language-css language-py language-jsx">
                     {children}

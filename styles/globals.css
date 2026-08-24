@@ -12,17 +12,22 @@
   .body a {
     @apply underline
   }
-  ol li {
+  /* Scoped to .body (the blog prose wrapper in pages/blog/[uid].jsx). These
+     were global, so every <li> on the site — card grids, the footer social
+     links — inherited a marker and an indent. */
+  .body ol li {
     @apply list-decimal ml-4
   }
-  ul li {
+  .body ul li {
     @apply list-disc ml-4
   }
 }
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Lobster&family=Cutive+Mono&display=swap');
+/* Cutive Mono is the only face loaded here.
+   Saira (display) + Titillium Web (header) come from _document.jsx. */
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
 
 
 html,

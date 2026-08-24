@@ -1,0 +1,439 @@
+<!doctype html>
+<!--
+  Source for public/resume.pdf.
+
+  Regenerate after editing (needs a local Chrome):
+    npx puppeteer-core ...  — or any HTML-to-PDF that prints backgrounds, e.g.
+    chrome --headless=new --print-to-pdf=public/resume.pdf --no-pdf-header-footer resume/resume.html
+
+  ATS notes — keep these true when editing:
+    * single column, no tables, no multi-column CSS
+    * every heading is a real <h2>, every entry real text (no text baked into images)
+    * nothing meaningful in page headers/footers
+    * contact details as plain selectable text at the top
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejei-Okeke Emmanuel — Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Brand palette, same tokens as the site */
+      :root {
+        --paper: #efece4;
+        --paper-50: #f7f5f0;
+        --ink: #2b282c;
+        --muted: #6a5f5f;
+        --rule: #d8d3c5;
+        --olive: #4c574f;
+        --amber: #b45309;
+      }
+
+      @page {
+        size: A4;
+        margin: 13mm 14mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Saira, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 9.6pt;
+        line-height: 1.45;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* ── Masthead ─────────────────────────────── */
+      h1 {
+        margin: 0;
+        font-size: 26pt;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+
+      .title {
+        margin: 4pt 0 0;
+        font-size: 10.5pt;
+        font-weight: 600;
+        color: var(--olive);
+      }
+
+      .contact {
+        margin: 7pt 0 0;
+        font-size: 8.6pt;
+        color: var(--muted);
+      }
+
+      .contact a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .masthead {
+        padding-bottom: 9pt;
+        border-bottom: 1.6pt solid var(--olive);
+      }
+
+      /* ── Sections ─────────────────────────────── */
+      /* No letter-spacing on section headings. Tracked-out text makes Chrome's
+         PDF text layer emit "S U M M A R Y", so an ATS scanning for section
+         headings finds none of them. Weight and colour carry the look instead. */
+      h2 {
+        margin: 15pt 0 7pt;
+        font-size: 9.5pt;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--olive);
+        border-bottom: 0.6pt solid var(--rule);
+        padding-bottom: 3pt;
+      }
+
+      .summary {
+        margin: 0;
+        max-width: 100%;
+      }
+
+      /* ── Entries ──────────────────────────────── */
+      .entry {
+        margin-bottom: 8.5pt;
+        page-break-inside: avoid;
+      }
+
+      .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10pt;
+      }
+
+      .org {
+        font-size: 10.5pt;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .dates {
+        font-size: 8.4pt;
+        font-weight: 600;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .role {
+        margin: 1pt 0 2pt;
+        font-size: 9.2pt;
+        font-weight: 600;
+        color: var(--amber);
+      }
+
+      .note {
+        margin: 0;
+        color: var(--ink);
+      }
+
+      .link {
+        font-size: 8.4pt;
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      /* ── Compact lists ────────────────────────── */
+      .rows {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .rows li {
+        margin-bottom: 3.5pt;
+        page-break-inside: avoid;
+      }
+
+      .rows .what {
+        font-weight: 600;
+      }
+
+      .rows .where {
+        color: var(--muted);
+      }
+
+      .skills p {
+        margin: 0 0 3.5pt;
+      }
+
+      .skills .cat {
+        font-weight: 700;
+        color: var(--olive);
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="masthead">
+      <h1>Ejei-Okeke Emmanuel</h1>
+      <p class="title">
+        Product &amp; Engineering Leader — Fintech, Blockchain &amp; Identity
+        Infrastructure
+      </p>
+      <p class="contact">
+        <a href="mailto:ejeiokekeemmanuel@gmail.com"
+          >ejeiokekeemmanuel@gmail.com</a
+        >
+        &nbsp;·&nbsp; +234 903 223 4467 &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/ejei-okeke-emmanuel/"
+          >linkedin.com/in/ejei-okeke-emmanuel</a
+        >
+        &nbsp;·&nbsp;
+        <a href="https://github.com/therealemino">github.com/therealemino</a>
+        &nbsp;·&nbsp;
+        <a href="https://ejeiokekeemmanuel.vercel.app/"
+          >ejeiokekeemmanuel.vercel.app</a
+        >
+      </p>
+    </header>
+
+    <h2>Summary</h2>
+    <p class="summary">
+      Product and engineering leader with 7+ years across payments, lending,
+      travel, fashion and education. I work at the intersection of product and
+      engineering — setting direction and sitting in the codebase that executes
+      it, often on the same day. Focus areas are payments and fintech
+      infrastructure: routing, settlements, credit, identity, and the decisions
+      that keep them reliable at scale. Work has included lifting transaction
+      success rates from roughly 78–82% to 96–98%. MBA in Fintech &amp;
+      Blockchain (4.00 CGPA). Currently co-founding and leading three ventures
+      alongside full-time product work.
+    </p>
+
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Echezona Digital Gateway Ltd</span>
+        <span class="dates">Jul 2024 – Present</span>
+      </div>
+      <p class="role">Product Lead &amp; Senior Frontend Engineer</p>
+      <p class="note">
+        A CBN-licensed Payment Solution Service Provider, powering card, USSD,
+        bank transfer, and virtual account rails.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Tytron Group</span>
+        <span class="dates">Jan 2026 – Present</span>
+      </div>
+      <p class="role">Product Manager, Digital Projects — Kulturee</p>
+      <p class="note">
+        A global travel and cultural experience platform, under Tytron's
+        strategy and management consultancy.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Elieman</span>
+        <span class="dates">Aug 2024 – Present</span>
+      </div>
+      <p class="role">Product &amp; IT Engineer</p>
+      <p class="note">
+        An art and fashion house building its digital retail and gallery
+        experience. <a class="link" href="https://shopelieman.com">shopelieman.com</a>
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Loiz Tours &amp; Travels</span>
+        <span class="dates">Nov 2022 – Aug 2024</span>
+      </div>
+      <p class="role">Frontend Developer, then Junior Product Owner</p>
+      <p class="note">An e-commerce travel platform.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Pennee Technologies / Yana</span>
+        <span class="dates">Oct 2021 – Jun 2024</span>
+      </div>
+      <p class="role">Frontend Engineer (Product)</p>
+      <p class="note">
+        Corporate credit accounts, asset financing and cash flow management
+        software. A B2B credit lending startup.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Loiz Tours &amp; Travels</span>
+        <span class="dates">Jul 2021 – Nov 2021</span>
+      </div>
+      <p class="role">Frontend Developer (Volunteer)</p>
+      <p class="note">Preceded the paid engagement above.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Coriftech Solutions Ltd</span>
+        <span class="dates">Oct 2020 – Jan 2021</span>
+      </div>
+      <p class="role">Web Development Instructor (Volunteer / Intern)</p>
+      <p class="note">
+        A tech education institute in Asaba, training web development,
+        cybersecurity, and design skills across Africa.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Nexbuy District</span>
+        <span class="dates">Jan 2020 – Apr 2022</span>
+      </div>
+      <p class="role">Frontend Developer / Instructor</p>
+      <p class="note">
+        An e-commerce startup with an in-house tech education arm, Nexlearn.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">West African Oilfield Services</span>
+        <span class="dates">Jul 2019 – Dec 2019</span>
+      </div>
+      <p class="role">Student Intern (Engineering)</p>
+      <p class="note">An oil &amp; gas field services company.</p>
+    </div>
+
+    <h2>Ventures</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Veem</span>
+        <span class="dates">Co-founder &amp; CEO</span>
+      </div>
+      <p class="note">
+        A consent-first identity verification and KYC orchestration layer for
+        Nigeria, aggregating BVN and NIN checks and biometric verification into
+        a single confidence-scored identity signal for merchants. I lead
+        strategy and product direction.
+        <a class="link" href="https://useveem.com">useveem.com</a>
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Rimoswap</span>
+        <span class="dates">Co-founder &amp; CTO</span>
+      </div>
+      <p class="note">
+        An Africa-first digital-asset platform — trading, wallets, P2P, and
+        stablecoin-based cross-border payments, with live web and Android
+        products. I lead engineering and still write and maintain code.
+        <a class="link" href="https://rimoswap.com">rimoswap.com</a>
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Emino Digital Technologies</span>
+        <span class="dates">Founder</span>
+      </div>
+      <p class="note">
+        A selective software development and technology advisory studio
+        (CAC-registered), taking on a limited number of engagements per quarter.
+        Client work spans fintech, hospitality, and consumer platforms.
+        <a class="link" href="https://eminotechnologies.com"
+          >eminotechnologies.com</a
+        >
+      </p>
+    </div>
+
+    <h2>Education</h2>
+    <ul class="rows">
+      <li>
+        <span class="what">MBA, Fintech &amp; Blockchain</span> —
+        <span class="where">Nexford University (4.00 CGPA)</span>
+      </li>
+      <li>
+        <span class="what">B.Eng, Electronic Engineering</span> —
+        <span class="where"
+          >University of Nigeria &nbsp;·&nbsp; Oct 2015 – Jul 2021</span
+        >
+      </li>
+    </ul>
+
+    <h2>Certifications</h2>
+    <ul class="rows">
+      <li>
+        <span class="what">How to Build Digital Products</span> —
+        <span class="where">Product School &nbsp;·&nbsp; Apr 2020</span>
+      </li>
+      <li>
+        <span class="what">HTML, CSS &amp; JavaScript for Web Developers</span>
+        —
+        <span class="where"
+          >Johns Hopkins University / Coursera &nbsp;·&nbsp; Aug 2020</span
+        >
+      </li>
+      <li>
+        <span class="what">Python for Everybody Specialization</span> —
+        <span class="where"
+          >University of Michigan / Coursera &nbsp;·&nbsp; Oct 2020</span
+        >
+      </li>
+      <li>
+        <span class="what">Creative Problem Solving</span> —
+        <span class="where"
+          >University of Minnesota / Coursera &nbsp;·&nbsp; Oct 2020</span
+        >
+      </li>
+      <li>
+        <span class="what">AI for Everyone</span> —
+        <span class="where">DeepLearning.AI &nbsp;·&nbsp; Nov 2020</span>
+      </li>
+      <li>
+        <span class="what">Fundamentals of Digital Marketing</span> —
+        <span class="where"
+          >Google Digital Skills for Africa &nbsp;·&nbsp; May 2020</span
+        >
+      </li>
+    </ul>
+
+    <h2>Skills</h2>
+    <div class="skills">
+      <p>
+        <span class="cat">Product:</span> Product strategy and direction,
+        roadmapping, discovery, process optimisation, cross-functional team
+        leadership.
+      </p>
+      <p>
+        <span class="cat">Engineering:</span> JavaScript, React, Next.js, Vue,
+        Node.js, Python, REST APIs, PWAs.
+      </p>
+      <p>
+        <span class="cat">Domain:</span> Payments (card, USSD, bank transfer,
+        virtual accounts), KYC and identity verification, digital assets and
+        stablecoins, B2B credit and lending, e-commerce.
+      </p>
+    </div>
+  </body>
+</html>

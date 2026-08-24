@@ -80,7 +80,7 @@ export default function Library(props) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             {articles.map((item) => (
               <Link href={`/blog/${item.uid}`} key={item.id} className="">
-                <div className="relative rounded-lg bg-white dark:bg-dark-brown border-2 border-gray-100 dark:border-[#242121] cursor-pointer pb-12">
+                <div className="relative rounded-lg bg-paper-50 dark:bg-dark-brown border-2 border-paper-300 dark:border-[#242121] cursor-pointer pb-12">
                   <div
                     // { Blog image }
                     className="w-full h-40 rounded-t-md bg-cover bg-center"
