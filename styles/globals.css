@@ -44,6 +44,19 @@ a {
   text-decoration: none;
 }
 
+/* Hides the scrollbar on the Tune In carousel without disabling scrolling —
+   the arrows and the peeking next card are the affordance there. Applied only
+   to that one element; do not reach for it on anything a reader must scroll
+   to finish reading. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   box-sizing: border-box;
 }
