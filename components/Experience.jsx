@@ -1,4 +1,5 @@
 import React from "react";
+import ArrowOut from "./ArrowOut";
 
 /* Order is exactly as supplied — current roles first, then past. Note it is not
    strictly reverse-chronological (Nexbuy ran to Apr 2022 but sits below
@@ -72,23 +73,6 @@ const ROLES = [
     note: "An oil & gas field services company.",
   },
 ];
-
-function ArrowOut() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className="mt-[3px] h-3 w-3 shrink-0 opacity-40 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
-    >
-      <path d="M7 17L17 7M9 7h8v8" />
-    </svg>
-  );
-}
 
 export default function Experience(props) {
   return (
@@ -164,7 +148,7 @@ export default function Experience(props) {
                       className="group inline-flex items-start gap-1 transition-colors duration-300 hover:text-amber-700 dark:hover:text-amber-500"
                     >
                       {item.company}
-                      <ArrowOut />
+                      <ArrowOut className="mt-[3px] h-3 w-3 opacity-40" />
                     </a>
                   ) : (
                     item.company
