@@ -26,12 +26,11 @@ export async function getStaticProps({ params }) {
   // typo'd relatedSlugs, 404s cleanly instead of dereferencing undefined.
   if (!study) return { notFound: true };
 
-  // `realName` and the other reference-only fields are dropped here: whatever
-  // this returns is serialised into the page and shipped to the browser.
-  const { realName, ...safe } = study;
-
+  // Whatever this returns is serialised into the page and shipped to the
+  // browser, so the entry itself must hold nothing private — the validator
+  // in data/case-studies.js is what enforces that on aliased entries.
   return {
-    props: { study: safe, related: getRelated(study).map(toCard) },
+    props: { study, related: getRelated(study).map(toCard) },
   };
 }
 
@@ -58,6 +57,8 @@ function Fact({ label, children }) {
 }
 
 export default function CaseStudyDetail({ study, related }) {
+  /* Aliased entries carry no role, org, period or stints — see the validator
+     in data/case-studies.js. The rail is read off whatever is left. */
   const facts = [
     study.role,
     study.org,
@@ -100,6 +101,7 @@ export default function CaseStudyDetail({ study, related }) {
             <Eyebrow>
               {[
                 study.kind === "venture" ? "Venture" : "Client work",
+                study.sector,
                 study.org,
                 study.period,
               ]
@@ -111,10 +113,18 @@ export default function CaseStudyDetail({ study, related }) {
               {study.shortName || study.name}
             </h1>
 
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <span className="rounded-full bg-olive-100 px-3 py-1 font-cutive-mono text-[10px] uppercase tracking-[0.12em] text-olive-800 dark:bg-brown-900 dark:text-olive-200">
-                {study.role}
-              </span>
+            <div
+              className={`flex flex-wrap items-center gap-3 ${
+                study.role || study.alias ? "mt-5" : ""
+              }`}
+            >
+              {/* No job title here. Combined with the dates it used to sit
+                  beside, it mapped an alias straight onto a timeline row. */}
+              {study.role ? (
+                <span className="rounded-full bg-olive-100 px-3 py-1 font-cutive-mono text-[10px] uppercase tracking-[0.12em] text-olive-800 dark:bg-brown-900 dark:text-olive-200">
+                  {study.role}
+                </span>
+              ) : null}
 
               {study.alias ? (
                 <span className="font-cutive-mono text-[10px] uppercase tracking-[0.12em] text-brown-500 dark:text-brown-400">
@@ -288,14 +298,16 @@ export default function CaseStudyDetail({ study, related }) {
           {study.outcomes ? (
             <div className="mt-20 md:mt-24">
               <Eyebrow>Outcomes</Eyebrow>
-              <ul className="mt-8 grid list-none grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
+              {/* A single column, not a grid: these run long, and two narrow
+                  columns of prose read as a wall rather than as a list. */}
+              <ul className="mt-8 max-w-3xl list-none space-y-4">
                 {study.outcomes.map((item) => (
                   <li key={item} className="ml-0 flex gap-3">
                     <span
                       aria-hidden="true"
                       className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-700 dark:bg-amber-500"
                     />
-                    <span className="text-sm leading-relaxed text-brown-700 dark:text-gray-300">
+                    <span className="text-sm md:text-base leading-relaxed text-brown-700 dark:text-gray-300">
                       {item}
                     </span>
                   </li>

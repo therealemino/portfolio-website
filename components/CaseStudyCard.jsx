@@ -12,15 +12,13 @@ export default function CaseStudyCard({ study }) {
     <li className="ml-0">
       <Link href={`/case-studies/${study.slug}`}>
         <a className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-paper-50 p-7 ring-1 ring-dark-brown/[0.06] transition duration-300 hover:ring-dark-brown/20 dark:bg-brown-900 dark:ring-cream/[0.06] dark:hover:ring-cream/20 md:p-8">
+          {/* Sector, not role and dates. A job title against a date range is
+              what let a codenamed card be matched to a timeline row. */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-cutive-mono text-[11px] uppercase tracking-wider text-brown-500 dark:text-brown-400">
-            {study.status === "current" ? (
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 shrink-0 rounded-full bg-olive-500 dark:bg-olive-300"
-              />
-            ) : null}
-            <span>{study.role}</span>
-            {study.period ? <span>{study.period}</span> : null}
+            <span>
+              {study.sector ||
+                (study.kind === "venture" ? "Venture" : "Client work")}
+            </span>
           </div>
 
           <h3 className="mt-3 font-display text-xl font-black tracking-tight text-dark-brown transition-colors duration-300 group-hover:text-amber-700 dark:text-cream dark:group-hover:text-amber-500">
