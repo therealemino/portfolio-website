@@ -79,8 +79,11 @@ export default function Library(props) {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             {articles.map((item) => (
-              <Link href={`/blog/${item.uid}`} key={item.id} className="">
-                <div className="relative rounded-lg bg-paper-50 dark:bg-dark-brown border-2 border-paper-300 dark:border-[#242121] cursor-pointer pb-12">
+              // The child must be a literal <a>: next/link forwards href only
+              // to an anchor, so a <div> here left every article card
+              // unlinked — no crawlable path to any post. See Navbar.jsx.
+              <Link href={`/blog/${item.uid}`} key={item.id}>
+                <a className="relative block rounded-lg bg-paper-50 dark:bg-dark-brown border-2 border-paper-300 dark:border-[#242121] cursor-pointer pb-12">
                   <div
                     // { Blog image }
                     className="w-full h-40 rounded-t-md bg-cover bg-center"
@@ -114,7 +117,7 @@ export default function Library(props) {
                       </p>
                     </div>
                   </div>
-                </div>
+                </a>
               </Link>
             ))}
           </div>

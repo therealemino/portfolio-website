@@ -2,22 +2,13 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-class MyLink extends React.Component {
-  render() {
-    const { onCustomClick, ...props } = this.props;
-    return <a {...props} onClick={this.handleClick} />;
-  }
-
-  handleClick = (event) => {
-    if (this.props.onClick) {
-      this.props.onClick(event);
-    }
-
-    if (this.props.onCustomClick) {
-      this.props.onCustomClick(event);
-    }
-  };
-}
+/* Every child of next/link here must be a literal <a>. Next 12 only forwards
+   href to the child when `child.type === 'a'` (or with passHref) — a wrapper
+   component or a <div> silently renders an anchor with no href, which is not
+   a link at all: not crawlable, no SEO value, no middle-click, no copy link
+   address. That is what a custom <MyLink> class here used to do to the whole
+   navbar. Link still calls the child's own onClick before navigating, so
+   closing the mobile menu needs no wrapper. */
 
 export default function Navbar(props) {
   const router = useRouter();
@@ -51,27 +42,32 @@ export default function Navbar(props) {
     "text-zinc-800 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-800 p-2 text-xs font-semibold duration-300 cursor-pointer";
 
   const navList = navItems.map((item) => (
-    <Link id={item.id} href={item.href} key={item.id}>
-      <MyLink
+    <Link href={item.href} key={item.id}>
+      <a
+        aria-current={isActive(item.href) ? "page" : undefined}
         className={isActive(item.href) ? activeNavStyle : normalNavStyle}
       >
         {item.name}
-      </MyLink>
+      </a>
     </Link>
   ));
 
+  const mobileNavStyle =
+    "block focus:outline-none duration-300 font-display font-semibold hover:bg-amber-50 dark:hover:bg-brown-800 dark:hover:text-brown-300 px-3 py-2 rounded-md text-xs md:text-sm cursor-pointer";
+
   const navListMobile = navItems.map((item) => (
-    <Link id={item.id} href={item.href} key={item.id}>
-      <MyLink
-        onClick={() => closeNavList()}
+    <Link href={item.href} key={item.id}>
+      <a
+        onClick={closeNavList}
+        aria-current={isActive(item.href) ? "page" : undefined}
         className={`${
           isActive(item.href)
             ? "bg-amber-50 text-amber-800 border border-amber-100 dark:bg-brown-900 dark:text-brown-300 dark:border-brown-700"
-            : "text-navbar-brown"
-        } "d-block block focus:outline-none duration-300 font-display font-semibold hover:bg-amber-50 dark:text-gray-300 dark:hover:bg-brown-800 dark:hover:text-brown-300 px-3 py-2 rounded-md text-xs md:text-sm cursor-pointer"`}
+            : "text-navbar-brown dark:text-gray-300"
+        } ${mobileNavStyle}`}
       >
         {item.name}
-      </MyLink>
+      </a>
     </Link>
   ));
 
@@ -92,12 +88,15 @@ export default function Navbar(props) {
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center text-gray-800 dark:text-gray-300 font-display font-bold text-xs md:text-sm uppercase">
                 <Link href="/">
-                  <div className="flex items-center cursor-pointer">
+                  <a
+                    onClick={closeNavList}
+                    className="flex items-center cursor-pointer"
+                  >
                     <div className="bg-[url('~/assets/mobile-jumbotron.jpg')] md:bg-[url('https://avatars.githubusercontent.com/u/67398035?v=4')] dark:bg-footer h-8 w-8 lg:h-10 lg:w-10 bg-cover rounded-full mx-auto my-auto mr-2 font-header">
                       {/* PROFILE IMAGE - ABOUT SECTION*/}
                     </div>
-                    <h1 onClick={() => closeNavList()}>Ejei-Okeke Emmanuel</h1>
-                  </div>
+                    <h1>Ejei-Okeke Emmanuel</h1>
+                  </a>
                 </Link>
               </div>
 

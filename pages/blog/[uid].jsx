@@ -104,10 +104,14 @@ export default function BlogId(props) {
                         href={`#${text}`}
                         className="text-sm font-header font-semibold mt-5 mb-1"
                       >
-                        <a className="flex items-center py-2 text-sm hover:text-gray-800 dark:hover:text-white hover:font-medium">
+                        {/* items-start so the marker sits on the first line of
+                            a wrapped entry, and shrink-0 with an explicit size
+                            so flex cannot squash it — without both, the marker
+                            changed size and drifted from row to row. */}
+                        <a className="flex items-start py-2 text-sm hover:text-gray-800 dark:hover:text-white hover:font-medium">
                           <Icon
-                            icon="fa6-solid:location-dot"
-                            className="mr-2"
+                            icon="akar-icons:chevron-right"
+                            className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-60"
                           />
                           {children}
                         </a>
@@ -118,10 +122,10 @@ export default function BlogId(props) {
                         href={`#${text}`}
                         className="text-xs font-header mt-5 mb-1"
                       >
-                        <a className="flex items-center font-normal py-2 hover:text-gray-700 dark:hover:text-white hover:font-medium text-sm ml-6">
+                        <a className="flex items-start font-normal py-2 hover:text-gray-700 dark:hover:text-white hover:font-medium text-sm ml-6">
                           <Icon
-                            icon="akar-icons:arrow-forward-thick-fill"
-                            className="mr-2"
+                            icon="akar-icons:chevron-right"
+                            className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-40"
                           />
                           {children}
                         </a>
@@ -135,7 +139,7 @@ export default function BlogId(props) {
                   Date Published: {data.date}
                 </p>
                 <p className="text-xs lg:text-sm mt-5 font-header">
-                  Enjoyed the article? Please Share
+                  Enjoyed the article? Share
                 </p>
                 <div className="flex justify-left items-center mt-2">
                   <a
@@ -178,7 +182,7 @@ export default function BlogId(props) {
               Date Published: {data.date}
             </p>
             <p className="text-sm lg:text-sm mt-5 font-header">
-              Enjoyed the article? Please Share
+              Enjoyed the article? Share
             </p>
             <div className="flex justify-center items-center mt-2">
               <a

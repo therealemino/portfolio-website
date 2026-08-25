@@ -47,7 +47,11 @@
 
       @page {
         size: A4;
-        margin: 9mm 11mm;
+        /* Zero, because Chrome paints nothing into the page margin area: not the
+           root background, not a position:fixed layer (it is clipped to the
+           page area). The only way to get cream to the sheet edge is to have
+           no margin and inset the content with padding instead. */
+        margin: 0;
       }
 
       * {
@@ -67,17 +71,13 @@
         print-color-adjust: exact;
       }
 
-      /* Cream to the sheet edge. Bleeds past the page margins on all four
-         sides; repeats per page because it is fixed. */
-      body::before {
-        content: "";
-        position: fixed;
-        top: calc(-1 * var(--pad-y));
-        bottom: calc(-1 * var(--pad-y));
-        left: calc(-1 * var(--pad-x));
-        right: calc(-1 * var(--pad-x));
-        background: var(--paper);
-        z-index: -1;
+      /* The page inset lives here, not in @page. box-decoration-break: clone
+         repeats this padding on every fragment, so page 2 and 3 get the same
+         top inset as page 1 instead of starting at the sheet edge. */
+      .sheet {
+        padding: var(--pad-y) var(--pad-x);
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
       }
 
       /* ── Masthead ─────────────────────────────── */
@@ -223,6 +223,7 @@
   </head>
 
   <body>
+    <div class="sheet">
     <header class="masthead">
       <h1>Ejei-Okeke Emmanuel Chijioke</h1>
       <p class="title">
@@ -792,5 +793,6 @@
 
     <h2>Interests</h2>
     <p>AI, statistics, startups, sports, art.</p>
+    </div>
   </body>
 </html>

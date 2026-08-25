@@ -29,7 +29,9 @@ const Interests = () => {
               music evokes emotions and emotions make the life experience more
               beautiful. Check out some of my favourite curated Spotify {" "}
               <Link href="/#playlists">
-                <span className="!text-amber-600 cursor-pointer font-medium">playlists</span>
+                <a className="!text-amber-600 cursor-pointer font-medium">
+                  playlists
+                </a>
               </Link>
               .
             </li>
