@@ -31,7 +31,7 @@ export default function Footer(props) {
         {/* The email is the whole call to action; no form to fill in first. */}
         <a
           href={`mailto:${EMAIL}`}
-          className="group mt-10 inline-flex flex-wrap items-baseline gap-x-3 font-display text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-dark-brown transition-colors duration-300 hover:text-amber-700 dark:text-cream dark:hover:text-amber-500"
+          className="group mt-10 inline-flex flex-wrap items-baseline gap-x-3 break-all font-display text-xl sm:text-3xl md:text-4xl font-black tracking-tight text-dark-brown transition-colors duration-300 hover:text-amber-700 dark:text-cream dark:hover:text-amber-500"
         >
           {EMAIL}
           <span

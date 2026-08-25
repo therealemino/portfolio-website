@@ -25,21 +25,35 @@ export default function Navbar(props) {
 
   const [navItems, setNavItems] = useState([
     { name: "About", id: "2", href: "/about" },
-    { name: "Resume", id: "4", href: "/#resume" },
-    { name: "Portfolio", id: "3", href: "/#portfolio" },
+    // was Portfolio -> /#portfolio, an anchor no longer on the page.
+    // Resume was dropped: /#resume was also dead, and the PDF is already
+    // linked from the hero, the Experience section, the footer and the
+    // case-studies index.
+    { name: "Case Studies", id: "3", href: "/case-studies" },
     { name: "Contact", id: "5", href: "/#contact" },
     { name: "Library", id: "6", href: "/library" },
   ]);
 
+  /* asPath carries query and hash, and exact equality misses detail routes
+     like /case-studies/veem. One helper so the desktop and mobile lists
+     cannot drift apart. */
+  const path = asPath.split("?")[0].split("#")[0];
+  const isActive = (href) =>
+    href.startsWith("/#")
+      ? false
+      : href === "/"
+      ? path === "/"
+      : path === href || path.startsWith(href + "/");
+
   const activeNavStyle =
-    "text-amber-600 dark:text-amber-800 p-2 text-xs font-semibold cursor-pointer mx-1 border-b-2 border-amber-600 dark:border-amber-800";
+    "text-amber-600 dark:text-amber-500 p-2 text-xs font-semibold cursor-pointer mx-1 border-b-2 border-amber-600 dark:border-amber-500";
   const normalNavStyle =
     "text-zinc-800 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-800 p-2 text-xs font-semibold duration-300 cursor-pointer";
 
   const navList = navItems.map((item) => (
     <Link id={item.id} href={item.href} key={item.id}>
       <MyLink
-        className={asPath === item.href ? activeNavStyle : normalNavStyle}
+        className={isActive(item.href) ? activeNavStyle : normalNavStyle}
       >
         {item.name}
       </MyLink>
@@ -51,7 +65,7 @@ export default function Navbar(props) {
       <MyLink
         onClick={() => closeNavList()}
         className={`${
-          asPath === item.href
+          isActive(item.href)
             ? "bg-amber-50 text-amber-800 border border-amber-100 dark:bg-brown-900 dark:text-brown-300 dark:border-brown-700"
             : "text-navbar-brown"
         } "d-block block focus:outline-none duration-300 font-display font-semibold hover:bg-amber-50 dark:text-gray-300 dark:hover:bg-brown-800 dark:hover:text-brown-300 px-3 py-2 rounded-md text-xs md:text-sm cursor-pointer"`}
@@ -125,7 +139,7 @@ export default function Navbar(props) {
             } md:hidden overflow-hidden animate-dropdown px-4 duration-500`}
           >
             {/* NAVLIST SHOW CONTENT ON PHONES. HIDE FOR LAPTOPS AND TABLETS*/}
-            <hr className="-ml-5 w-[125%] border-[0.6px] border-gray-200 dark:border-gray-800 mb-4" />
+            <hr className="-mx-4 w-auto border-[0.6px] border-gray-200 dark:border-gray-800 mb-4" />
             {navListMobile}
           </div>
         </nav>

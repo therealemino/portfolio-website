@@ -7,6 +7,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
     "./slices/**/*.{js,ts,jsx,tsx}",
+    // data/ holds no class strings today; globbed so a stray one is never purged
+    "./data/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
