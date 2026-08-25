@@ -26,10 +26,13 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env*.local
-.env.local
-.env.development
-.env.production
+# Ignore every .env variant, then re-admit the committed template. The list
+# used to name .env.local/.development/.production individually and missed
+# plain .env — which is the file secrets actually land in, and which this
+# repo has committed before (83719dd, deleted again in 15cd51c).
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel
