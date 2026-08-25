@@ -68,13 +68,13 @@ export default function BlogId(props) {
             onClick={logPage}
           >
             <Link href="/">
-              <a>
-                <Icon icon="bxs:home" className="mx-1 text-xl" />
-              </a>
+
+              <Icon icon="bxs:home" className="mx-1 text-xl" />
+
             </Link>
             <Icon icon="akar-icons:chevron-right" className="mx-1 text-sm" />
             <Link href="/library">
-              <a>Blog</a>
+              Blog
             </Link>
             <Icon icon="akar-icons:chevron-right" className="mx-1 text-sm" />
             <a>{`${data.title.substring(0, 20)}${
@@ -104,13 +104,17 @@ export default function BlogId(props) {
                         href={`#${text}`}
                         className="text-sm font-header font-semibold mt-5 mb-1"
                       >
-                        <a className="flex items-center py-2 text-sm hover:text-cool-gray-800 dark:hover:text-white hover:font-medium">
-                          <Icon
-                            icon="fa6-solid:location-dot"
-                            className="mr-2"
-                          />
-                          {children}
-                        </a>
+                        {/* items-start so the marker sits on the first line of
+                            a wrapped entry, and shrink-0 with an explicit size
+                            so flex cannot squash it — without both, the marker
+                            changed size and drifted from row to row. */}
+
+                        <Icon
+                          icon="akar-icons:chevron-right"
+                          className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-60"
+                        />
+                        {children}
+
                       </Link>
                     ),
                     heading5: ({ children, text }) => (
@@ -118,13 +122,13 @@ export default function BlogId(props) {
                         href={`#${text}`}
                         className="text-xs font-header mt-5 mb-1"
                       >
-                        <a className="flex items-center font-normal py-2 hover:text-cool-gray-700 dark:hover:text-white hover:font-medium text-sm ml-6">
-                          <Icon
-                            icon="akar-icons:arrow-forward-thick-fill"
-                            className="mr-2"
-                          />
-                          {children}
-                        </a>
+
+                        <Icon
+                          icon="akar-icons:chevron-right"
+                          className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-40"
+                        />
+                        {children}
+
                       </Link>
                     ),
                   }}
@@ -135,7 +139,7 @@ export default function BlogId(props) {
                   Date Published: {data.date}
                 </p>
                 <p className="text-xs lg:text-sm mt-5 font-header">
-                  Enjoyed the article? Please Share
+                  Enjoyed the article? Share
                 </p>
                 <div className="flex justify-left items-center mt-2">
                   <a
@@ -145,7 +149,7 @@ export default function BlogId(props) {
                       `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                     )}`}
                     target="_blank"
-                    className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                    className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
                   >
                     <Icon icon="akar-icons:twitter-fill" className="text-xl" />
                   </a>
@@ -155,14 +159,14 @@ export default function BlogId(props) {
                     )}`}
                     target="_blank"
                     data-action="share/whatsapp/share"
-                    className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                    className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
                   >
                     <Icon icon="ri:whatsapp-fill" className="text-xl" />
                   </a>
                   <a
                     href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
                     target="_blank"
-                    className="mr-2 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                    className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
                   >
                     <Icon
                       icon="akar-icons:linkedin-box-fill"
@@ -178,7 +182,7 @@ export default function BlogId(props) {
               Date Published: {data.date}
             </p>
             <p className="text-sm lg:text-sm mt-5 font-header">
-              Enjoyed the article? Please Share
+              Enjoyed the article? Share
             </p>
             <div className="flex justify-center items-center mt-2">
               <a
@@ -188,7 +192,7 @@ export default function BlogId(props) {
                   `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
                 )}`}
                 target="_blank"
-                className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
               >
                 <Icon
                   icon="akar-icons:twitter-fill"
@@ -201,14 +205,14 @@ export default function BlogId(props) {
                 )}`}
                 target="_blank"
                 data-action="share/whatsapp/share"
-                className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
               >
                 <Icon icon="ri:whatsapp-fill" className="mx-1 text-3xl" />
               </a>
               <a
                 href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
                 target="_blank"
-                className="mr-3 hover:text-cool-gray-500 dark:hover:text-white hover:font-bold"
+                className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
               >
                 <Icon
                   icon="akar-icons:linkedin-box-fill"

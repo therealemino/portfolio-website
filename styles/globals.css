@@ -12,18 +12,23 @@
   .body a {
     @apply underline
   }
-  ol li {
+  /* Scoped to .body (the blog prose wrapper in pages/blog/[uid].jsx). These
+     were global, so every <li> on the site — card grids, the footer social
+     links — inherited a marker and an indent. */
+  .body ol li {
     @apply list-decimal ml-4
   }
-  ul li {
+  .body ul li {
     @apply list-disc ml-4
   }
 }
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Lobster&family=Cutive+Mono&display=swap');
-
+/* All three faces — Cutive Mono, Saira, Titillium Web — are requested as a
+   single <link> in _document.jsx. A CSS @import here cost an extra round trip,
+   and Lightning CSS rejects it outright: @import must precede every rule, and
+   @tailwind above expands into thousands of them. */
 
 html,
 body {
@@ -37,6 +42,19 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Hides the scrollbar on the Tune In carousel without disabling scrolling —
+   the arrows and the peeking next card are the affordance there. Applied only
+   to that one element; do not reach for it on anything a reader must scroll
+   to finish reading. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 * {

@@ -1,17 +1,49 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Jumbotron from "../components/Jumbotron";
 import About from "../components/About";
-import Resume from "../components/Resume/Resume";
-import Portfolio from "../components/Portfolio/Portfolio";
+import Building from "../components/Building";
+import Experience from "../components/Experience";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Interests from "../components/Interests";
 import { meta } from "../utils/meta";
 import Playlists from "../components/Playlists";
-import axios from "axios";
+import Writing from "../components/Writing";
+import { createClient } from "../prismicio";
+import { getPlaylists } from "../utils/spotify";
 
-function App() {
+/* Three most recent posts for the Writing section, plus the Spotify playlists.
+   Both are wrapped on purpose: the homepage is statically generated, so an
+   unreachable Prismic or Spotify would otherwise fail the whole build. Prismic
+   failing renders no Writing section; Spotify failing falls back to the
+   committed snapshot inside getPlaylists(). Either way ISR picks up the real
+   data on the next revalidation, and neither can take the other down. */
+export async function getStaticProps({ previewData }) {
+  let articles = [];
+
+  try {
+    const client = createClient({ previewData });
+    const posts = await client.getAllByType("post");
+
+    articles = posts
+      .slice()
+      .sort((a, b) => {
+        const dateA = a.data.date || a.first_publication_date || "";
+        const dateB = b.data.date || b.first_publication_date || "";
+        return dateB.localeCompare(dateA);
+      })
+      .slice(0, 3);
+  } catch (error) {
+    console.warn("[index] could not load posts from Prismic:", error.message);
+  }
+
+  const playlists = await getPlaylists();
+
+  return { props: { articles, playlists }, revalidate: 3600 };
+}
+
+function App({ articles, playlists }) {
   useEffect(() => {
     AOS.init({
       disable: "mobile",
@@ -41,13 +73,14 @@ function App() {
         <meta property="twitter:image" content={meta.img} />
       </Head>
       <div className="App">
-        <div className="bg-white dark:bg-brown-950 relative text-zinc-800 dark:text-gray-300 font-display overflow-x-hidden">
+        <div className="bg-paper dark:bg-brown-950 relative text-dark-brown dark:text-gray-300 font-display overflow-x-hidden">
           <Jumbotron />
           <About />
-          <Resume />
-          <Portfolio />
+          <Building />
+          <Experience />
+          <Writing articles={articles} />
           <Interests />
-          <Playlists />
+          <Playlists playlists={playlists} />
         </div>
       </div>
     </>
