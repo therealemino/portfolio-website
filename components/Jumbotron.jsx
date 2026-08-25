@@ -76,8 +76,7 @@ export default function Jumbotron(props) {
   const edgeInset = `${(1 - NAME_WIDTH) * 50}%`; // aligns labels to the name's edges
 
   return (
-    <section
-      ref={props.homeRefProp}
+    <section
       className="relative overflow-hidden bg-paper dark:bg-brown-950 text-dark-brown dark:text-gray-300"
     >
       <CodeMotif />
@@ -160,10 +159,12 @@ export default function Jumbotron(props) {
             </span>
           </p>
           <div className="flex shrink-0 items-center gap-3">
-            <Link href="/#contact">
-              <a className="rounded-full bg-dark-brown px-6 py-3 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-amber-700 dark:bg-cream dark:text-dark-brown dark:hover:bg-amber-800 dark:hover:text-cream">
+            <Link
+              href="/#contact"
+              className="rounded-full bg-dark-brown px-6 py-3 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-amber-700 dark:bg-cream dark:text-dark-brown dark:hover:bg-amber-800 dark:hover:text-cream">
+              
                 Let&apos;s talk →
-              </a>
+              
             </Link>
             <a
               href="/resume.pdf"

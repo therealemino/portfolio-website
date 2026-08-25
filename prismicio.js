@@ -1,33 +1,31 @@
-import * as prismic from '@prismicio/client'
-import { enableAutoPreviews } from '@prismicio/next'
-import sm from './sm.json'
+import * as prismic from "@prismicio/client";
+import { enableAutoPreviews } from "@prismicio/next/pages";
 
-export const endpoint = sm.apiEndpoint
-export const repositoryName = prismic.getRepositoryName(endpoint)
+/* The repository name, not the full endpoint. @prismicio/client v7 builds the
+   endpoint itself, so sm.json is no longer needed just to hold a URL — the
+   Slice Machine scaffolding that owned it was unused template code and is
+   gone. This value is public: it is already in the client bundle. */
+export const repositoryName = "ejeiokekeemmanuel";
 
-// Update the Link Resolver to match your project's route structure
+/* Kept for whenever previews get wired up properly — there is no preview API
+   route in pages/api yet, so nothing calls this today. */
 export function linkResolver(doc) {
   switch (doc.type) {
-    case 'homepage':
-      return '/'
-    case 'page':
-      return `/${doc.uid}`
+    case "homepage":
+      return "/";
+    case "post":
+      return `/blog/${doc.uid}`;
+    case "page":
+      return `/${doc.uid}`;
     default:
-      return null
+      return null;
   }
 }
 
-// This factory function allows smooth preview setup
-export function createClient(config = {}) {
-  const client = prismic.createClient(endpoint, {
-    ...config,
-  })
+export function createClient({ previewData, req, ...config } = {}) {
+  const client = prismic.createClient(repositoryName, config);
 
-  enableAutoPreviews({
-    client,
-    previewData: config.previewData,
-    req: config.req,
-  })
+  enableAutoPreviews({ client, previewData, req });
 
-  return client
+  return client;
 }

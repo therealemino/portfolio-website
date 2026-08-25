@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -49,15 +49,15 @@ function App() {
                 About Me
               </h1>
               <p className="mb-4">
-                Hi, I'm Ejei-Okeke Emmanuel, but just call me Emino
+                Hi, I&apos;m Ejei-Okeke Emmanuel, but just call me Emino
                 (air-me-know). I live somewhere between product and engineering.
                 I started as an engineer, with a B.Eng in Electronic
                 Engineering, then years writing frontend code, before moving
-                into product leadership. I've kept one foot in each since.
+                into product leadership. I&apos;ve kept one foot in each since.
               </p>
               <p className="mb-4">
                 I have an MBA in Fintech & Blockchain from Nexford, (came out
-                with a 4.00, which I'm still a little proud of). It sharpened
+                with a 4.00, which I&apos;m still a little proud of). It sharpened
                 how I think about the business side of things: unit economics,
                 regulation, go-to-market, leadership, process improvement,
                 business operations etc. It also gave me enough distance from
@@ -66,17 +66,17 @@ function App() {
               </p>
               <p className="mb-4">
                 I love staying up-to-date with the ever-evolving tech landscape.
-                It's a constant pursuit. From emerging web technologies to AI
-                and blockchain innovations, I'm always eager to learn and
+                It&apos;s a constant pursuit. From emerging web technologies to AI
+                and blockchain innovations, I&apos;m always eager to learn and
                 experiment. I also love following the latest startup trends and
                 exploring potential business ventures.
               </p>
               <p className="mb-4">
-                I'm always open to discussing new opportunities and
+                I&apos;m always open to discussing new opportunities and
                 collaborating on projects that align with my interests. I
-                believe software should ultimately serve humanity, and I'm
+                believe software should ultimately serve humanity, and I&apos;m
                 particularly drawn to initiatives that leverage technology to
-                improve people's lives. Feel free to reach out if you have any
+                improve people&apos;s lives. Feel free to reach out if you have any
                 opportunities or ideas to share.
               </p>
             </div>

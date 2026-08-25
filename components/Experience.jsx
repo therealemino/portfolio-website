@@ -78,8 +78,7 @@ const ROLES = [
 export default function Experience(props) {
   return (
     <section
-      id="experience"
-      ref={props.refProp}
+      id="experience"
       className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20 md:py-28"
     >
       <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.85] tracking-tighter text-dark-brown dark:text-cream">
@@ -100,10 +99,12 @@ export default function Experience(props) {
           >
             View resume →
           </a>
-          <Link href="/case-studies">
-            <a className="rounded-full border border-dark-brown/30 px-6 py-3 text-sm font-semibold transition-colors duration-300 hover:border-amber-700 hover:text-amber-700 dark:border-cream/30 dark:hover:border-amber-500 dark:hover:text-amber-500">
+          <Link
+            href="/case-studies"
+            className="rounded-full border border-dark-brown/30 px-6 py-3 text-sm font-semibold transition-colors duration-300 hover:border-amber-700 hover:text-amber-700 dark:border-cream/30 dark:hover:border-amber-500 dark:hover:text-amber-500">
+            
               All case studies →
-            </a>
+            
           </Link>
         </div>
       </div>

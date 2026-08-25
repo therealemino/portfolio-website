@@ -12,7 +12,7 @@ const Interests = () => {
             My World Outside of Software Development
           </h5>
           <p>
-            While I'm deeply passionate about crafting innovative software
+            While I&apos;m deeply passionate about crafting innovative software
             solutions, my world extends far beyond the digital realm. Here are a
             few of my interests that fuel my creativity and keep me grounded:
           </p>
@@ -28,28 +28,28 @@ const Interests = () => {
               I love music. I live for it. Just like any other art form, good
               music evokes emotions and emotions make the life experience more
               beautiful. Check out some of my favourite curated Spotify {" "}
-              <Link href="/#playlists">
-                <a className="!text-amber-600 cursor-pointer font-medium">
+              <Link href="/#playlists" className="!text-amber-600 cursor-pointer font-medium">
+                
                   playlists
-                </a>
+                
               </Link>
               .
             </li>
             <li className="mb-2">
               <strong className="font-medium">Sports:</strong> Football in
               particular. I was born a Liverpool fan and I intend to die that
-              way. I also love tennis, badmington. I wouldn't say I love
+              way. I also love tennis, badmington. I wouldn&apos;t say I love
               basketball, I just love watching Steph play.
             </li>
             <li className="mb-2">
-              <strong className="font-medium">Anime:</strong> I'm a fan of the
+              <strong className="font-medium">Anime:</strong> I&apos;m a fan of the
               new generation of anime. JJK, AOT, Demon Slayer, Vinland Saga,
               etc. Expect to hear more about anime from me in the near future...
               Hopefully 🙂‍↕️
             </li>
             <li className="mb-2">
               <strong className="font-medium">Gaming:</strong> Gaming serves as
-              a great way for me to relax and unwind. While I'm not a hardcore
+              a great way for me to relax and unwind. While I&apos;m not a hardcore
               competitive gamer, I enjoy the immersive experiences it offers.
             </li>
             <li className="mb-2">

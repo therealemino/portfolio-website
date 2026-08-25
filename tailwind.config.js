@@ -6,18 +6,17 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
-    "./slices/**/*.{js,ts,jsx,tsx}",
     // data/ holds no class strings today; globbed so a stray one is never purged
     "./data/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
       backgroundImage: {
-        "profile-image": "url('~/assets/profile-pic.jpg')",
+        "profile-image": "url('/img/profile-pic.jpg')",
         footer:
-          "linear-gradient(to right, #010101, #00000080), url('~/assets/footer.jpg')",
+          "linear-gradient(to right, #010101, #00000080), url('/img/footer.jpg')",
         "footer-md":
-          "linear-gradient(to right, #010101, #00000080), url('~/assets/footer-md.jpg')",
+          "linear-gradient(to right, #010101, #00000080), url('/img/footer-md.jpg')",
         "link-dark":
           "linear-gradient(90deg, #B88827 0%, #B3976E 65%, #B88827 100%)",
       },

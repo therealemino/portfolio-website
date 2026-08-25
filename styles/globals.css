@@ -25,10 +25,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Cutive Mono is the only face loaded here.
-   Saira (display) + Titillium Web (header) come from _document.jsx. */
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
-
+/* All three faces — Cutive Mono, Saira, Titillium Web — are requested as a
+   single <link> in _document.jsx. A CSS @import here cost an extra round trip,
+   and Lightning CSS rejects it outright: @import must precede every rule, and
+   @tailwind above expands into thousands of them. */
 
 html,
 body {
