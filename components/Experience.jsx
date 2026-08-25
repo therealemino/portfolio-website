@@ -13,7 +13,6 @@ const ROLES = [
     range: "Jul 2024 — Present",
     current: true,
     company: "Echezona Digital Gateway Ltd",
-    caseStudy: "meridian",
     url: "https://www.echezona.com",
     role: "Product Lead & Senior Frontend Engineer",
     note: "A CBN-licensed Payment Solution Service Provider (PSSP, PTSP), powering card, USSD, virtual accounts and other multiple rails with multi-currency support.",
@@ -22,7 +21,6 @@ const ROLES = [
     range: "Jan 2026 — Present",
     current: true,
     company: "Tytron Group",
-    caseStudy: "atlas",
     role: "Product Manager – Digital Projects, Kulturee",
     note: "A global travel and cultural experience platform, under Tytron's strategy and management consultancy.",
   },
@@ -30,7 +28,6 @@ const ROLES = [
     range: "Aug 2024 — Present",
     current: true,
     company: "Elieman",
-    caseStudy: "atelier",
     url: "https://shopelieman.com",
     role: "IT Engineer",
     note: "An art and fashion house building its digital retail and gallery experience.",
@@ -38,7 +35,6 @@ const ROLES = [
   {
     range: "Nov 2022 — Aug 2024",
     company: "Loiz Tours & Travels",
-    caseStudy: "compass",
     url: "https://loiztravels.com",
     role: "Frontend Developer, Junior Product Owner",
     note: "An e-commerce travel platform.",
@@ -46,7 +42,6 @@ const ROLES = [
   {
     range: "Oct 2021 — Jun 2024",
     company: "Pennee Technologies / Yana",
-    caseStudy: "ledger",
     // url dropped: yana.finance no longer resolves
     role: "Frontend Engineer (Product)",
     note: "Corporate credit accounts, asset financing and cash flow management software. A B2B credit lending startup.",
@@ -54,7 +49,6 @@ const ROLES = [
   {
     range: "Jul 2021 — Nov 2021",
     company: "Loiz Tours & Travels",
-    caseStudy: "compass",
     url: "https://loiztravels.com",
     role: "Frontend Developer (Volunteer)",
     note: "Preceded the paid part-time engagement above.",
@@ -176,14 +170,6 @@ export default function Experience(props) {
                 <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-brown-700 dark:text-gray-300">
                   {item.note}
                 </p>
-
-                {item.caseStudy ? (
-                  <Link href={`/case-studies/${item.caseStudy}`}>
-                    <a className="mt-3 inline-flex items-center gap-1.5 font-cutive-mono text-[11px] uppercase tracking-[0.12em] text-amber-700 transition-all duration-300 hover:gap-2.5 dark:text-amber-500">
-                      Case study <span aria-hidden="true">→</span>
-                    </a>
-                  </Link>
-                ) : null}
               </div>
             </li>
           );

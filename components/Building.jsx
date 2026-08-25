@@ -1,28 +1,68 @@
 import React from "react";
-import Link from "next/link";
 import ArrowOut from "./ArrowOut";
 import { Diagram } from "./Schematics";
-import { CASE_STUDIES } from "../data/case-studies";
 
 /* Each venture gets a split panel: copy on one side, a schematic on the other,
    alternating sides down the page.
 
-   Content lives in data/case-studies.js so the homepage panel and the case
-   study page cannot drift apart. File order there is the order here.
-   `homeBody` lets the homepage copy diverge from the card summary without
-   forking the data back out; nothing sets it today. */
-const VENTURES = CASE_STUDIES.filter(
-  (study) => study.kind === "venture" && study.featured
-).map((study) => ({
-  slug: study.slug,
-  name: study.name,
-  url: study.url,
-  role: study.role,
-  headline: study.headline,
-  body: study.homeBody || study.summary,
-  tags: study.tags,
-  diagram: study.diagram,
-}));
+   `headline` and everything under `diagram` are derived from the body copy —
+   no facts beyond what the body already states. Deliberately no stat callouts
+   like the reference has: there are no venture metrics to put there yet. */
+const VENTURES = [
+  {
+    name: "Veem",
+    url: "https://useveem.com",
+    role: "Co-founder & CEO",
+    headline: "The trust layer for modern identity",
+    body: "A consent-first identity verification and KYC orchestration layer for Nigeria, aggregating BVN, NIN checks and biometric verification into a single confidence-scored identity signal for merchants. I lead strategy and product direction; my two co-founders and I are all engineers by background.",
+    tags: ["BVN", "NIN", "Biometrics", "KYC orchestration"],
+    diagram: {
+      caption: "Checks aggregated",
+      sources: ["BVN", "NIN", "Biometrics"],
+      core: {
+        title: "One identity signal",
+        note: "consent-first",
+        items: ["Confidence scored", "Merchant facing"],
+      },
+      outcome: "Verify → score → onboard",
+    },
+  },
+  {
+    name: "Rimoswap",
+    url: "https://rimoswap.com/",
+    role: "Co-founder & CTO",
+    headline: "One platform for crypto-asset management",
+    body: "An Africa-first digital-asset platform — trading, wallets, P2P, and stablecoin-based cross-border payments, with live web and Android products. I lead engineering and still write and maintain code.",
+    tags: ["Trading", "Wallets", "P2P", "Stablecoin payments"],
+    diagram: {
+      caption: "One platform",
+      sources: ["Trading", "Wallets", "P2P"],
+      core: {
+        title: "Digital-asset rails",
+        note: "web · Android",
+        items: ["Stablecoin", "Cross-border"],
+      },
+      outcome: "Send → settle → payout",
+    },
+  },
+  {
+    name: "Emino Digital Technologies",
+    url: "https://eminotechnologies.com/",
+    role: "Founder",
+    headline: "Engineering digital systems that endure",
+    body: "A selective software development and technology advisory studio (CAC-registered), taking on a limited number of engagements per quarter. Client work spans fashion, hospitality, and consumer platforms.",
+    tags: ["Fashion", "Hospitality", "Consumer platforms"],
+    diagram: {
+      /* A studio ships interfaces, so this one is a shipped screen rather than
+         the rails-and-nodes flow the other two use. */
+      kind: "studio",
+      caption: "The studio",
+      domain: "eminotechnologies.com",
+      sectors: ["Fashion", "Hospitality", "B2C Solutions"],
+      outcome: "Limited engagements per quarter",
+    },
+  },
+];
 
 export default function Building(props) {
   return (
@@ -82,14 +122,6 @@ export default function Building(props) {
                 <p className="mt-6 font-cutive-mono text-[11px] leading-relaxed text-brown-500 dark:text-brown-400">
                   {venture.tags.join(" · ")}
                 </p>
-
-                {venture.slug ? (
-                  <Link href={`/case-studies/${venture.slug}`}>
-                    <a className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-amber-700 transition-all duration-300 hover:gap-2.5 dark:text-amber-500">
-                      Read the case study <span aria-hidden="true">→</span>
-                    </a>
-                  </Link>
-                ) : null}
               </div>
 
               {/* Tinted half rather than a divider rule — same separation, one

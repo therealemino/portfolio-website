@@ -263,7 +263,7 @@ export default function CaseStudyDetail({ study, related }) {
           {study.approach ? (
             <div className="mt-20 md:mt-24">
               <Eyebrow>Approach</Eyebrow>
-              <ol className="mt-8 grid list-none grid-cols-1 gap-6 md:grid-cols-3">
+              <ol className="mt-8 grid list-none grid-cols-1 gap-6 md:grid-cols-2">
                 {study.approach.map((step, i) => (
                   <li
                     key={step.title}

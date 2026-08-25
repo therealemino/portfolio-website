@@ -34,7 +34,7 @@ export default function CaseStudiesIndex({ ventures, employment, alsoBuilt }) {
     <>
       <Seo
         title="Case Studies — Ejei-Okeke Emmanuel"
-        description="Product and engineering case studies across payments, identity, digital assets, travel and retail."
+        description="Product and engineering case studies — the problem, the work, and what changed."
         path="/case-studies"
       />
 
@@ -48,9 +48,8 @@ export default function CaseStudiesIndex({ ventures, employment, alsoBuilt }) {
 
           <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <p className="max-w-md text-sm md:text-base leading-relaxed text-brown-700 dark:text-gray-300">
-              Ventures I co-founded and lead, and the client and employer work
-              behind them — payments, identity, digital assets, travel and
-              retail.
+              The problem, what I did about it, and what changed. More of these
+              are being written up.
             </p>
 
             <a
@@ -70,6 +69,7 @@ export default function CaseStudiesIndex({ ventures, employment, alsoBuilt }) {
           ) : null}
 
           {/* ── Ventures ─────────────────────────────────────────────── */}
+          {ventures.length ? (
           <div className="mt-20 md:mt-24">
             <Eyebrow>Ventures</Eyebrow>
             <ul className="mt-6 grid list-none grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -78,8 +78,10 @@ export default function CaseStudiesIndex({ ventures, employment, alsoBuilt }) {
               ))}
             </ul>
           </div>
+          ) : null}
 
           {/* ── Client & employer work ───────────────────────────────── */}
+          {employment.length ? (
           <div className="mt-20 md:mt-24">
             <Eyebrow>Client &amp; employer work</Eyebrow>
             <p className="mt-3 max-w-xl text-xs md:text-sm leading-relaxed text-brown-600 dark:text-brown-300">
@@ -92,6 +94,7 @@ export default function CaseStudiesIndex({ ventures, employment, alsoBuilt }) {
               ))}
             </ul>
           </div>
+          ) : null}
 
           {/* ── Also built ───────────────────────────────────────────── */}
           {alsoBuilt.length ? (
