@@ -109,9 +109,6 @@ export default function Interests() {
               className="h-full w-full object-cover"
             />
           </div>
-          <figcaption className="mt-3 font-cutive-mono text-[11px] text-brown-500 dark:text-brown-400">
-            On the wall at home
-          </figcaption>
         </figure>
       </div>
 
