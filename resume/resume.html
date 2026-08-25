@@ -1,16 +1,25 @@
 <!doctype html>
 <!--
-  Source for public/resume.pdf.
+  Source for public/resume.pdf. Content follows the master CV.
 
   Regenerate after editing (needs a local Chrome):
-    npx puppeteer-core ...  — or any HTML-to-PDF that prints backgrounds, e.g.
-    chrome --headless=new --print-to-pdf=public/resume.pdf --no-pdf-header-footer resume/resume.html
+    "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless=new ^
+      --print-to-pdf=public/resume.pdf --no-pdf-header-footer ^
+      --print-to-pdf-no-header resume/resume.html
 
   ATS notes — keep these true when editing:
     * single column, no tables, no multi-column CSS
-    * every heading is a real <h2>, every entry real text (no text baked into images)
+    * every heading is a real <h2> with a conventional name (SUMMARY, SKILLS,
+      EXPERIENCE, EDUCATION, CERTIFICATIONS) — parsers match on those words
+    * every entry is real text; nothing baked into an image
+    * NO letter-spacing on headings. Tracked-out text makes Chrome's PDF text
+      layer emit "S U M M A R Y", and a parser then finds no headings at all.
+    * bullets are real <li>; dates in one consistent "Mon YYYY – Mon YYYY" form
     * nothing meaningful in page headers/footers
-    * contact details as plain selectable text at the top
+
+  Full-bleed background: @page margins stay in place so page 2+ keeps its top
+  margin, and a position:fixed layer painted past those margins covers the
+  sheet edge to edge. Chrome repeats fixed elements on every printed page.
 -->
 <html lang="en">
   <head>
@@ -26,17 +35,19 @@
       /* Brand palette, same tokens as the site */
       :root {
         --paper: #efece4;
-        --paper-50: #f7f5f0;
         --ink: #2b282c;
         --muted: #6a5f5f;
         --rule: #d8d3c5;
         --olive: #4c574f;
         --amber: #b45309;
+
+        --pad-y: 9mm;
+        --pad-x: 11mm;
       }
 
       @page {
         size: A4;
-        margin: 13mm 14mm;
+        margin: 9mm 11mm;
       }
 
       * {
@@ -50,16 +61,29 @@
         background: var(--paper);
         color: var(--ink);
         font-family: Saira, "Segoe UI", Helvetica, Arial, sans-serif;
-        font-size: 9.6pt;
-        line-height: 1.45;
+        font-size: 8.5pt;
+        line-height: 1.28;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+      }
+
+      /* Cream to the sheet edge. Bleeds past the page margins on all four
+         sides; repeats per page because it is fixed. */
+      body::before {
+        content: "";
+        position: fixed;
+        top: calc(-1 * var(--pad-y));
+        bottom: calc(-1 * var(--pad-y));
+        left: calc(-1 * var(--pad-x));
+        right: calc(-1 * var(--pad-x));
+        background: var(--paper);
+        z-index: -1;
       }
 
       /* ── Masthead ─────────────────────────────── */
       h1 {
         margin: 0;
-        font-size: 26pt;
+        font-size: 24pt;
         font-weight: 900;
         letter-spacing: -0.02em;
         line-height: 1;
@@ -67,14 +91,14 @@
 
       .title {
         margin: 4pt 0 0;
-        font-size: 10.5pt;
+        font-size: 10pt;
         font-weight: 600;
         color: var(--olive);
       }
 
       .contact {
-        margin: 7pt 0 0;
-        font-size: 8.6pt;
+        margin: 6pt 0 0;
+        font-size: 8.3pt;
         color: var(--muted);
       }
 
@@ -84,33 +108,33 @@
       }
 
       .masthead {
-        padding-bottom: 9pt;
+        padding-bottom: 8pt;
         border-bottom: 1.6pt solid var(--olive);
       }
 
       /* ── Sections ─────────────────────────────── */
-      /* No letter-spacing on section headings. Tracked-out text makes Chrome's
-         PDF text layer emit "S U M M A R Y", so an ATS scanning for section
-         headings finds none of them. Weight and colour carry the look instead. */
       h2 {
-        margin: 15pt 0 7pt;
-        font-size: 9.5pt;
+        margin: 8pt 0 4pt;
+        font-size: 9.2pt;
         font-weight: 900;
         text-transform: uppercase;
         color: var(--olive);
         border-bottom: 0.6pt solid var(--rule);
-        padding-bottom: 3pt;
+        padding-bottom: 2.5pt;
       }
 
-      .summary {
+      p {
         margin: 0;
-        max-width: 100%;
       }
 
       /* ── Entries ──────────────────────────────── */
+      /* Deliberately no page-break-inside or break-after:avoid here. Chrome
+         honours those by moving the WHOLE entry to the next page, and the
+         nine-bullet entries are tall enough that this left a third of page 1
+         blank. Entries flow across the break instead; individual bullets
+         still never split. Check the rendered PDF before adding it back. */
       .entry {
-        margin-bottom: 8.5pt;
-        page-break-inside: avoid;
+        margin-bottom: 5.5pt;
       }
 
       .entry-head {
@@ -121,37 +145,53 @@
       }
 
       .org {
-        font-size: 10.5pt;
+        font-size: 10pt;
         font-weight: 700;
         letter-spacing: -0.01em;
       }
 
       .dates {
-        font-size: 8.4pt;
+        font-size: 8.2pt;
         font-weight: 600;
         color: var(--muted);
         white-space: nowrap;
       }
 
       .role {
-        margin: 1pt 0 2pt;
-        font-size: 9.2pt;
+        margin: 1pt 0 0;
+        font-size: 9pt;
         font-weight: 600;
         color: var(--amber);
       }
 
+      .meta {
+        margin: 0.5pt 0 0;
+        font-size: 8.2pt;
+        color: var(--muted);
+      }
+
       .note {
-        margin: 0;
-        color: var(--ink);
+        margin: 2pt 0 0;
       }
 
       .link {
-        font-size: 8.4pt;
         color: var(--muted);
         text-decoration: none;
       }
 
-      /* ── Compact lists ────────────────────────── */
+      /* ── Bullets ──────────────────────────────── */
+      ul.bullets {
+        margin: 3pt 0 0;
+        padding-left: 11pt;
+      }
+
+      ul.bullets li {
+        margin-bottom: 1.5pt;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* ── Compact one-line lists ───────────────── */
       .rows {
         margin: 0;
         padding: 0;
@@ -159,71 +199,181 @@
       }
 
       .rows li {
-        margin-bottom: 3.5pt;
+        margin-bottom: 2pt;
         page-break-inside: avoid;
       }
 
-      .rows .what {
+      .what {
         font-weight: 600;
       }
 
-      .rows .where {
+      .where {
         color: var(--muted);
       }
 
       .skills p {
-        margin: 0 0 3.5pt;
+        margin: 0 0 2.5pt;
       }
 
       .skills .cat {
         font-weight: 700;
         color: var(--olive);
       }
-
-      .page-break {
-        page-break-before: always;
-      }
     </style>
   </head>
 
   <body>
     <header class="masthead">
-      <h1>Ejei-Okeke Emmanuel</h1>
+      <h1>Ejei-Okeke Emmanuel Chijioke</h1>
       <p class="title">
-        Product &amp; Engineering Leader — Fintech, Blockchain &amp; Identity
-        Infrastructure
+        Product Leader &amp; Full-Stack Engineer — Fintech, Payments &amp;
+        Digital Products
       </p>
       <p class="contact">
+        Lagos, Nigeria (open to remote / relocation) &nbsp;·&nbsp; +234 903 223
+        4467 &nbsp;·&nbsp;
         <a href="mailto:ejeiokekeemmanuel@gmail.com"
           >ejeiokekeemmanuel@gmail.com</a
         >
-        &nbsp;·&nbsp; +234 903 223 4467 &nbsp;·&nbsp;
+        <br />
         <a href="https://www.linkedin.com/in/ejei-okeke-emmanuel/"
           >linkedin.com/in/ejei-okeke-emmanuel</a
         >
         &nbsp;·&nbsp;
-        <a href="https://github.com/therealemino">github.com/therealemino</a>
-        &nbsp;·&nbsp;
         <a href="https://ejeiokekeemmanuel.vercel.app/"
           >ejeiokekeemmanuel.vercel.app</a
         >
+        &nbsp;·&nbsp;
+        <a href="https://github.com/therealemino">github.com/therealemino</a>
       </p>
     </header>
 
     <h2>Summary</h2>
-    <p class="summary">
-      Product and engineering leader with 7+ years across payments, lending,
-      travel, fashion and education. I work at the intersection of product and
-      engineering — setting direction and sitting in the codebase that executes
-      it, often on the same day. Focus areas are payments and fintech
-      infrastructure: routing, settlements, credit, identity, and the decisions
-      that keep them reliable at scale. Work has included lifting transaction
-      success rates from roughly 78–82% to 96–98%. MBA in Fintech &amp;
-      Blockchain (4.00 CGPA). Currently co-founding and leading three ventures
-      alongside full-time product work.
+    <p>
+      Product leader and full-stack engineer with 5+ years spanning hands-on
+      frontend and full-stack development and product management across fintech,
+      travel, and e-commerce. Built and shipped production systems end to end in
+      React, Next.js, Vue, Nuxt, Node.js and TypeScript before and alongside
+      taking on product ownership of PSSP payment infrastructure, merchant
+      dashboards, credit systems, and multi-platform digital experiences. Pairs
+      technical fluency — component architecture, API integration, performance
+      optimization, testing — with an MBA in Fintech &amp; Blockchain (4.00
+      CGPA, Nexford University) to move between writing code, leading
+      engineering teams, and owning business strategy. Track record: a 625%
+      increase in user engagement (~4,000 to 25,000+ users), an 88% reduction in
+      page load time, transaction success rates lifted from 78–82% to 94–98%,
+      and multiple products shipped from concept to production as lead or sole
+      developer.
     </p>
 
-    <h2>Experience</h2>
+    <h2>Core Competencies</h2>
+    <div class="skills">
+      <p>
+        <span class="cat">Product &amp; Strategy:</span> Product strategy and
+        roadmapping, backlog prioritization and MVP scoping, user and market
+        research, data-informed decision making, cost and unit-economics
+        analysis, multi-platform portfolio management.
+      </p>
+      <p>
+        <span class="cat">Payments &amp; Fintech:</span> Payments and PSSP
+        infrastructure, pay-ins/payouts and settlement, payment-method
+        optimization, merchant onboarding and compliance, regulatory compliance
+        in a CBN-licensed environment.
+      </p>
+      <p>
+        <span class="cat">Delivery &amp; Leadership:</span> Agile/Scrum
+        leadership, sprint planning and retrospectives, cross-functional team
+        leadership (engineering, design, content, compliance, commercial),
+        stakeholder management, risk management and milestone tracking.
+      </p>
+      <p>
+        <span class="cat">Frontend Engineering:</span> React.js, Next.js,
+        Vue.js, Nuxt.js, React Native, TypeScript, JavaScript (ES6+), HTML5,
+        CSS3 (SASS, Tailwind CSS), responsive and mobile-first design,
+        progressive web apps, server-side rendering, cross-browser
+        compatibility, component-based architecture, single-page applications.
+      </p>
+      <p>
+        <span class="cat">State Management &amp; UI:</span> Redux, Vuex, Pinia,
+        Zustand, Ant Design, shadcn/ui, Chakra UI, Bootstrap.
+      </p>
+      <p>
+        <span class="cat">Backend &amp; Data:</span> Node.js, Express, Python
+        (working proficiency), PostgreSQL, MongoDB, SQL, Prisma, REST and
+        GraphQL APIs, Firebase.
+      </p>
+      <p>
+        <span class="cat">Testing &amp; Quality:</span> Jest, React Testing
+        Library, Vitest, manual/API/regression testing, Postman.
+      </p>
+      <p>
+        <span class="cat">DevOps &amp; Version Control:</span> Git, CI/CD
+        pipelines, Vercel.
+      </p>
+      <p>
+        <span class="cat">Tools:</span> JIRA, Trello, ClickUp, GitHub Projects,
+        Figma, Notion, Confluence, Slack, Microsoft Teams, Google Workspace.
+      </p>
+    </div>
+
+    <h2>Professional Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org"
+          >Tytron Group (Tytron &amp; Company Management Limited)</span
+        >
+        <span class="dates">Jan 2026 – Present</span>
+      </div>
+      <p class="role">Product Manager — Digital Projects</p>
+      <p class="meta">
+        Lagos, Nigeria (remote) &nbsp;·&nbsp; Strategy, management and marketing
+        consultancy &nbsp;·&nbsp; Contract
+      </p>
+      <ul class="bullets">
+        <li>
+          Lead product development for Kulturee, a global travel and cultural
+          experience platform, owning scope, roadmap, and delivery framework
+          from the ground up.
+        </li>
+        <li>
+          Led the Kulturee MVP through to delivery after two prior attempts had
+          stalled, taking ownership of scope definition, sprint planning, and
+          cross-functional execution across design, development, content, and
+          commercial teams.
+        </li>
+        <li>
+          Identified that Discovery's dependence on live Google Places API calls
+          was not economically sustainable at scale, with costs projected to
+          reach thousands of dollars monthly as the user base grew into the tens
+          of thousands — a structure the product's free tier and subscription
+          margins could not support.
+        </li>
+        <li>
+          Designed and drove the mitigation strategy: a proprietary places
+          database populated city by city (target of 200 curated places per
+          city) by a trained curation team, reducing long-term dependency on
+          live Google Places calls. Database scaled from roughly 2,000 to a
+          projected 40,000+ places within one month of the initiative starting.
+        </li>
+        <li>
+          Defined a tiered access model aligned to monetization: free-tier users
+          draw primarily from the proprietary database, while Pro-tier
+          subscribers retain access to both the database and live Google Places
+          queries for advanced search — protecting subscription unit economics
+          while preserving product quality.
+        </li>
+        <li>
+          Track progress and manage risk in ClickUp, with stakeholder visibility
+          maintained through Notion and Slack; report performance against KPIs
+          to Tytron's leadership team.
+        </li>
+        <li>
+          Scope also includes One-Stop-Medic, a unified digital healthcare
+          marketplace (not yet started as of August 2026).
+        </li>
+      </ul>
+    </div>
 
     <div class="entry">
       <div class="entry-head">
@@ -231,76 +381,177 @@
         <span class="dates">Jul 2024 – Present</span>
       </div>
       <p class="role">Product Lead &amp; Senior Frontend Engineer</p>
-      <p class="note">
-        A CBN-licensed Payment Solution Service Provider, powering card, USSD,
-        bank transfer, and virtual account rails.
+      <p class="meta">
+        Lagos, Nigeria &nbsp;·&nbsp; CBN-licensed PSSP / payments fintech
       </p>
+      <ul class="bullets">
+        <li>
+          Promoted from Frontend Engineer (Jul 2024) to Product Lead &amp;
+          Senior Frontend Engineer (Jan 2025), taking on end-to-end product
+          strategy and roadmap ownership for a CBN-licensed Payment Solution
+          Service Provider (PSSP).
+        </li>
+        <li>
+          Led delivery of core payment products across card, USSD, and bank
+          transfer (virtual account) rails, plus merchant and admin dashboards,
+          POS terminal features, and dynamic storefronts.
+        </li>
+        <li>
+          Built a multi-provider payment routing and failover system — card
+          payments default to Interswitch with automatic re-attempt through
+          Unified Payments on failure — and a multi-provider virtual account
+          issuance model across Wema, Providus, and Stanbic.
+        </li>
+        <li>
+          Shipped an instant settlements feature and a terminal-level
+          settlement-account feature letting merchants view balances and
+          transaction history directly on POS hardware, cutting reconciliation
+          friction.
+        </li>
+        <li>
+          These initiatives improved transaction success rates from 78–82% to
+          94–98%, accounting for abandoned transactions.
+        </li>
+        <li>
+          Authored Echezona's full public API documentation
+          (docs.echezona.com).
+        </li>
+        <li>
+          Direct cross-functional squads across engineering, design, and
+          marketing; run sprint planning, backlog grooming, and retrospectives
+          to sustain a high-velocity delivery cycle.
+        </li>
+        <li>
+          Mentor designers on frontend constraints, design consistency, and
+          component-based UI approaches; led frontend architecture and reusable
+          UI components across services.
+        </li>
+        <li>
+          Architected and built the frontend in React/Next.js and TypeScript,
+          implementing reusable component libraries and state management
+          patterns that reduced duplicate work across merchant dashboard,
+          checkout, and POS-terminal surfaces.
+        </li>
+      </ul>
     </div>
 
     <div class="entry">
       <div class="entry-head">
-        <span class="org">Tytron Group</span>
-        <span class="dates">Jan 2026 – Present</span>
-      </div>
-      <p class="role">Product Manager, Digital Projects — Kulturee</p>
-      <p class="note">
-        A global travel and cultural experience platform, under Tytron's
-        strategy and management consultancy.
-      </p>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head">
-        <span class="org">Elieman</span>
+        <span class="org">eliEls</span>
         <span class="dates">Aug 2024 – Present</span>
       </div>
-      <p class="role">Product &amp; IT Engineer</p>
-      <p class="note">
-        An art and fashion house building its digital retail and gallery
-        experience. <a class="link" href="https://shopelieman.com">shopelieman.com</a>
+      <p class="role">Technical Project Manager / Product Lead</p>
+      <p class="meta">
+        Lagos, Nigeria &nbsp;·&nbsp; Art and fashion institute &nbsp;·&nbsp;
+        Freelance
       </p>
+      <ul class="bullets">
+        <li>
+          Directed end-to-end development of the brand's digital platform,
+          translating brand vision into a high-fidelity e-commerce experience
+          and immersive digital gallery.
+        </li>
+        <li>
+          Partnered closely with the brand strategist to co-define digital brand
+          identity and visual storytelling.
+        </li>
+        <li>
+          Orchestrated the project submission and digital presentation that
+          secured two consecutive invitations to Milan Fashion Week, validating
+          the brand's international appeal.
+        </li>
+        <li>
+          Led a cross-functional team of developers to build and maintain a
+          high-performance, mobile-first e-commerce engine.
+        </li>
+      </ul>
     </div>
 
     <div class="entry">
       <div class="entry-head">
-        <span class="org">Loiz Tours &amp; Travels</span>
-        <span class="dates">Nov 2022 – Aug 2024</span>
-      </div>
-      <p class="role">Frontend Developer, then Junior Product Owner</p>
-      <p class="note">An e-commerce travel platform.</p>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head">
-        <span class="org">Pennee Technologies / Yana</span>
+        <span class="org">Pennee Technologies Ltd (Yana)</span>
         <span class="dates">Oct 2021 – Jun 2024</span>
       </div>
       <p class="role">Frontend Engineer (Product)</p>
-      <p class="note">
-        Corporate credit accounts, asset financing and cash flow management
-        software. A B2B credit lending startup.
+      <p class="meta">
+        Lagos, Nigeria &nbsp;·&nbsp; B2B credit and cash-flow fintech
       </p>
+      <ul class="bullets">
+        <li>
+          Partnered with product, design, and engineering to ship payment
+          widgets, guarantor and credit-application flows, dashboards, and
+          websites for SME credit financing.
+        </li>
+        <li>
+          Drove a 625% increase in user engagement and growth in the user base
+          from approximately 4,000 to 25,000+ through iterative,
+          metrics-informed product and UX improvements.
+        </li>
+        <li>
+          Built secure, scalable frontend architecture supporting an expanding
+          merchant and borrower base.
+        </li>
+        <li>
+          Partnered with support and engineering to resolve customer-facing bugs
+          and improve error handling, reducing repetitive support tickets by
+          30%.
+        </li>
+        <li>
+          Ran functional, regression, and API testing (Postman) to catch defects
+          before production.
+        </li>
+        <li>
+          Built and maintained the frontend stack in React and TypeScript,
+          integrating REST APIs for real-time credit-application status, payment
+          processing, and guarantor workflows.
+        </li>
+      </ul>
     </div>
 
     <div class="entry">
       <div class="entry-head">
-        <span class="org">Loiz Tours &amp; Travels</span>
-        <span class="dates">Jul 2021 – Nov 2021</span>
+        <span class="org">Loiz Tours &amp; Travels Ltd</span>
+        <span class="dates">Nov 2022 – Aug 2024</span>
       </div>
-      <p class="role">Frontend Developer (Volunteer)</p>
-      <p class="note">Preceded the paid engagement above.</p>
+      <p class="role">
+        Junior Product Owner / Frontend Developer (part-time)
+      </p>
+      <p class="meta">Lagos, Nigeria &nbsp;·&nbsp; Travel</p>
+      <ul class="bullets">
+        <li>
+          Frontend Developer (Nov 2022 – Aug 2024): translated mockups and
+          wireframes into interactive, intuitive web applications with UX/UI
+          designers, maintaining design consistency; optimized website
+          performance for an 88% reduction in load time.
+        </li>
+        <li>
+          Junior Product Owner (Jul 2024 – Aug 2024): translated stakeholder
+          needs into clear, actionable product requirements; guided developers
+          through Agile delivery (stand-ups, sprint planning, reviews,
+          retrospectives).
+        </li>
+      </ul>
     </div>
 
     <div class="entry">
       <div class="entry-head">
-        <span class="org">Coriftech Solutions Ltd</span>
-        <span class="dates">Oct 2020 – Jan 2021</span>
+        <span class="org">Confidential Clients</span>
+        <span class="dates">Jan 2024 – Present</span>
       </div>
-      <p class="role">Web Development Instructor (Volunteer / Intern)</p>
-      <p class="note">
-        A tech education institute in Asaba, training web development,
-        cybersecurity, and design skills across Africa.
+      <p class="role">Independent QA &amp; Integration Consultant</p>
+      <p class="meta">
+        Remote &nbsp;·&nbsp; Enterprise digital products (under NDA)
       </p>
+      <ul class="bullets">
+        <li>
+          Design and execute manual and automated testing strategies (API,
+          functional, regression) for enterprise digital products.
+        </li>
+        <li>
+          Define quality benchmarks with external engineering teams, surfacing
+          critical bugs and performance bottlenecks before deployment.
+        </li>
+      </ul>
     </div>
 
     <div class="entry">
@@ -309,18 +560,69 @@
         <span class="dates">Jan 2020 – Apr 2022</span>
       </div>
       <p class="role">Frontend Developer / Instructor</p>
-      <p class="note">
-        An e-commerce startup with an in-house tech education arm, Nexlearn.
-      </p>
+      <p class="meta">Enugu, Nigeria &nbsp;·&nbsp; E-commerce startup</p>
+      <ul class="bullets">
+        <li>
+          Shipped core pages for the e-commerce platform (v2) with a
+          mobile-first strategy — landing, authentication, and other site pages
+          from concept through deployment.
+        </li>
+        <li>
+          Improved app architecture and performance, contributing to a 55%
+          increase in active users.
+        </li>
+        <li>
+          Developed and delivered the HTML/CSS/JS curriculum at Nexlearn,
+          Nexbuy's tech education subsidiary; mentored aspiring developers.
+        </li>
+        <li>
+          Head of NEXSCROW (Jan 2021 – Apr 2022): regulated security and payment
+          of escrow funds between transacting parties.
+        </li>
+        <li>
+          Brand Ambassador (Aug 2019 – Jan 2021): day-to-day coordination and
+          public-facing communication; liaised with web-app clients. Three-time
+          Staff of the Month (Jul 2020, Feb 2021, Nov 2021).
+        </li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">Coriftech Solutions Ltd</span>
+        <span class="dates">Oct 2020 – Jan 2021</span>
+      </div>
+      <p class="role">Web Development Instructor (volunteer / intern)</p>
+      <p class="meta">Delta, Nigeria &nbsp;·&nbsp; IT services</p>
+      <ul class="bullets">
+        <li>
+          Provided tailored tutoring in frontend web development (HTML, CSS,
+          JavaScript, and frameworks), adapting the teaching approach to
+          individual learning styles.
+        </li>
+      </ul>
     </div>
 
     <div class="entry">
       <div class="entry-head">
         <span class="org">West African Oilfield Services</span>
-        <span class="dates">Jul 2019 – Dec 2019</span>
+        <span class="dates">Jun 2019 – Dec 2019</span>
       </div>
       <p class="role">Student Intern (Engineering)</p>
-      <p class="note">An oil &amp; gas field services company.</p>
+      <p class="meta">
+        Port Harcourt, Nigeria &nbsp;·&nbsp; Oil and gas field services
+      </p>
+      <ul class="bullets">
+        <li>
+          Collaborated with the draughtsman to create precise 2D and 3D models
+          in AutoCAD, including the refurbishment of a single point mooring
+          buoy.
+        </li>
+        <li>
+          Supported the Drawing Engineer in drafting and editing accurate
+          as-built plans.
+        </li>
+      </ul>
     </div>
 
     <h2>Ventures</h2>
@@ -367,73 +669,128 @@
       </p>
     </div>
 
+    <h2>Selected Projects</h2>
+    <ul class="rows">
+      <li>
+        <span class="what">Kulturee</span> (2026 – present) —
+        <span class="where"
+          >Global travel and cultural experience platform under Tytron Group;
+          owned scope, roadmap, and delivery.</span
+        >
+      </li>
+      <li>
+        <span class="what">Echezona Platform</span> (2024 – present) —
+        <span class="where"
+          >Merchant dashboards, checkout, multi-provider payment routing, and
+          embedded payment widgets.</span
+        >
+      </li>
+      <li>
+        <span class="what">The Hendon House</span> (2025) —
+        <span class="where"
+          >Full-stack boutique hospitality platform: website, reservations, and
+          back-office, built from scratch.</span
+        >
+      </li>
+      <li>
+        <span class="what">Kontrol by Yana</span> (2025) —
+        <span class="where"
+          >Frontend for a consumer credit app: income tracking, credit repair,
+          loan access, personalized insights.</span
+        >
+      </li>
+      <li>
+        <span class="what">eliEls Digital Platform</span> (2024 – present) —
+        <span class="where"
+          >Immersive digital gallery and e-commerce; two consecutive Milan
+          Fashion Week invitations.</span
+        >
+      </li>
+      <li>
+        <span class="what">Yana Platform</span> (2021 – 2024) —
+        <span class="where"
+          >Company website (2023) plus guarantor and credit-application forms
+          and payment widgets for SME credit financing.</span
+        >
+      </li>
+      <li>
+        <span class="what">Loiztravels Website</span> (2024) —
+        <span class="where"
+          >Conceptualized, developed, and launched Loiz Tours &amp; Travels'
+          e-commerce travel website.</span
+        >
+      </li>
+      <li>
+        <span class="what">Book Everything NG</span> (2024) —
+        <span class="where">An online e-commerce bookstore.</span>
+      </li>
+    </ul>
+
     <h2>Education</h2>
     <ul class="rows">
       <li>
-        <span class="what">MBA, Fintech &amp; Blockchain</span> —
-        <span class="where">Nexford University (4.00 CGPA)</span>
-      </li>
-      <li>
-        <span class="what">B.Eng, Electronic Engineering</span> —
-        <span class="where"
-          >University of Nigeria &nbsp;·&nbsp; Oct 2015 – Jul 2021</span
+        <span class="what"
+          >MBA, Fintech &amp; Blockchain specialization</span
         >
-      </li>
-    </ul>
-
-    <h2>Certifications</h2>
-    <ul class="rows">
-      <li>
-        <span class="what">How to Build Digital Products</span> —
-        <span class="where">Product School &nbsp;·&nbsp; Apr 2020</span>
-      </li>
-      <li>
-        <span class="what">HTML, CSS &amp; JavaScript for Web Developers</span>
         —
         <span class="where"
-          >Johns Hopkins University / Coursera &nbsp;·&nbsp; Aug 2020</span
+          >Nexford University, Washington, D.C., USA &nbsp;·&nbsp; Apr 2025 –
+          Jul 2026 &nbsp;·&nbsp; CGPA 4.00/4.00</span
         >
       </li>
       <li>
-        <span class="what">Python for Everybody Specialization</span> —
+        <span class="what">B.Eng, Electronics Engineering</span> —
         <span class="where"
-          >University of Michigan / Coursera &nbsp;·&nbsp; Oct 2020</span
+          >University of Nigeria, Nsukka &nbsp;·&nbsp; 2015 – 2021 &nbsp;·&nbsp;
+          Second Class Honours (Upper Division), 4.07/5</span
         >
       </li>
       <li>
-        <span class="what">Creative Problem Solving</span> —
+        <span class="what">SSCE / WASSCE</span> —
         <span class="where"
-          >University of Minnesota / Coursera &nbsp;·&nbsp; Oct 2020</span
-        >
-      </li>
-      <li>
-        <span class="what">AI for Everyone</span> —
-        <span class="where">DeepLearning.AI &nbsp;·&nbsp; Nov 2020</span>
-      </li>
-      <li>
-        <span class="what">Fundamentals of Digital Marketing</span> —
-        <span class="where"
-          >Google Digital Skills for Africa &nbsp;·&nbsp; May 2020</span
+          >Marble Hill School, Asaba, Delta State &nbsp;·&nbsp; 2009 –
+          2015</span
         >
       </li>
     </ul>
 
-    <h2>Skills</h2>
-    <div class="skills">
-      <p>
-        <span class="cat">Product:</span> Product strategy and direction,
-        roadmapping, discovery, process optimisation, cross-functional team
-        leadership.
-      </p>
-      <p>
-        <span class="cat">Engineering:</span> JavaScript, React, Next.js, Vue,
-        Node.js, Python, REST APIs, PWAs.
-      </p>
-      <p>
-        <span class="cat">Domain:</span> Payments (card, USSD, bank transfer,
-        virtual accounts), KYC and identity verification, digital assets and
-        stablecoins, B2B credit and lending, e-commerce.
-      </p>
-    </div>
+    <h2>Certifications &amp; Training</h2>
+    <p>
+      Becoming a Product Manager: A Complete Guide (LinkedIn, 2026)
+      &nbsp;·&nbsp; AI Agents for Product Leaders (LinkedIn, 2026)
+      &nbsp;·&nbsp; ISO 27001:2022 / ISO 22301:2019 Implementer Training
+      (Numeric Consulting &amp; Solutions Ltd, 2025) &nbsp;·&nbsp; Advanced
+      Business Foundations (Nexford University, 2025) &nbsp;·&nbsp; Foundations
+      of Project Management (Google, 2024) &nbsp;·&nbsp; How to Build Digital
+      Products (Product School, 2020) &nbsp;·&nbsp; Creative Problem Solving
+      (University of Minnesota / Coursera, 2020) &nbsp;·&nbsp; HTML, CSS and
+      JavaScript for Web Developers (Johns Hopkins University / Coursera, 2020)
+      &nbsp;·&nbsp; Python for Everybody Specialization (University of Michigan
+      / Coursera, 2020) &nbsp;·&nbsp; AI for Everyone (DeepLearning.AI /
+      Coursera, 2020) &nbsp;·&nbsp; Fundamentals of Digital Marketing (Google
+      Digital Skills for Africa, 2020).
+    </p>
+
+    <h2>Volunteering</h2>
+    <p>
+      <span class="what">Sustainobles</span> — Community Member, Lagos, Nigeria
+      &nbsp;·&nbsp; Oct 2023 – Present &nbsp;·&nbsp; Non-profit organization.
+      <span class="what">Loiz Tours &amp; Travels Ltd</span> — Frontend
+      Developer (volunteer), Lagos, Nigeria &nbsp;·&nbsp; Jul 2021 – Nov 2021;
+      preceded the paid part-time engagement above.
+    </p>
+
+    <h2>Articles &amp; Publications</h2>
+    <p>
+      Change is Good: Building a Culture That Welcomes the Unknown (Aug 2025)
+      &nbsp;·&nbsp; Navigating the Future of AI: The Promise and Challenges of
+      Decentralization (Aug 2024) &nbsp;·&nbsp; Code Abstraction Demystified
+      (Jun 2024) &nbsp;·&nbsp; The TypeScript Wrangle: Skill Barrier or
+      Opportunity? (Sep 2023) &nbsp;·&nbsp; Nuxt.js: An Objective Assessment of
+      the Framework (Aug 2022).
+    </p>
+
+    <h2>Interests</h2>
+    <p>AI, statistics, startups, sports, art.</p>
   </body>
 </html>
