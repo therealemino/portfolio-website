@@ -48,15 +48,15 @@ const VENTURES = [
     url: "https://eminotechnologies.com/",
     role: "Founder",
     headline: "Engineering digital systems that endure",
-    body: "A selective software development and technology advisory studio (CAC-registered), taking on a limited number of engagements per quarter. Client work spans fintech, hospitality, and consumer platforms.",
-    tags: ["Fintech", "Hospitality", "Consumer platforms"],
+    body: "A selective software development and technology advisory studio (CAC-registered), taking on a limited number of engagements per quarter. Client work spans fashion, hospitality, and consumer platforms.",
+    tags: ["Fashion", "Hospitality", "Consumer platforms"],
     diagram: {
       /* A studio ships interfaces, so this one is a shipped screen rather than
          the rails-and-nodes flow the other two use. */
       kind: "studio",
       caption: "The studio",
       domain: "eminotechnologies.com",
-      sectors: ["Fintech", "Hospitality", "Fashion"],
+      sectors: ["Fashion", "Hospitality", "B2C Solutions"],
       outcome: "Limited engagements per quarter",
     },
   },
