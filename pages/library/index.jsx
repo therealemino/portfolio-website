@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Head from "next/head";
+import Seo from "../../components/Seo";
 import _ from "lodash";
 import Link from "next/link";
 
@@ -17,66 +17,20 @@ export async function getServerSideProps({ previewData }) {
 }
 
 export default function Library(props) {
-  // const [] = useState
-
-  function logPage(e) {
-    e.preventDefault;
-    console.log(props.articles);
-    darkMode();
-  }
-
-  function darkMode() {
-    const darkmode = document.documentElement.classList.contains("dark");
-    return darkmode;
-  }
-
   const { articles } = props;
 
   return (
     <>
-      <Head>
-        {/* <!-- Primary Meta Tags --> */}
-        <title>Library - Ejei-Okeke Emmanuel</title>
-        <meta name="title" content="Library - Ejei-Okeke Emmanuel" />
-        <meta
-          name="description"
-          content="Library. Blog articles, podcasts, etc. - Ejei-Okeke Emmanuel"
-        />
-
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://ejeiokekeemmanuel.vercel.app/library"
-        />
-        <meta property="og:title" content="Library - Ejei-Okeke Emmanuel" />
-        <meta
-          property="og:description"
-          content="Library. Blog articles, podcasts, etc. - Ejei-Okeke Emmanuel"
-        />
-        <meta property="og:image" content="/emino-image.jpg" />
-
-        {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content="https://ejeiokekeemmanuel.vercel.app/library"
-        />
-        <meta
-          property="twitter:title"
-          content="Library - Ejei-Okeke Emmanuel"
-        />
-        <meta
-          property="twitter:description"
-          content="Library. Blog articles, podcasts, etc. - Ejei-Okeke Emmanuel"
-        />
-        <meta property="twitter:image" content="/emino-image.jpg" />
-      </Head>
+      <Seo
+        title="Library — Writing by Ejei-Okeke Emmanuel"
+        description="Essays and notes on building products, the engineering underneath them, and what the two teach each other."
+        path="/library"
+      />
       <div className="">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <h3 className="text-2xl font-bold font-header mt-6" onClick={logPage}>
+          <h1 className="text-2xl font-bold font-header mt-6">
             Articles
-          </h3>
+          </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             {articles.map((item) => (
               // Card is the link itself. It used to wrap a <div>, which under
