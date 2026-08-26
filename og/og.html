@@ -1,0 +1,195 @@
+<!doctype html>
+<!--
+  Source for public/og.png — the image WhatsApp, X, LinkedIn and Slack show
+  when a link to the site is shared.
+
+  Regenerate after editing (needs a local Chrome):
+    "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless=new ^
+      --disable-gpu --hide-scrollbars --window-size=1200,630 ^
+      --default-background-color=00000000 ^
+      --screenshot=public/og.png og/og.html
+
+  Rules that keep this working as a share card:
+    * exactly 1200x630. Other ratios get cropped, and the crop is not
+      predictable across platforms.
+    * everything important inside the middle ~90%. Some clients trim edges.
+    * type sized for a thumbnail, not for this file at full size. WhatsApp
+      renders it around 300px wide in a chat list — open the PNG at that size
+      before believing any of it is legible.
+    * the portrait is a local file, not the Cloudinary URL the hero uses, so
+      regeneration does not depend on the network.
+    * no URL in the artwork. The platform already prints the hostname under
+      the card, and a baked-in domain would go stale the moment one is set.
+    * fonts are declared with a real fallback stack; if Google Fonts is
+      unreachable the card still renders, just in the fallback face.
+
+  The palette is the site's: cream ground, olive panel, amber accent.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira:wght@400;600;700;900&family=Cutive+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #efece4;
+        --ink: #2b282c;
+        --olive: #8e9a84;
+        --olive-deep: #4c574f;
+        --amber: #b45309;
+        --muted: #6a5f5f;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Saira, "Segoe UI", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        padding: 56px 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* ── Olive panel with the portrait, right-hand side ── */
+      .panel {
+        position: absolute;
+        top: 96px;
+        right: 64px;
+        width: 380px;
+        height: 534px;
+        border-radius: 28px 28px 0 0;
+        background: var(--olive);
+        overflow: hidden;
+      }
+
+      .panel img {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 116%;
+        display: block;
+      }
+
+      /* ── Eyebrow ── */
+      .eyebrow {
+        position: relative;
+        z-index: 2;
+        font-family: "Cutive Mono", "Courier New", monospace;
+        font-size: 19px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .eyebrow .accent {
+        color: var(--amber);
+      }
+
+      /* ── The wordmark, overlapping the panel exactly as the hero does ── */
+      .wordmark {
+        position: relative;
+        z-index: 3;
+        margin-top: 26px;
+        font-size: 210px;
+        font-weight: 900;
+        line-height: 0.78;
+        letter-spacing: -0.055em;
+        color: var(--ink);
+      }
+
+      .body {
+        position: relative;
+        z-index: 2;
+        max-width: 660px;
+      }
+
+      .name {
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        line-height: 1.1;
+      }
+
+      .tagline {
+        margin-top: 14px;
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 1.34;
+        color: var(--muted);
+      }
+
+      .rule {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding-top: 22px;
+        border-top: 2px solid rgba(43, 40, 44, 0.16);
+        max-width: 660px;
+        font-family: "Cutive Mono", "Courier New", monospace;
+        font-size: 19px;
+        letter-spacing: 0.1em;
+        color: var(--olive-deep);
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--amber);
+        flex: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="panel">
+        <img src="portrait.png" alt="" />
+      </div>
+
+      <div>
+        <p class="eyebrow">
+          <span class="accent">Fintech</span> &nbsp;·&nbsp; Blockchain
+          &nbsp;·&nbsp; Identity
+        </p>
+        <h1 class="wordmark">Emino</h1>
+      </div>
+
+      <div class="body">
+        <p class="name">Ejei-Okeke Emmanuel</p>
+        <p class="tagline">
+          I build software products and lead the teams behind them.
+        </p>
+      </div>
+
+      <div class="rule">
+        <span class="dot"></span>
+        Case studies &#183; Writing &#183; Resume
+      </div>
+    </div>
+  </body>
+</html>

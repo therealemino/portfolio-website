@@ -8,16 +8,15 @@ export default function Skills() {
     "Node",
     "APIs",
     "PWAs",
-    "Python"
+    "Python",
   ]);
 
   return (
     <div data-aos="fade-up" data-aos-duration="2000">
       <div className="flex items-center justify-start flex-wrap text-center text-xs px-2">
         {skills.map((item, indx) => (
-          <div className="flex items-center">
+          <div key={indx} className="flex items-center">
             <span
-              key={indx}
               className={`font-display rounded-md text-xs md:text-sm font-medium cursor-pointer`}
             >
               <span>{item}</span>

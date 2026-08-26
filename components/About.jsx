@@ -16,7 +16,6 @@ export default function About(props) {
   return (
     <section
       id="about"
-      ref={props.refProp}
       className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20 md:py-28"
     >
       <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.85] tracking-tighter text-dark-brown dark:text-cream">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Head from "next/head";
+import Seo from "../../components/Seo";
+import JsonLd, { articleSchema, breadcrumbSchema } from "../../components/JsonLd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
@@ -7,7 +8,7 @@ import { PrismicRichText } from "@prismicio/react";
 
 import { createClient } from "../../prismicio";
 import Slices from "../../components/Blog/Slices";
-import { meta } from "../../utils/meta";
+import { SITE_URL } from "../../utils/meta";
 
 export async function getServerSideProps({ previewData, query }) {
   const client = createClient({ previewData });
@@ -42,24 +43,34 @@ export default function BlogId(props) {
 
   return (
     <>
-      <Head>
-        <title>{data.title + "- Ejei-Okeke Emmanuel's Blog"}</title>
-        <meta name="description" content={data.desc} />
-        <meta name="twitter:card" content="summary_large_image"></meta>
-        <meta name="twitter:site" content={meta.twitterUsername} />
-        <meta name="twitter:creator" content={meta.twitterUsername} />
-        <meta name="twitter:title" content={data.title} />
-        <meta name="twitter:description" content={data.desc} />
-        <meta name="twitter:image" content={data.image.url} />
-        <meta
-          property="og:url"
-          content={`https://ejeiokekeemmanuel.vercel.app/blog/${props.article.uid}`}
-        />
-        <meta property="og:title" content={data.title} />
-        <meta property="og:description" content={data.desc} />
-        <meta property="og:image" content={data.image.url} />
-        <meta property="og:keywords" content={data.keywords} />
-      </Head>
+      <Seo
+        title={`${data.title} — Ejei-Okeke Emmanuel`}
+        description={data.desc}
+        path={`/blog/${props.article.uid}`}
+        image={data.image && data.image.url}
+        type="article"
+        publishedTime={data.date}
+      />
+      <JsonLd
+        data={articleSchema({
+          siteUrl: SITE_URL,
+          url: `${SITE_URL}/blog/${props.article.uid}`,
+          title: data.title,
+          description: data.desc,
+          image: data.image && data.image.url,
+          published: data.date,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema({
+          siteUrl: SITE_URL,
+          items: [
+            { name: "Home", path: "/" },
+            { name: "Library", path: "/library" },
+            { name: data.title, path: `/blog/${props.article.uid}` },
+          ],
+        })}
+      />
 
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
@@ -68,13 +79,13 @@ export default function BlogId(props) {
             onClick={logPage}
           >
             <Link href="/">
-              <a>
-                <Icon icon="bxs:home" className="mx-1 text-xl" />
-              </a>
+
+              <Icon icon="bxs:home" className="mx-1 text-xl" />
+
             </Link>
             <Icon icon="akar-icons:chevron-right" className="mx-1 text-sm" />
             <Link href="/library">
-              <a>Blog</a>
+              Blog
             </Link>
             <Icon icon="akar-icons:chevron-right" className="mx-1 text-sm" />
             <a>{`${data.title.substring(0, 20)}${
@@ -86,7 +97,12 @@ export default function BlogId(props) {
               <h1 className="text-xl lg:text-3xl font-bold font-header">
                 {data.title}
               </h1>
-              <img src={data.image.url} alt="" className="rounded-md mt-5" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={data.image.url}
+                alt={data.image.alt || data.title}
+                className="rounded-md mt-5"
+              />
               <div className="body my-5">
                 <Slices slices={data.body} />
               </div>
@@ -108,13 +124,13 @@ export default function BlogId(props) {
                             a wrapped entry, and shrink-0 with an explicit size
                             so flex cannot squash it — without both, the marker
                             changed size and drifted from row to row. */}
-                        <a className="flex items-start py-2 text-sm hover:text-gray-800 dark:hover:text-white hover:font-medium">
-                          <Icon
-                            icon="akar-icons:chevron-right"
-                            className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-60"
-                          />
-                          {children}
-                        </a>
+
+                        <Icon
+                          icon="akar-icons:chevron-right"
+                          className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-60"
+                        />
+                        {children}
+
                       </Link>
                     ),
                     heading5: ({ children, text }) => (
@@ -122,13 +138,13 @@ export default function BlogId(props) {
                         href={`#${text}`}
                         className="text-xs font-header mt-5 mb-1"
                       >
-                        <a className="flex items-start font-normal py-2 hover:text-gray-700 dark:hover:text-white hover:font-medium text-sm ml-6">
-                          <Icon
-                            icon="akar-icons:chevron-right"
-                            className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-40"
-                          />
-                          {children}
-                        </a>
+
+                        <Icon
+                          icon="akar-icons:chevron-right"
+                          className="mr-2 mt-[5px] h-3 w-3 shrink-0 opacity-40"
+                        />
+                        {children}
+
                       </Link>
                     ),
                   }}
@@ -143,10 +159,8 @@ export default function BlogId(props) {
                 </p>
                 <div className="flex justify-left items-center mt-2">
                   <a
-                    href={`https://twitter.com/intent/tweet?original_referer=${encodeURI(
-                      "https://ejeiokekeemmanuel.vercel.app"
-                    )}&text=${encodeURI(data.title)}&url=${encodeURI(
-                      `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
+                    href={`https://twitter.com/intent/tweet?original_referer=${encodeURI(SITE_URL)}&text=${encodeURI(data.title)}&url=${encodeURI(
+                      `${SITE_URL}${router.asPath}`
                     )}`}
                     target="_blank"
                     className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
@@ -155,7 +169,7 @@ export default function BlogId(props) {
                   </a>
                   <a
                     href={`https://wa.me/?text=${encodeURI(
-                      `${data.title} - Ejei-Okeke Emmanuel's Blog. https://ejeiokekeemmanuel.vercel.app${router.asPath}`
+                      `${data.title} - Ejei-Okeke Emmanuel's Blog. ${SITE_URL}${router.asPath}`
                     )}`}
                     target="_blank"
                     data-action="share/whatsapp/share"
@@ -164,7 +178,7 @@ export default function BlogId(props) {
                     <Icon icon="ri:whatsapp-fill" className="text-xl" />
                   </a>
                   <a
-                    href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
+                    href={`http://www.linkedin.com/shareArticle?mini=true&url=${SITE_URL}${router.asPath}&title=${data.title}&summary=${data.desc}`}
                     target="_blank"
                     className="mr-2 hover:text-gray-500 dark:hover:text-white hover:font-bold"
                   >
@@ -186,10 +200,8 @@ export default function BlogId(props) {
             </p>
             <div className="flex justify-center items-center mt-2">
               <a
-                href={`https://twitter.com/intent/tweet?original_referer=${encodeURI(
-                  "https://ejeiokekeemmanuel.vercel.app"
-                )}&text=${encodeURI(data.title)}&url=${encodeURI(
-                  `https://ejeiokekeemmanuel.vercel.app${router.asPath}`
+                href={`https://twitter.com/intent/tweet?original_referer=${encodeURI(SITE_URL)}&text=${encodeURI(data.title)}&url=${encodeURI(
+                  `${SITE_URL}${router.asPath}`
                 )}`}
                 target="_blank"
                 className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
@@ -201,7 +213,7 @@ export default function BlogId(props) {
               </a>
               <a
                 href={`https://wa.me/?text=${encodeURI(
-                  `${data.title} - Ejei-Okeke Emmanuel's Blog. https://ejeiokekeemmanuel.vercel.app${router.asPath}`
+                  `${data.title} - Ejei-Okeke Emmanuel's Blog. ${SITE_URL}${router.asPath}`
                 )}`}
                 target="_blank"
                 data-action="share/whatsapp/share"
@@ -210,7 +222,7 @@ export default function BlogId(props) {
                 <Icon icon="ri:whatsapp-fill" className="mx-1 text-3xl" />
               </a>
               <a
-                href={`http://www.linkedin.com/shareArticle?mini=true&url=https://ejeiokekeemmanuel.vercel.app${router.asPath}&title=${data.title}&summary=${data.desc}`}
+                href={`http://www.linkedin.com/shareArticle?mini=true&url=${SITE_URL}${router.asPath}&title=${data.title}&summary=${data.desc}`}
                 target="_blank"
                 className="mr-3 hover:text-gray-500 dark:hover:text-white hover:font-bold"
               >

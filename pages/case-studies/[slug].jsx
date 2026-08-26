@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Seo from "../../components/Seo";
+import JsonLd, { breadcrumbSchema } from "../../components/JsonLd";
 import CaseStudyCard from "../../components/CaseStudyCard";
 import ArrowOut from "../../components/ArrowOut";
 import { Diagram } from "../../components/Schematics";
+import { SITE_URL } from "../../utils/meta";
 import {
   CASE_STUDIES,
   getCaseStudy,
@@ -78,15 +80,27 @@ export default function CaseStudyDetail({ study, related }) {
         image={study.ogImage}
         type="article"
       />
+      <JsonLd
+        data={breadcrumbSchema({
+          siteUrl: SITE_URL,
+          items: [
+            { name: "Home", path: "/" },
+            { name: "Case Studies", path: "/case-studies" },
+            { name: study.name, path: `/case-studies/${study.slug}` },
+          ],
+        })}
+      />
 
       <div className="min-h-screen bg-paper dark:bg-brown-950 text-dark-brown dark:text-gray-300 font-display overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-24 md:pb-32">
           {/* pt clears the sticky 4rem navbar */}
           <nav className="pt-20 md:pt-24 font-cutive-mono text-[11px] uppercase tracking-wider text-brown-500 dark:text-brown-400">
-            <Link href="/case-studies">
-              <a className="transition-colors duration-300 hover:text-amber-700 dark:hover:text-amber-500">
+            <Link
+              href="/case-studies"
+              className="transition-colors duration-300 hover:text-amber-700 dark:hover:text-amber-500">
+              
                 Case studies
-              </a>
+              
             </Link>
             <span aria-hidden="true" className="px-2">
               /
@@ -329,10 +343,12 @@ export default function CaseStudyDetail({ study, related }) {
           ) : null}
 
           <div className="mt-20">
-            <Link href="/case-studies">
-              <a className="group inline-flex items-center gap-2 text-sm font-semibold text-amber-700 transition-all duration-300 hover:gap-3 dark:text-amber-500">
-                <span aria-hidden="true">←</span> All case studies
-              </a>
+            <Link
+              href="/case-studies"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-amber-700 transition-all duration-300 hover:gap-3 dark:text-amber-500">
+
+              <span aria-hidden="true">←</span>All case studies
+                            
             </Link>
           </div>
         </div>

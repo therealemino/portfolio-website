@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
-import Head from "next/head";
+import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
 import About from "../components/About";
 import Building from "../components/Building";
@@ -7,16 +6,20 @@ import Experience from "../components/Experience";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Interests from "../components/Interests";
-import { meta } from "../utils/meta";
+import { meta, PROFILES, SITE_URL } from "../utils/meta";
+import Seo from "../components/Seo";
+import JsonLd, { personSchema } from "../components/JsonLd";
 import Playlists from "../components/Playlists";
-import axios from "axios";
 import Writing from "../components/Writing";
 import { createClient } from "../prismicio";
+import { getPlaylists } from "../utils/spotify";
 
-/* Three most recent posts for the Writing section. Wrapped in try/catch on
-   purpose: the homepage is statically generated, so an unreachable Prismic
-   would otherwise fail the whole build. On failure the section renders
-   nothing and ISR picks the posts up on the next revalidation. */
+/* Three most recent posts for the Writing section, plus the Spotify playlists.
+   Both are wrapped on purpose: the homepage is statically generated, so an
+   unreachable Prismic or Spotify would otherwise fail the whole build. Prismic
+   failing renders no Writing section; Spotify failing falls back to the
+   committed snapshot inside getPlaylists(). Either way ISR picks up the real
+   data on the next revalidation, and neither can take the other down. */
 export async function getStaticProps({ previewData }) {
   let articles = [];
 
@@ -36,10 +39,12 @@ export async function getStaticProps({ previewData }) {
     console.warn("[index] could not load posts from Prismic:", error.message);
   }
 
-  return { props: { articles }, revalidate: 3600 };
+  const playlists = await getPlaylists();
+
+  return { props: { articles, playlists }, revalidate: 3600 };
 }
 
-function App({ articles }) {
+function App({ articles, playlists }) {
   useEffect(() => {
     AOS.init({
       disable: "mobile",
@@ -48,26 +53,18 @@ function App({ articles }) {
 
   return (
     <>
-      <Head>
-        {/* <!-- Primary Meta Tags --> */}
-        <title>Ejei-Okeke Emmanuel. Personal Profile</title>
-        <meta name="title" content={meta.title} />
-        <meta name="description" content={meta.desc} />
-
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={meta.url} />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:description" content={meta.desc} />
-        <meta property="og:image" content={meta.img} />
-
-        {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={meta.url} />
-        <meta property="twitter:title" content={meta.title} />
-        <meta property="twitter:description" content={meta.desc} />
-        <meta property="twitter:image" content={meta.img} />
-      </Head>
+      <Seo
+        title="Ejei-Okeke Emmanuel — Product & Engineering Lead, Fintech and Payments"
+        description="Product lead and senior engineer building payment routing, identity verification and commerce infrastructure. Case studies, ventures and writing."
+        path="/"
+      />
+      <JsonLd
+        data={personSchema({
+          siteUrl: SITE_URL,
+          profiles: PROFILES,
+          image: meta.img,
+        })}
+      />
       <div className="App">
         <div className="bg-paper dark:bg-brown-950 relative text-dark-brown dark:text-gray-300 font-display overflow-x-hidden">
           <Jumbotron />
@@ -76,7 +73,7 @@ function App({ articles }) {
           <Experience />
           <Writing articles={articles} />
           <Interests />
-          <Playlists />
+          <Playlists playlists={playlists} />
         </div>
       </div>
     </>

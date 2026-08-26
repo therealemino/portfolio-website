@@ -13,8 +13,7 @@ const SOCIALS = [
 
 export default function Footer(props) {
   return (
-    <footer
-      ref={props.contactRefProp}
+    <footer
       id="contact"
       className="relative bg-paper dark:bg-brown-950 text-dark-brown dark:text-gray-300"
     >
@@ -69,10 +68,12 @@ export default function Footer(props) {
             © 2026 Ejei-Okeke Emmanuel
           </p>
           <div className="flex items-center gap-5 font-cutive-mono text-[11px] tracking-widest text-brown-500 dark:text-brown-400">
-            <Link href="/library">
-              <a className="transition-colors duration-300 hover:text-amber-700 dark:hover:text-amber-500">
+            <Link
+              href="/library"
+              className="transition-colors duration-300 hover:text-amber-700 dark:hover:text-amber-500">
+              
                 Library
-              </a>
+              
             </Link>
             <a
               href="/resume.pdf"
