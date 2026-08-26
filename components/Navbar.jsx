@@ -93,7 +93,7 @@ export default function Navbar(props) {
                   <div className="bg-[url('/img/mobile-jumbotron.jpg')] md:bg-[url('https://avatars.githubusercontent.com/u/67398035?v=4')] dark:bg-footer h-8 w-8 lg:h-10 lg:w-10 bg-cover rounded-full mx-auto my-auto mr-2 font-header">
                     {/* PROFILE IMAGE - ABOUT SECTION*/}
                   </div>
-                  <h1>Ejei-Okeke Emmanuel</h1>
+                  <span>Ejei-Okeke Emmanuel</span>
                 </Link>
               </div>
 
