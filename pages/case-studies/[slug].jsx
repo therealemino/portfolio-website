@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Seo from "../../components/Seo";
+import JsonLd, { breadcrumbSchema } from "../../components/JsonLd";
 import CaseStudyCard from "../../components/CaseStudyCard";
 import ArrowOut from "../../components/ArrowOut";
 import { Diagram } from "../../components/Schematics";
+import { SITE_URL } from "../../utils/meta";
 import {
   CASE_STUDIES,
   getCaseStudy,
@@ -77,6 +79,16 @@ export default function CaseStudyDetail({ study, related }) {
         path={`/case-studies/${study.slug}`}
         image={study.ogImage}
         type="article"
+      />
+      <JsonLd
+        data={breadcrumbSchema({
+          siteUrl: SITE_URL,
+          items: [
+            { name: "Home", path: "/" },
+            { name: "Case Studies", path: "/case-studies" },
+            { name: study.name, path: `/case-studies/${study.slug}` },
+          ],
+        })}
       />
 
       <div className="min-h-screen bg-paper dark:bg-brown-950 text-dark-brown dark:text-gray-300 font-display overflow-x-hidden">
