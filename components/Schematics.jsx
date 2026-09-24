@@ -168,12 +168,67 @@ export function Schematic({ caption, sources, core, outcome }) {
   );
 }
 
-/* Single place where the two diagram kinds are chosen between. */
+/* Rimoswap: a send screen where the wallet address is struck through and the
+   payment goes to a handle instead, which is the friction the venture removes. */
+export function SendSchematic({ caption, asset, amount, address, handle, outcome }) {
+  return (
+    <div className="w-full max-w-[22rem]" aria-hidden="true">
+      <p className="text-center font-cutive-mono text-[10px] uppercase tracking-[0.18em] text-brown-500 dark:text-brown-400">
+        {caption}
+      </p>
+
+      <div className="mt-5 rounded-xl bg-paper p-4 ring-1 ring-olive-500/50 dark:bg-brown-900 dark:ring-olive-300/30">
+        <div className="flex items-baseline justify-between gap-2">
+          <span className="font-display text-sm font-black tracking-tight text-dark-brown dark:text-cream">
+            Send
+          </span>
+          <span className="font-cutive-mono text-[10px] text-brown-500 dark:text-brown-400">
+            {asset}
+          </span>
+        </div>
+
+        <div className="mt-3 rounded-md bg-olive-100/70 px-3 py-2.5 dark:bg-brown-950/60">
+          <p className="font-cutive-mono text-[9px] uppercase tracking-[0.14em] text-brown-500 dark:text-brown-400">
+            To
+          </p>
+          <p className="mt-1.5 font-cutive-mono text-[10px] text-brown-500 line-through decoration-brown-500/70 dark:text-brown-400">
+            {address}
+          </p>
+          <p className="mt-1 flex items-center gap-1.5 text-[13px] font-semibold text-olive-800 dark:text-olive-200">
+            <span className="h-1.5 w-1.5 rounded-full bg-olive-500 dark:bg-olive-300" />
+            {handle}
+          </p>
+        </div>
+
+        <div className="mt-4 flex items-baseline justify-between gap-2">
+          <span className="font-display text-2xl font-black tracking-tight text-dark-brown dark:text-cream">
+            {amount}
+          </span>
+          <span className="font-cutive-mono text-[10px] text-brown-500 dark:text-brown-400">
+            {asset}
+          </span>
+        </div>
+
+        <div className="mt-3 rounded-md bg-olive-600 py-2 text-center text-[10px] font-semibold text-paper-50 dark:bg-olive-300/80 dark:text-brown-950">
+          Send to {handle}
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <Connector />
+      </div>
+
+      <div className="rounded-full bg-paper px-4 py-2.5 text-center font-cutive-mono text-[11px] text-brown-600 ring-1 ring-dark-brown/10 dark:bg-brown-900 dark:text-brown-300 dark:ring-cream/10">
+        {outcome}
+      </div>
+    </div>
+  );
+}
+
+/* Single place where the diagram kinds are chosen between. */
 export function Diagram({ diagram }) {
   if (!diagram) return null;
-  return diagram.kind === "studio" ? (
-    <StudioSchematic {...diagram} />
-  ) : (
-    <Schematic {...diagram} />
-  );
+  if (diagram.kind === "studio") return <StudioSchematic {...diagram} />;
+  if (diagram.kind === "send") return <SendSchematic {...diagram} />;
+  return <Schematic {...diagram} />;
 }

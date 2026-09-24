@@ -23,7 +23,7 @@ export default function Footer(props) {
         </h2>
 
         <p className="mt-8 max-w-md text-sm md:text-base leading-relaxed text-brown-700 dark:text-gray-300">
-          Building something in payments, identity or commerce — or want a
+          Building something in payments, identity or commerce, or want a
           second pair of eyes on it? I read everything that lands.
         </p>
 

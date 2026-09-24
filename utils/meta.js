@@ -15,7 +15,7 @@ export const SITE_URL = (
 
 export const meta = {
   title:
-    "Ejei-Okeke Emmanuel — Product & Engineering Lead, Fintech and Payments",
+    "Ejei-Okeke Emmanuel | Product & Engineering Lead, Fintech and Payments",
   desc: "Product lead and full-stack engineer building payments, identity and commerce infrastructure. Case studies, writing, and the work behind them.",
   url: SITE_URL,
   /* Generated from og/og.html — see the header comment in that file for the

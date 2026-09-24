@@ -30,19 +30,20 @@ const VENTURES = [
   {
     name: "Rimoswap",
     url: "https://rimoswap.com/",
-    role: "Co-founder & CTO",
-    headline: "One platform for crypto-asset management",
-    body: "An Africa-first digital-asset platform — trading, wallets, P2P, and stablecoin-based cross-border payments, with live web and Android products. I lead engineering and still write and maintain code.",
+    role: "Co-founder, previously CTO",
+    headline: "Removing the friction from web3 payments",
+    body: "Rimoswap makes stablecoin transfers and crypto-to-fiat flows simpler for everyday users across Africa. As CTO until March 2026, I led engineering across trading, wallets, P2P and cross-border payments, and built Rimoswap Tags: send to a handle, not a wallet address. I now advise on direction.",
     tags: ["Trading", "Wallets", "P2P", "Stablecoin payments"],
     diagram: {
-      caption: "One platform",
-      sources: ["Trading", "Wallets", "P2P"],
-      core: {
-        title: "Digital-asset rails",
-        note: "web · Android",
-        items: ["Stablecoin", "Cross-border"],
-      },
-      outcome: "Send → settle → payout",
+      /* Rimoswap Tags in one screen: the address a user no longer has to
+         paste, and the handle they send to instead. */
+      kind: "send",
+      caption: "Rimoswap Tags",
+      asset: "USDT",
+      amount: "250.00",
+      address: "TQ8fX2…9mW3kP",
+      handle: "@ada",
+      outcome: "Handle → send → cash out",
     },
   },
   {

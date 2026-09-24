@@ -10,7 +10,7 @@ import ArrowOut from "./ArrowOut";
    experienceData; shopelieman.com is the one newly supplied. */
 const ROLES = [
   {
-    range: "Jul 2024 — Present",
+    range: "Jul 2024 – Present",
     current: true,
     company: "Echezona Digital Gateway Ltd",
     url: "https://www.echezona.com",
@@ -18,14 +18,14 @@ const ROLES = [
     note: "A CBN-licensed Payment Solution Service Provider (PSSP, PTSP), powering card, USSD, virtual accounts and other multiple rails with multi-currency support.",
   },
   {
-    range: "Jan 2026 — Present",
+    range: "Jan 2026 – Present",
     current: true,
     company: "Tytron Group",
     role: "Product Manager – Digital Projects, Kulturee",
     note: "A global travel and cultural experience platform, under Tytron's strategy and management consultancy.",
   },
   {
-    range: "Aug 2024 — Present",
+    range: "Aug 2024 – Present",
     current: true,
     company: "Elieman",
     url: "https://shopelieman.com",
@@ -33,42 +33,42 @@ const ROLES = [
     note: "An art and fashion house building its digital retail and gallery experience.",
   },
   {
-    range: "Nov 2022 — Aug 2024",
+    range: "Nov 2022 – Aug 2024",
     company: "Loiz Tours & Travels",
     url: "https://loiztravels.com",
     role: "Frontend Developer, Junior Product Owner",
     note: "An e-commerce travel platform.",
   },
   {
-    range: "Oct 2021 — Jun 2024",
+    range: "Oct 2021 – Jun 2024",
     company: "Pennee Technologies / Yana",
     // url dropped: yana.finance no longer resolves
     role: "Frontend Engineer (Product)",
     note: "Corporate credit accounts, asset financing and cash flow management software. A B2B credit lending startup.",
   },
   {
-    range: "Jul 2021 — Nov 2021",
+    range: "Jul 2021 – Nov 2021",
     company: "Loiz Tours & Travels",
     url: "https://loiztravels.com",
     role: "Frontend Developer (Volunteer)",
     note: "Preceded the paid part-time engagement above.",
   },
   {
-    range: "Oct 2020 — Jan 2021",
+    range: "Oct 2020 – Jan 2021",
     company: "Coriftech Solutions Ltd",
     url: "https://coriftech.com/",
     role: "Web Development Instructor (Volunteer/Intern)",
     note: "A tech education institute in Asaba, training web development, cybersecurity, and design skills across Africa.",
   },
   {
-    range: "Jan 2020 — Apr 2022",
+    range: "Jan 2020 – Apr 2022",
     company: "Nexbuy District",
     url: "https://www.nexbuydistrict.com/",
     role: "Frontend Developer / Instructor",
     note: "An e-commerce startup with an in-house tech education arm, Nexlearn.",
   },
   {
-    range: "Jul 2019 — Dec 2019",
+    range: "Jul 2019 – Dec 2019",
     company: "West African Oilfield Services",
     role: "Student Intern (Engineering)",
     note: "An oil & gas field services company.",

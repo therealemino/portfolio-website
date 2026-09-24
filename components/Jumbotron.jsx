@@ -124,7 +124,7 @@ export default function Jumbotron(props) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://res.cloudinary.com/emino/image/upload/v1783871264/emino/Eminoooo_1.png"
-                alt="Ejei-Okeke Emmanuel — Emino"
+                alt="Ejei-Okeke Emmanuel (Emino)"
                 className="relative z-[1] mx-auto w-full object-contain object-bottom"
               />
             </div>

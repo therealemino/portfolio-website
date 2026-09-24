@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Seo
-        title="About — Ejei-Okeke Emmanuel"
+        title="About | Ejei-Okeke Emmanuel"
         description="Background, education and the path from frontend engineering into product leadership across fintech, travel and commerce."
         path="/about"
       />

@@ -28,48 +28,52 @@ export const CASE_STUDIES = [
     sector: "Payments infrastructure",
     headline: "Improving transaction success rate",
     summary:
-      "Card and virtual account payments were failing often enough to hurt merchants and customers. Processor failover, plus sockets in place of status polling, moved the success rate from roughly 75–85% to around 97–98%.",
+      "Card and virtual account payments were failing often enough to hurt merchants and customers. Retry-aware routing across providers, plus sockets in place of status polling, moved the success rate from the mid-to-high 70s to 94–98%.",
     tags: [
       "Payment Routing",
-      "Failover",
+      "Retry-Aware Routing",
       "Real-Time Systems",
       "Product Strategy",
     ],
 
     overview: [
       "Meridian is a licensed payment provider. Card and virtual account payments were failing at a rate that hurt both merchants and customers.",
-      "Two separate issues were driving this. There was no failover when a payment processor had an outage or a rejection, so a processor-side failure became a customer-facing failure, full stop. And the way payment status was being checked was slow and expensive to run at scale.",
+      "Two separate issues were driving this. Each payment method had a single default provider, so when that provider had issues, a customer's retry usually failed the same way. And the way payment status was being checked was slow and expensive to run at scale.",
     ],
 
     approach: [
       {
-        title: "Payment routing failover",
-        body: "Card payments defaulted to a single processor, Processor A. When a transaction failed at the processor level there was no retry path. I built automatic failover: on failure, the same transaction re-attempts through a second processor, Processor B, using the same transaction ID, so it reads as one continuous attempt rather than two disconnected ones. The same approach was applied to virtual account payments.",
+        title: "Retry-aware routing",
+        body: "I designed and built retry-aware routing. A failed attempt returns \"failed\" honestly. When the customer retries with the same payment method, the new attempt goes through an alternative provider for that method: cards move from the primary card processor to an alternate processor, and for bank transfer, if virtual account generation fails with the default partner bank, the retry goes to a second partner bank. Every attempt stays under one transaction reference, so merchants see one payment and one final webhook however many tries it took.",
+      },
+      {
+        title: "Measuring the recovery",
+        body: "Checkout logs distinguish \"success\", a payment that went through on the first attempt, from \"success after failure\", one that succeeded on a retry through another provider or method. That metric showed exactly how much the rerouting recovered.",
       },
       {
         title: "Sockets over polling",
-        body: "Checkout was validating payment status by polling an endpoint every five to ten seconds — for virtual account transfers, and for card payments going through 3D Secure, a flow where the transaction leaves checkout, goes to the issuing bank for authorization, and comes back. Polling that frequently was expensive in compute and added latency to an already multi-hop flow. I moved status updates to a WebSocket integration, so the server pushes the status the moment it changes instead of the client repeatedly asking.",
+        body: "Checkout was validating payment status by polling an endpoint every five to ten seconds. That covered virtual account transfers, and card payments going through 3D Secure, a flow where the transaction leaves checkout, goes to the issuing bank for authorization, and comes back. Polling that frequently was expensive in compute and added latency to an already multi-hop flow. I moved status updates to a WebSocket integration, so the server pushes the status the moment it changes instead of the client repeatedly asking.",
       },
       {
         title: "Polling kept as a fallback",
-        body: "Reliability should not depend entirely on the socket connection, so polling stayed in place at a much lower frequency — around every thirty seconds instead of every five.",
+        body: "Reliability should not depend entirely on the socket connection, so polling stayed in place at a much lower frequency: around every thirty seconds instead of every five.",
       },
       {
         title: "More providers, more paths",
-        body: "On the product side, in parallel, I integrated additional payment providers and processors. That gave the routing logic more paths to fail over through, and streamlined the overall flow.",
+        body: "On the product side, in parallel, I integrated additional payment providers and processors. That gave retries more alternative providers to route through, and streamlined the overall flow.",
       },
     ],
 
     highlights: [
       {
-        value: "97–98%",
-        label: "Transaction success rate, up from roughly 75–85%",
+        value: "94–98%",
+        label: "Transaction success rate, up from the mid-to-high 70s",
       },
     ],
 
     outcomes: [
-      "Transaction success rate moved from roughly 75–85% to around 97–98%.",
-      "That figure is measured more conservatively than some other processors in the market: bank-side failures, like insufficient funds or an incorrect PIN, are still counted against it rather than excluded — so the real-world improvement is arguably better than the raw numbers suggest.",
+      "Transaction success rate moved from the mid-to-high 70s to 94–98%.",
+      "That figure is measured more strictly than some other processors in the market: bank-side failures, like insufficient funds or an incorrect PIN, are still counted against it rather than excluded, which makes the gain harder to earn.",
       "Direct card routing is in progress, expected to further improve success rates specifically on local transactions.",
     ],
 
@@ -123,6 +127,75 @@ export const CASE_STUDIES = [
       "The redesign converted an unbounded, usage-linked cost center into a cost structure that scales sustainably with the user base.",
       "The premium capability was preserved and monetized rather than cut, so the most expensive part of the feature now funds itself instead of eroding margin.",
       "It also reflects a broader pattern in how I approach product decisions: catching unit economics risk early, from a small signal, before it becomes a scaling constraint.",
+    ],
+
+    copy: "approved",
+  },
+
+  {
+    slug: "beacon",
+    name: "Beacon",
+    alias: true,
+    kind: "employment",
+    sector: "Consumer credit",
+    headline: "Making a credit report people could understand",
+    summary:
+      "Users got a financial and credit report they could not read, so they did not refresh it or apply for credit, and both revenue streams suffered. Rebuilding it as a guided story, with a letter grade, an action plan and shareable badges, gave users a reason to understand it, return to it and share it.",
+    tags: [
+      "Information Design",
+      "Retention",
+      "Organic Acquisition",
+      "Product Strategy",
+    ],
+
+    overview: [
+      "Beacon was a Nigerian consumer credit product. Users verified their identity with their BVN, linked their bank accounts through open banking, and received a personal financial and credit report. Lenders received pre-qualified leads, which they used in their own underwriting. Revenue came from tokens users bought to generate and refresh reports, and from those leads.",
+      "Many users had no idea whether they were creditworthy, and raw balances, inflows and open loans did not help them find out. Users who did not understand their report did not come back to refresh it and did not go on to apply for credit. That hurt users and both revenue streams at once: fewer refreshes meant fewer token purchases, and fewer applications meant fewer leads.",
+    ],
+
+    approach: [
+      {
+        title: "A story, not a dashboard",
+        body: "A dashboard puts every figure on one screen, which is a wall of numbers to someone unsure where they stand. I built the report as a slide-style experience, closer to Spotify Wrapped than to a bank statement, so users moved through their finances one idea at a time.",
+      },
+      {
+        title: "A grade instead of a raw score",
+        body: "A raw score means little without a reference point, and most users had none. I presented the rating as a gauge graded F to A, with a plain-language label on each grade, because a letter grade is understood instantly in a way a number is not.",
+      },
+      {
+        title: "Plain-language sections",
+        body: "Accounts, income and outstanding loans each got their own plain-language view. Outstanding loans were grouped by lender under \"See who you're owing\", so a user's whole debt picture sat in one place.",
+      },
+      {
+        title: "An action plan as the reason to return",
+        body: "A grade says where you stand, not what to do next. Each report ended with concrete steps for improving it, covering debt profile, spending habits and cash-flow consistency. That gave users a reason to come back and refresh the report, which is what the token model depended on.",
+      },
+      {
+        title: "Making a private report shareable",
+        body: "A financial report is private by default, so it never spreads. I added achievement badges, such as \"Repayment Ninja\" and \"Credit Worthy\", that users could download or share as images with a QR code. That turned the report into something users posted, and each share doubled as organic acquisition.",
+      },
+      {
+        title: "The flows that fed the report",
+        body: "I also built the flows behind it: BVN verification by OTP, open-banking account linking that picked up newly linked accounts automatically, token purchases for refreshes, and the lead form that passed qualified users to lenders. I owned the frontend end to end and worked with the backend team on the API contracts.",
+      },
+    ],
+
+    outcomes: [
+      "Users got a report they could understand: a grade, a few plain sections and a clear next step, in place of a page of raw figures.",
+      "The action plan and badges gave users reasons to return and to share, supporting token revenue through refreshes and bringing new users in through shared badges.",
+      "Lenders got a cleaner lead pipeline: users with verified identity, cash-flow data and a stated loan purpose, who understood where they stood before applying.",
+    ],
+
+    stack: [
+      "Nuxt.js",
+      "Vue.js",
+      "TypeScript",
+      "Pinia",
+      "Vuetify",
+      "TailwindCSS",
+      "Chart.js",
+      "D3.js",
+      "GSAP",
     ],
 
     copy: "approved",
@@ -237,7 +310,7 @@ if (typeof window === "undefined") {
       if (d.kind === "studio") {
         if (d.sectors.length !== 3)
           throw new Error(`${at}: studio diagram needs exactly 3 sectors`);
-      } else {
+      } else if (d.kind !== "send") {
         if (d.sources.length !== 3)
           throw new Error(`${at}: flow diagram needs exactly 3 sources`);
         if (![2, 4].includes(d.core.items.length))
@@ -274,7 +347,7 @@ if (typeof window === "undefined") {
    Named entries — alias not set — may additionally carry:
    org:        "Tytron Group"           // parent org, when it differs
    role:       "Product Lead"
-   period:     "Jul 2024 — Present"
+   period:     "Jul 2024 – Present"
    status:     "current"                // olive dot on the card
    stints:     [{ range, role, note }]  // instead of period, split engagements
    url:        "https://..."
@@ -283,7 +356,7 @@ if (typeof window === "undefined") {
    The validator rejects all seven of those on an aliased entry.
 
    The narrative blocks:
-     highlights: [{ value: "97–98%", label: "Transaction success rate..." }]
+     highlights: [{ value: "94–98%", label: "Transaction success rate..." }]
      responsibilities: ["Owned the payments roadmap", "Ran design review"]
      approach:   [{ title: "Instrument first", body: "We could not fix..." }]
      outcomes:   ["Cut failed transactions by half"]

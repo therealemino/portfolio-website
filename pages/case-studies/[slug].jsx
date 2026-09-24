@@ -74,7 +74,7 @@ export default function CaseStudyDetail({ study, related }) {
   return (
     <>
       <Seo
-        title={`${study.name} — Case Study | Ejei-Okeke Emmanuel`}
+        title={`${study.name} Case Study | Ejei-Okeke Emmanuel`}
         description={study.summary}
         path={`/case-studies/${study.slug}`}
         image={study.ogImage}
