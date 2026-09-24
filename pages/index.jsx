@@ -54,7 +54,7 @@ function App({ articles, playlists }) {
   return (
     <>
       <Seo
-        title="Ejei-Okeke Emmanuel — Product & Engineering Lead, Fintech and Payments"
+        title="Ejei-Okeke Emmanuel | Product & Engineering Lead, Fintech and Payments"
         description="Product lead and senior engineer building payment routing, identity verification and commerce infrastructure. Case studies, ventures and writing."
         path="/"
       />

@@ -56,7 +56,7 @@ export default function LinkedInQr({ className = "", style }) {
       href={LINKEDIN_URL}
       target="_blank"
       rel="noreferrer"
-      aria-label="Ejei-Okeke Emmanuel on LinkedIn — scan or click"
+      aria-label="Ejei-Okeke Emmanuel on LinkedIn: scan or click"
       className={className}
       style={style}
     >

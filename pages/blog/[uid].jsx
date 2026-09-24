@@ -44,7 +44,7 @@ export default function BlogId(props) {
   return (
     <>
       <Seo
-        title={`${data.title} — Ejei-Okeke Emmanuel`}
+        title={`${data.title} | Ejei-Okeke Emmanuel`}
         description={data.desc}
         path={`/blog/${props.article.uid}`}
         image={data.image && data.image.url}

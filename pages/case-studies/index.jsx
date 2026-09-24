@@ -33,8 +33,8 @@ export default function CaseStudiesIndex({ ventures, employment, alsoBuilt }) {
   return (
     <>
       <Seo
-        title="Case Studies — Ejei-Okeke Emmanuel"
-        description="Product and engineering case studies — the problem, the work, and what changed."
+        title="Case Studies | Ejei-Okeke Emmanuel"
+        description="Product and engineering case studies: the problem, the work, and what changed."
         path="/case-studies"
       />
 
@@ -64,7 +64,7 @@ export default function CaseStudiesIndex({ ventures, employment, alsoBuilt }) {
 
           {process.env.NODE_ENV !== "production" && anyDrafted ? (
             <p className="mt-8 inline-block rounded-full bg-amber-100 px-4 py-2 font-cutive-mono text-[11px] uppercase tracking-[0.12em] text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
-              Draft copy — needs review
+              Draft copy: needs review
             </p>
           ) : null}
 

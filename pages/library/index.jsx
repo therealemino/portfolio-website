@@ -22,7 +22,7 @@ export default function Library(props) {
   return (
     <>
       <Seo
-        title="Library — Writing by Ejei-Okeke Emmanuel"
+        title="Library | Writing by Ejei-Okeke Emmanuel"
         description="Essays and notes on building products, the engineering underneath them, and what the two teach each other."
         path="/library"
       />

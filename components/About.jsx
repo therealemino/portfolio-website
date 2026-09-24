@@ -3,8 +3,8 @@ import React from "react";
 const STATS = [
   { value: "7+", label: "Years in software & product" },
   {
-    value: "96–98%",
-    label: "Transaction success rate achieved, up from ~78–82%",
+    value: "94–98%",
+    label: "Transaction success rate achieved, up from the mid-to-high 70s",
   },
   {
     value: "3",
